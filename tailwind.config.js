@@ -23,6 +23,7 @@ module.exports = {
         customBlue: "#3d40cc",
         customBlueDarker: "#3436ad",
         bgLight: "#f7f5ed",
+        bgMedium: "#efede5",
       },
     },
   },
