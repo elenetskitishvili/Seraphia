@@ -18,10 +18,10 @@ export default async function Header() {
         </Link>
         {/* Navigation */}
         <nav className="flex items-center text-sm font-bold tracking-tighter">
-          {/* <button className="px-2 py-3 tracking-normal font-serif_ge font-light italic">
+          <button className="px-2 py-3 tracking-normal font-serif_ge font-light">
             ქარ
-          </button> */}
-          <Link href="/" className="px-2 py-3">
+          </button>
+          <Link href="/cart" className="px-2 py-3 mr-3">
             Cart(<span className="text-xs">0</span>)
           </Link>
           <MenuButton />
