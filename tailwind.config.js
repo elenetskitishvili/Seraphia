@@ -13,12 +13,15 @@ module.exports = {
         },
       },
       fontFamily: {
+        poppins: ['"Poppins"', "sans-serif"],
         sans_ge: ['"Inter"', "sans-serif"],
         serif_ge: ['"Noto Serif Georgian"', "serif"],
         inherit: "inherit",
       },
       colors: {
         customDark: "#08081A",
+        customBlue: "#3d40cc",
+        customBlueDarker: "#3436ad",
         bgLight: "#f7f5ed",
       },
     },

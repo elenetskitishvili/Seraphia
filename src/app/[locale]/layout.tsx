@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/src/i18n/routing";
 
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
+// import Footer from "../components/layout/Footer";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -28,7 +28,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </NextIntlClientProvider>
   );
 }
