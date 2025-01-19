@@ -1,6 +1,11 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
+export const metadata = {
+  title: "OmniShop",
+  description: "Web site created with Next.js.",
+};
+
 interface RootLayoutProps {
   children: React.ReactNode;
   params: Promise<{
@@ -10,14 +15,12 @@ interface RootLayoutProps {
 
 export default async function RootLayout(props: RootLayoutProps) {
   const params = await props.params;
-
   const { children } = props;
-
   const { locale } = params || { locale: "en" };
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="">
+      <body className="font-sans text-customDark">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

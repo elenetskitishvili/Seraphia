@@ -1,6 +1,3 @@
-export const metadata = {
-  title: "OmniShop",
-};
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }

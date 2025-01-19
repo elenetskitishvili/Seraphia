@@ -13,9 +13,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        base: ['"Open Sans"', "sans-serif"],
-        heading: ['"Playfair Display"', "serif"],
+        sans_ge: ['"Inter"', "sans-serif"],
+        serif_ge: ['"Noto Serif Georgian"', "serif"],
         inherit: "inherit",
+      },
+      colors: {
+        customDark: "#08081A",
+        bgLight: "#f7f5ed",
       },
     },
   },
