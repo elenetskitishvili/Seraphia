@@ -20,7 +20,7 @@ export default async function RootLayout(props: RootLayoutProps) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="font-poppins text-customDark">
+      <body className="font-sans text-customDark">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

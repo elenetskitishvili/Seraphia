@@ -13,7 +13,6 @@ module.exports = {
         },
       },
       fontFamily: {
-        poppins: ['"Poppins"', "sans-serif"],
         sans_ge: ['"Inter"', "sans-serif"],
         serif_ge: ['"Noto Serif Georgian"', "serif"],
         inherit: "inherit",

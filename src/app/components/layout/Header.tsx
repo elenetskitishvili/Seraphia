@@ -5,15 +5,15 @@ import MenuButton from "./MenuButton";
 export default async function Header() {
   return (
     <header className="bg-transparent fixed top-0 left-0 w-full z-50">
-      <div className="px-6 min-[765px]:px-10 py-4 flex items-center justify-between ">
+      <div className="px-6 min-[770px]:px-10  py-4 min-[480px]:py-6 min-[770px]:py-8 min-[990px]:py-8 flex items-center justify-between ">
         {/* Logo */}
         <Link href="/">
           <Image
             src="/svg/logo-main.svg"
             alt="Logo"
-            width={150}
-            height={32}
-            className="w-[130px] min-[480px]:w-[150px]"
+            width={186}
+            height={40}
+            className="w-[130px] min-[480px]:w-[150px] min-[770px]:w-[186px]"
           />
         </Link>
         {/* Navigation */}

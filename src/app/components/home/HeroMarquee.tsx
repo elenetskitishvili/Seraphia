@@ -18,7 +18,7 @@ const row2Images = [
 
 export default function HeroMarquee() {
   return (
-    <div className="overflow-hidden bg-bgMedium py-3 min-[480px]:py-6 space-y-3  min-[480px]:space-y-6">
+    <div className="overflow-hidden bg-bgMedium py-3 min-[480px]:py-6 min-[990px]:py-48 space-y-3  min-[480px]:space-y-6">
       {/* First Row - Moves Left */}
       <motion.div
         className="flex whitespace-nowrap space-x-3 min-[480px]:space-x-6"
