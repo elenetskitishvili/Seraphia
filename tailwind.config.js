@@ -12,6 +12,11 @@ module.exports = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
+      screens: {
+        "480px": "480px",
+        "770px": "770px",
+        "990px": "990px",
+      },
       fontFamily: {
         sans_ge: ['"Inter"', "sans-serif"],
         serif_ge: ['"Noto Serif Georgian"', "serif"],
@@ -19,6 +24,7 @@ module.exports = {
       },
       colors: {
         customDark: "#08081A",
+        customGray: "#53535f",
         customBlue: "#3d40cc",
         customBlueDarker: "#3436ad",
         bgLight: "#f7f5ed",

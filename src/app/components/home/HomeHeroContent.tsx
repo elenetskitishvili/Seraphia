@@ -1,8 +1,8 @@
 import { Link } from "@/src/i18n/routing";
 
-export default function HeroContent() {
+export default function HomeHeroContent() {
   return (
-    <div className="pt-[100px] min-[770px]:pt-[140px] min-[990px]:pt-[80px] pb-[80px] min-[480px]:pb-[60px] min-[770px]:pb-[80px] px-6 min-[770px]:px-10 min-[990px]:px-8 text-center tracking-tighter">
+    <div className=" bg-bgLight pt-[100px] min-[770px]:pt-[140px] min-[990px]:pt-[80px] pb-[80px] min-[480px]:pb-[60px] min-[770px]:pb-[80px] px-6 min-[770px]:px-10 min-[990px]:px-8 text-center tracking-tighter">
       <div className="text-customBlue text-lg min-[480px]:text-xl mb-6  font-semibold">
         Your Shopping Platform
       </div>
