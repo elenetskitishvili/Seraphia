@@ -29,6 +29,7 @@ module.exports = {
         customBlueDarker: "#3436ad",
         bgLight: "#f7f5ed",
         bgMedium: "#efede5",
+        bgDark: "#dbd9d2",
       },
     },
   },
