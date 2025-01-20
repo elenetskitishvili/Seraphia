@@ -20,7 +20,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
 
       {/* NAVIGATION */}
       <div
-        className={`z-30 fixed top-0 right-0 w-full min-[990px]:w-[730px] h-full bg-customDark transition-transform duration-[800ms] transform ${
+        className={`z-30 fixed top-0 right-0 w-full 990px:w-[730px] h-full bg-customDark transition-transform duration-[800ms] transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } ease-[cubic-bezier(0.25, 1, 0.5, 1)]`}
       >

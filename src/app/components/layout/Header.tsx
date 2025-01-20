@@ -5,7 +5,7 @@ import MenuButton from "./MenuButton";
 export default async function Header() {
   return (
     <header className="bg-transparent fixed top-0 left-0 w-full z-50 ">
-      <div className="px-6 min-[770px]:px-10  py-4 min-[480px]:py-6 min-[770px]:py-8 min-[990px]:py-8 flex items-center justify-between ">
+      <div className="px-6 770px:px-10  py-4 480px:py-6 770px:py-8 990px:py-8 flex items-center justify-between ">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -13,7 +13,7 @@ export default async function Header() {
             alt="Logo"
             width={186}
             height={40}
-            className="w-[130px] min-[480px]:w-[150px] min-[770px]:w-[186px]"
+            className="w-[130px] 480px:w-[150px] 770px:w-[186px]"
           />
         </Link>
         {/* Navigation */}

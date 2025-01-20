@@ -18,10 +18,10 @@ const row2Images = [
 
 export default function HeroMarquee() {
   return (
-    <div className="overflow-hidden bg-bgMedium py-3 min-[480px]:py-6 min-[990px]:py-48 space-y-3  min-[480px]:space-y-6">
+    <div className="overflow-hidden bg-bgMedium py-3 480px:py-6 990px:py-48 space-y-3  480px:space-y-6">
       {/* First Row - Moves Left */}
       <motion.div
-        className="flex whitespace-nowrap space-x-3 min-[480px]:space-x-6"
+        className="flex whitespace-nowrap space-x-3 480px:space-x-6"
         animate={{ x: ["0%", "-100%"] }}
         transition={{
           x: {
@@ -38,14 +38,14 @@ export default function HeroMarquee() {
             key={`row1-${index}`}
             src={src}
             alt={`Marquee ${index + 1}`}
-            className="w-[120px] h-[120px] min-[480px]:w-[180px] min-[480px]:h-[180px] min-[770px]:w-60 min-[770px]:h-60 object-cover"
+            className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
           />
         ))}
       </motion.div>
 
       {/* Second Row */}
       <motion.div
-        className="flex whitespace-nowrap space-x-3 min-[480px]:space-x-6"
+        className="flex whitespace-nowrap space-x-3 480px:space-x-6"
         animate={{ x: ["-100%", "0%"] }}
         transition={{
           x: {
@@ -62,7 +62,7 @@ export default function HeroMarquee() {
             key={`row2-${index}`}
             src={src}
             alt={`Marquee ${index + 1}`}
-            className="w-[120px] h-[120px] min-[480px]:w-[180px] min-[480px]:h-[180px] min-[770px]:w-60 min-[770px]:h-60 object-cover"
+            className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
           />
         ))}
       </motion.div>
