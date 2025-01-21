@@ -18,6 +18,7 @@ module.exports = {
         "990px": "990px",
       },
       fontFamily: {
+        inter: ["Inter", "sans-serif"],
         sans_ge: ['"Inter"', "sans-serif"],
         serif_ge: ['"Noto Serif Georgian"', "serif"],
         inherit: "inherit",

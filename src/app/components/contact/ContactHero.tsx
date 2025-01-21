@@ -6,7 +6,7 @@ export default function ContactHero() {
         <p className="text-customBlue text-lg 480px:text-xl mb-6  font-semibold">
           Shop more with Shopverse.
         </p>
-        <h1 className="text-[32px] 480px:text-5xl 770px:text-[64px]  990px:text-[80px]  font-bold leading-none -tracking-[2px] mb-6 990px:mb-10">
+        <h1 className="text-[32px] 480px:text-5xl 770px:text-[64px]  990px:text-[80px]  font-bold leading-none tracking-tighter mb-6 990px:mb-10">
           Need help or have any questions? We are here to assist
         </h1>
       </div>
