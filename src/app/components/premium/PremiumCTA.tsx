@@ -12,7 +12,7 @@ export default function PremiumCTA() {
           <p className="text-white text-lg 480px:text-xl mb-6 font-semibold">
             Receive deals every week, no spam
           </p>
-          <h1 className="text-[28px] 480px:text-4xl 770px:text-5xl 990px:text-[64px] font-bold leading-none -tracking-[1px] text-white mb-14">
+          <h1 className="text-[28px] 480px:text-4xl 770px:text-5xl 990px:text-[64px] font-bold leading-none tracking-tighter text-white mb-14">
             Subscribe the newsletter and save 20% on your first order!
           </h1>
           <Link

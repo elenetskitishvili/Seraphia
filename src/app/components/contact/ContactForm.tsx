@@ -2,7 +2,7 @@ export default function ContactForm() {
   return (
     <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
       <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
-        <p className="text-lg text-customGray font-bold tracking-tight leading-6 max-w-[300px]">
+        <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
           The support team is active everyday from 8am to 8pm, so you can always
           email or call us.
         </p>
@@ -13,7 +13,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              className="text-sm text-customGray font-bold tracking-tighter leading-6"
             >
               Name
             </label>
@@ -27,7 +27,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              className="text-sm text-customGray font-bold tracking-tighter leading-6"
             >
               Email
             </label>
@@ -41,7 +41,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="options"
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              className="text-sm text-customGray font-bold tracking-tighter leading-6"
             >
               Subject
             </label>
@@ -63,7 +63,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              className="text-sm text-customGray font-bold tracking-tighter leading-6"
             >
               Message
             </label>
