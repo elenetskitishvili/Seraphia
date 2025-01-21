@@ -1,3 +1,4 @@
+import BlogCard from "@/src/app/components/blogs/BlogCard";
 import BlogSearch from "@/src/app/components/blogs/BlogSearch";
 
 export default async function Blogs() {
@@ -18,7 +19,14 @@ export default async function Blogs() {
       </div>
 
       {/* BLOGS LIST */}
-      <div className="mb-96"></div>
+      <div className="grid grid-cols-1 480px:grid-cols-2 990px:grid-cols-3 480px:gap-x-6 gap-y-6 480px:gap-y-10 px-6 770px:px-10 py-[60px] 770px:py-20 990px:py-[120px] ">
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+      </div>
     </section>
   );
 }

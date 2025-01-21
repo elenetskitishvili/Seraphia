@@ -1,7 +1,7 @@
 import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 
-export default function productCard() {
+export default function ProductCard() {
   return (
     <Link
       href={"/products"}
