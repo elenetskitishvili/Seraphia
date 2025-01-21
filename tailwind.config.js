@@ -30,6 +30,7 @@ module.exports = {
         bgLight: "#f7f5ed",
         bgMedium: "#efede5",
         bgDark: "#dbd9d2",
+        bgBtn: "#dedede",
       },
     },
   },
