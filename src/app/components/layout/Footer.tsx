@@ -1,10 +1,11 @@
 import { Link } from "@/src/i18n/routing";
+import Image from "next/image";
 
 export default async function Footer() {
   return (
-    <footer className="py-[60px] px-6 770px:px-10">
-      {/* GRID CONTAINER */}
-      <div className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 gap-y-10 font-bold max-w-[1360px] mx-auto tracking-tighter">
+    <footer className="">
+      {/* TOP PART - GRID CONTAINER */}
+      <div className="py-[60px] px-6 770px:px-10 grid grid-cols-2 990px:grid-cols-4 gap-x-6 gap-y-10 font-bold max-w-[1360px] mx-auto tracking-tighter">
         {/* 1 ITEM */}
         <div className="">
           <h2 className="mb-3 text-lg">Information</h2>
@@ -139,6 +140,50 @@ export default async function Footer() {
             >
               Privacy Policy
             </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM PART */}
+      <div className="text-center border border-bgBtn grid grid-cols-1 770px:grid-cols-[1fr_2fr_1fr]">
+        <div className="border-t text-sm border-bgBtn h-20 770px:h-[120px] flex items-center justify-center">
+          <a
+            href="tel:+1234567890"
+            className="rounded-full border border-t-bgBtn py-[10px] px-8 w-auto"
+          >
+            <i className="fas fa-phone-alt mx-2"></i>
+            <span> 2-967-227</span>
+          </a>
+        </div>
+        <div className="border-t border-t-bgBtn 770px:border-x 770px:border-x-bgBtn  h-20 770px:h-[120px] flex items-center justify-center">
+          <Image
+            width={186}
+            height={40}
+            src="/svg/logo-main.svg"
+            alt="shkopverse logo"
+            className="w-[130px] 480px:w-[149px] 770px:w-[186px] h-7 480px:h-8 770px:h-10"
+          />
+        </div>
+        <div className="border-t border-t-bgBtn  h-20 770px:h-[120px] flex items-center justify-center">
+          <div className="flex items justify-center gap-4">
+            <Image
+              src="/svg/paypal-dark.svg"
+              alt="paypal logo"
+              width={56}
+              height={14}
+            />
+            <Image
+              src="/svg/mastercard-dark.svg"
+              alt="mastercard logo"
+              width={32}
+              height={20}
+            />
+            <Image
+              src="/svg/visa-dark.svg"
+              alt="visa logo"
+              width={32}
+              height={12}
+            />
           </div>
         </div>
       </div>

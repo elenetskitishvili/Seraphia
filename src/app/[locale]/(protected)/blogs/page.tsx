@@ -30,7 +30,7 @@ export default async function Blogs() {
           <BlogCard />
         </div>
       </section>
-      {/* <PremiumCTA /> */}
+      <PremiumCTA />
     </>
   );
 }
