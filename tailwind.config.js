@@ -28,6 +28,7 @@ module.exports = {
         customGray: "#53535f",
         customBlue: "#3d40cc",
         customBlueDarker: "#3436ad",
+        bgLighter: "#fafafa",
         bgLight: "#f7f5ed",
         bgMedium: "#efede5",
         bgDark: "#dbd9d2",
