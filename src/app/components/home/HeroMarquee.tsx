@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 
 const row1Images = [
-  "/images/hero/image1.jpg",
-  "/images/hero/image2.jpg",
+  "/images/hero/image11.jpg",
+  "/images/hero/image2.jpeg",
+  "/images/hero/image4.jpeg",
   "/images/hero/image3.jpg",
-  "/images/hero/image4.jpg",
 ];
 
 const row2Images = [
+  "/images/hero/image7.jpeg",
   "/images/hero/image5.jpg",
-  "/images/hero/image6.jpg",
-  "/images/hero/image7.jpg",
+  "/images/hero/image9.jpg",
   "/images/hero/image8.jpg",
 ];
 
@@ -27,20 +27,22 @@ export default function HeroMarquee() {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 10,
+            duration: 15,
             ease: "linear",
           },
         }}
         whileHover={{ animationPlayState: "paused" }}
       >
-        {[...row1Images, ...row1Images].map((src, index) => (
-          <img
-            key={`row1-${index}`}
-            src={src}
-            alt={`Marquee ${index + 1}`}
-            className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
-          />
-        ))}
+        {[...row1Images, ...row1Images, ...row1Images, ...row1Images].map(
+          (src, index) => (
+            <img
+              key={`row1-${index}`}
+              src={src}
+              alt={`Marquee ${index + 1}`}
+              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
+            />
+          )
+        )}
       </motion.div>
 
       {/* Second Row */}
@@ -51,20 +53,22 @@ export default function HeroMarquee() {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 10,
+            duration: 15,
             ease: "linear",
           },
         }}
         whileHover={{ animationPlayState: "paused" }}
       >
-        {[...row2Images, ...row2Images].map((src, index) => (
-          <img
-            key={`row2-${index}`}
-            src={src}
-            alt={`Marquee ${index + 1}`}
-            className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
-          />
-        ))}
+        {[...row2Images, ...row2Images, ...row2Images, ...row2Images].map(
+          (src, index) => (
+            <img
+              key={`row2-${index}`}
+              src={src}
+              alt={`Marquee ${index + 1}`}
+              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
+            />
+          )
+        )}
       </motion.div>
     </div>
   );

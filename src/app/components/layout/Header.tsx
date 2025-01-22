@@ -22,7 +22,8 @@ export default async function Header() {
             ქარ
           </button>
           <Link href="/cart" className="px-2 py-3 mr-3">
-            Cart(<span className="text-xs">0</span>)
+            <span className="pr-[1px]">Cart</span>(
+            <span className="text-xs">0</span>)
           </Link>
           <MenuButton />
         </nav>
