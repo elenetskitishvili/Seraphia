@@ -34,7 +34,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
               <li>
                 <Link
                   href="/about"
-                  onClick={() => onClose}
+                  onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{
                     backgroundImage:
@@ -47,22 +47,8 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
               </li>
               <li>
                 <Link
-                  href="/products"
-                  onClick={() => onClose}
-                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
-                    backgroundSize: "250%",
-                  }}
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/blogs"
-                  onClick={() => onClose}
+                  onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{
                     backgroundImage:
@@ -75,8 +61,37 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
               </li>
               <li>
                 <Link
+                  href="/products"
+                  onClick={() => onClose()}
+                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
+                    backgroundSize: "250%",
+                  }}
+                >
+                  Products
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/add-product"
+                  onClick={() => onClose()}
+                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
+                    backgroundSize: "250%",
+                  }}
+                >
+                  Sell & Earn
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/premium"
-                  onClick={() => onClose}
+                  onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{
                     backgroundImage:
@@ -87,10 +102,11 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                   Premium
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/profile"
-                  onClick={() => onClose}
+                  onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{
                     backgroundImage:
@@ -104,7 +120,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
               <li>
                 <Link
                   href="/contact"
-                  onClick={() => onClose}
+                  onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{
                     backgroundImage:

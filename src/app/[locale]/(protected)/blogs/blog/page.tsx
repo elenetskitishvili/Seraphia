@@ -1,4 +1,3 @@
-import PremiumCTA from "@/src/app/components/premium/PremiumCTA";
 import { ClockIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
@@ -84,7 +83,6 @@ export default function Blog() {
           ut, praesentium doloribus, cumque deserunt.
         </article>
       </section>
-      <PremiumCTA />
     </>
   );
 }
