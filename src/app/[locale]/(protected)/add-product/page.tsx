@@ -25,10 +25,15 @@ export default function AddProduct() {
       {/* CREATE PRODUCT FORM */}
       <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
         <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
-          <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
-            The support team is active everyday from 8am to 8pm, so you can
-            always email or call us.
-          </p>
+          <div className="flex flex-col gap-3 mt-6">
+            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+              To sell more, please provide product details in both English and
+              Georgian.
+            </p>
+            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+              All fields are required.
+            </p>
+          </div>
 
           {/* FORM */}
           <form className="flex flex-col gap-4">
@@ -38,11 +43,11 @@ export default function AddProduct() {
                 htmlFor=""
                 className="text-sm text-customGray font-bold tracking-tighter leading-6"
               >
-                Name
+                Name (English)
               </label>
               <input
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Enter product name in English"
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             </div>
@@ -52,18 +57,60 @@ export default function AddProduct() {
                 htmlFor=""
                 className="text-sm text-customGray font-bold tracking-tighter leading-6"
               >
-                Name
+                Name (Georgian)
               </label>
               <input
                 type="text"
-                placeholder="Enter your name"
+                placeholder="პროდუქტის სახელი ქართულად"
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             </div>
+            {/* PRICE */}
+            <div className="flex flex-col gap-[5px]">
+              <label
+                htmlFor=""
+                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              >
+                Price ($)
+              </label>
+              <input
+                type="number"
+                placeholder="Enter price"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            </div>
+
+            {/* ENGLISH DESCRIPTION */}
+            <div className="flex flex-col gap-[5px]">
+              <label
+                htmlFor=""
+                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              >
+                Description (English)
+              </label>
+              <textarea
+                placeholder="Enter product description in English"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            </div>
+            {/* GEORGIAN DESCRIPTION */}
+            <div className="flex flex-col gap-[5px]">
+              <label
+                htmlFor=""
+                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              >
+                Description (Georgian)
+              </label>
+              <textarea
+                placeholder="პროდუქტის აღწერა ქართულად"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            </div>
+
             {/* SUBJECT */}
             <div className="flex flex-col gap-[5px]">
               <label
-                htmlFor="options"
+                htmlFor="Category"
                 className="text-sm text-customGray font-bold tracking-tighter leading-6"
               >
                 Subject
@@ -75,36 +122,26 @@ export default function AddProduct() {
                 <option value="" disabled>
                   Select a subject
                 </option>
-                <option value="option1">Information request</option>
-                <option value="option2">Shipping or refund</option>
-                <option value="option3">Premium membership</option>
-                <option value="option3">other</option>
+                <option value="option1">Necklaces</option>
+                <option value="option2">Rings</option>
+                <option value="option3">Bracelets</option>
+                <option value="option3">Earrings</option>
               </select>
             </div>
 
-            {/* ENGLISH DESCRIPTION */}
+            {/* IMAGES */}
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor=""
                 className="text-sm text-customGray font-bold tracking-tighter leading-6"
               >
-                Message
+                Upload Images
               </label>
-              <textarea
-                placeholder="Enter a message"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-              />
-            </div>
-            {/* GEORGIAN DESCRIPTION */}
-            <div className="flex flex-col gap-[5px]">
-              <label
-                htmlFor=""
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
-              >
-                Message
-              </label>
-              <textarea
-                placeholder="Enter a message"
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                required
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             </div>
