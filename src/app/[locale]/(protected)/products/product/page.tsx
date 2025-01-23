@@ -6,8 +6,8 @@ export default function ProductDetails() {
   return (
     <>
       <ProductInfo />
-      <div className="grid grid-cols-1 990px:grid-cols-2   px-6 770px:px-10 990px:px-0 bg-bgLight 990px:bg-transparent font-bold tracking-tighter">
-        <div className="  pb-6 480px:pb-10 770px:pb-14 990px:pb-0   ">
+      <div className=" grid grid-cols-1 990px:grid-cols-2   px-6 770px:px-10 990px:px-0 bg-bgLight 990px:bg-transparent font-bold tracking-tighter">
+        <div className="990px:order-2  pb-6 480px:pb-10 770px:pb-14 990px:pb-0   ">
           <Image
             src="/images/hero/image7.jpeg"
             alt="product"
