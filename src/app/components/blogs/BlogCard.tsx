@@ -9,7 +9,7 @@ export default function BlogCard() {
       {/* IMAGE */}
       <div className="overflow-hidden">
         <img
-          src="/images/hero/image2.jpg"
+          src="/images/hero/image2.jpeg"
           alt="blog"
           className="aspect-[157/100] w-full object-cover transform group-hover:scale-105 duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)]"
         />

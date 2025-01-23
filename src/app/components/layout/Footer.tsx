@@ -155,7 +155,10 @@ export default async function Footer() {
             <span> 2-967-227</span>
           </a>
         </div>
-        <div className="border-t border-t-bgBtn 770px:border-x 770px:border-x-bgBtn  h-20 770px:h-[120px] flex items-center justify-center">
+        <Link
+          href={"/"}
+          className="border-t border-t-bgBtn 770px:border-x 770px:border-x-bgBtn  h-20 770px:h-[120px] flex items-center justify-center"
+        >
           <Image
             width={186}
             height={40}
@@ -163,7 +166,7 @@ export default async function Footer() {
             alt="shkopverse logo"
             className="w-[130px] 480px:w-[149px] 770px:w-[186px] h-7 480px:h-8 770px:h-10"
           />
-        </div>
+        </Link>
         <div className="border-t border-t-bgBtn  h-20 770px:h-[120px] flex items-center justify-center">
           <div className="flex items justify-center gap-4">
             <Image
