@@ -1,10 +1,11 @@
 import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 import MenuButton from "./MenuButton";
+import CartButton from "./CartButton";
 
 export default async function Header() {
   return (
-    <header className="bg-transparent fixed top-0 left-0 w-full z-50 ">
+    <header className="bg-transparent fixed top-0 left-0 w-full z-40 ">
       <div className="px-6 770px:px-10  py-4 480px:py-6 770px:py-8 990px:py-8 flex items-center justify-between ">
         {/* Logo */}
         <Link href="/">
@@ -21,10 +22,7 @@ export default async function Header() {
           <button className="px-2 py-3 tracking-normal font-serif_ge font-light">
             ქარ
           </button>
-          <Link href="/cart" className="px-2 py-3 mr-3">
-            <span className="pr-[1px]">Cart</span>(
-            <span className="text-xs">0</span>)
-          </Link>
+          <CartButton />
           <MenuButton />
         </nav>
       </div>

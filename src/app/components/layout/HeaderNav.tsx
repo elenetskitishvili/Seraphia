@@ -14,7 +14,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/5 transition-opacity duration-[3000ms] opacity-100 z-20"
-          onClick={() => onClose}
+          onClick={() => onClose()}
         ></div>
       )}
 
@@ -30,35 +30,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
               isOpen ? "opacity-100 w-full" : ""
             }`}
           >
-            <ul className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 text-center text-3xl  font-light text-white uppercase">
-              <li>
-                <Link
-                  href="/about"
-                  onClick={() => onClose()}
-                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
-                    backgroundSize: "250%",
-                  }}
-                >
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blogs"
-                  onClick={() => onClose()}
-                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
-                    backgroundSize: "250%",
-                  }}
-                >
-                  Blogs
-                </Link>
-              </li>
+            <ul className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 text-center text-xl  480px:text-3xl  font-light text-white uppercase">
               <li>
                 <Link
                   href="/products"
@@ -88,6 +60,36 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                   Sell & Earn
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/blogs"
+                  onClick={() => onClose()}
+                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
+                    backgroundSize: "250%",
+                  }}
+                >
+                  Blog Posts
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/create-blog"
+                  onClick={() => onClose()}
+                  className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
+                    backgroundSize: "250%",
+                  }}
+                >
+                  Add Blog
+                </Link>
+              </li>
+
               <li>
                 <Link
                   href="/premium"

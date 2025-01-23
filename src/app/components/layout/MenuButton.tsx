@@ -9,7 +9,7 @@ export default function MenuButton() {
     <>
       <div
         onClick={() => setIsOpen((prev) => !prev)}
-        className="relative w-6 h-5 cursor-pointer flex items-center justify-center z-50"
+        className="relative w-6 h-5 cursor-pointer flex items-center justify-center z-40"
       >
         <div
           className={`absolute top-0 w-6 h-[2px] bg-customDark ${
