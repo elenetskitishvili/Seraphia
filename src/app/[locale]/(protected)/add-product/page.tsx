@@ -25,10 +25,13 @@ export default function AddProduct() {
       {/* CREATE PRODUCT FORM */}
       <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
         <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
-          <div className="flex flex-col gap-3 mt-6">
+          <div className="flex flex-col gap-[14px] mt-6">
             <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
               To sell more, please provide product details in both English and
               Georgian.
+            </p>
+            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+              For the best display, please upload square images (1:1 ratio).
             </p>
             <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
               All fields are required.
@@ -71,7 +74,7 @@ export default function AddProduct() {
                 htmlFor=""
                 className="text-sm text-customGray font-bold tracking-tighter leading-6"
               >
-                Price ($)
+                Price <span className="tracking-normal">($)</span>
               </label>
               <input
                 type="number"
@@ -149,10 +152,7 @@ export default function AddProduct() {
             {/* SUBMIT BUTTON */}
             <div className="480px:self-end">
               <button className="w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 ">
-                <span className="mr-1">Send message</span>
-                <span>
-                  <i className="fas fa-arrow-right"></i>
-                </span>
+                <span className="">Create product</span>
               </button>
             </div>
           </form>
