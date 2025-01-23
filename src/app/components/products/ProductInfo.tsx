@@ -52,7 +52,7 @@ export default function ProductInfo() {
 
       {/* DESCRIPTION */}
       <div
-        className={`990px:h-screen transition-transform duration-300 ${
+        className={`990px:h-screen transition-transform duration-300 990px:sticky 990px:top-0 ${
           isSticky ? "990px:sticky 990px:top-0" : "990px:relative"
         }`}
       >
