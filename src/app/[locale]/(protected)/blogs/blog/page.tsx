@@ -1,3 +1,4 @@
+import PremiumCTA from "@/src/app/components/premium/PremiumCTA";
 import { ClockIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
@@ -38,6 +39,52 @@ export default function Blog() {
           />
         </div>
       </section>
+      {/* BLOG CONTENT */}
+      <section className="px-6 770px:px-10 py-[60px] 480px:py-20 770px:py-[120px] max-w-[840px] mx-auto">
+        <h3 className="text-[28px] 480px:text-4xl mb-8 leading-none font-bold tracking-tighter">
+          How to dress smart for your professional goals this year?
+        </h3>
+        <article className="text-customGray text-lg">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex esse
+          unde, eum debitis quia natus corrupti voluptates facilis voluptate
+          atque itaque necessitatibus ipsa corporis ut, praesentium doloribus,
+          cumque deserunt. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Error ex esse unde, eum debitis quia natus corrupti voluptates
+          facilis voluptate atque itaque necessitatibus ipsa corporis ut,
+          praesentium doloribus, cumque deserunt. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Error ex esse unde, eum debitis quia
+          natus corrupti voluptates facilis voluptate atque itaque
+          necessitatibus ipsa corporis ut, praesentium doloribus, cumque
+          deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Error ex esse unde, eum debitis quia natus corrupti voluptates facilis
+          voluptate atque itaque necessitatibus ipsa corporis ut, praesentium
+          doloribus, cumque deserunt. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Error ex esse unde, eum debitis quia natus corrupti
+          voluptates facilis voluptate atque itaque necessitatibus ipsa corporis
+          ut, praesentium doloribus, cumque deserunt. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Error ex esse unde, eum debitis quia
+          natus corrupti voluptates facilis voluptate atque itaque
+          necessitatibus ipsa corporis ut, praesentium doloribus, cumque
+          deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Error ex esse unde, eum debitis quia natus corrupti voluptates facilis
+          voluptate atque itaque necessitatibus ipsa corporis ut, praesentium
+          doloribus, cumque deserunt. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Error ex esse unde, eum debitis quia natus corrupti
+          voluptates facilis voluptate atque itaque necessitatibus ipsa corporis
+          ut, praesentium doloribus, cumque deserunt. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Error ex esse unde, eum debitis quia
+          natus corrupti voluptates facilis voluptate atque itaque
+          necessitatibus ipsa corporis ut, praesentium doloribus, cumque
+          deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Error ex esse unde, eum debitis quia natus corrupti voluptates facilis
+          voluptate atque itaque necessitatibus ipsa corporis ut, praesentium
+          doloribus, cumque deserunt. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Error ex esse unde, eum debitis quia natus corrupti
+          voluptates facilis voluptate atque itaque necessitatibus ipsa corporis
+          ut, praesentium doloribus, cumque deserunt.
+        </article>
+      </section>
+      <PremiumCTA />
     </>
   );
 }
