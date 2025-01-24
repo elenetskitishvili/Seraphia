@@ -24,20 +24,20 @@ export const signUpAction = async (formData: FormData) => {
   const { error } = await supabase.auth.signUp({
     email,
     password,
-    // options: {
-    //   emailRedirectTo: `${origin}/auth/callback`,
-    // },
+    options: {
+      emailRedirectTo: `${origin}/auth/callback`,
+    },
   });
 
   if (error) {
     console.error(error.code + " " + error.message);
     return encodedRedirect("error", `/${locale}/sign-up`, error.message);
   } else {
-    // return encodedRedirect(
-    //   "success",
-    //   `/${locale}/sign-up`,
-    //   "Thanks for signing up! Please check your email for a verification link."
-    // );
+    return encodedRedirect(
+      "success",
+      `/${locale}/sign-up`,
+      "Thanks for signing up! Please check your email for a verification link."
+    );
     return encodedRedirect(
       "success",
       `/${locale}/sign-in`,
