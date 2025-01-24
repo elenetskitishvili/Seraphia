@@ -1,8 +1,8 @@
 import { signUpAction } from "@/src/app/actions";
-import { FormMessage, Message } from "@/src/app/components/form-message";
-import { SubmitButton } from "@/src/app/components/submit-button";
-import { Input } from "@/src/app/components/ui/input";
-import { Label } from "@/src/app/components/ui/label";
+import { FormMessage, Message } from "@/src/components/form-message";
+import { SubmitButton } from "@/src/components/submit-button";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
 import Link from "next/link";
 
 export default async function Signup(props: {

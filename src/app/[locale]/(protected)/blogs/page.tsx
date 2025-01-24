@@ -1,6 +1,6 @@
-import BlogCard from "@/src/app/components/blogs/BlogCard";
-import BlogSearch from "@/src/app/components/blogs/BlogSearch";
-import PremiumCTA from "@/src/app/components/premium/PremiumCTA";
+import BlogCard from "@/src/components/blogs/BlogCard";
+import BlogSearch from "@/src/components/blogs/BlogSearch";
+import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
 export default async function Blogs() {
   return (

@@ -1,5 +1,5 @@
-import HomeHero from "@/src/app/components/home/HomeHero";
-import PremiumCTA from "../components/premium/PremiumCTA";
+import HomeHero from "@/src/components/home/HomeHero";
+import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
 import {
   HeartIcon,

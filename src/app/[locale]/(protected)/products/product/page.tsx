@@ -1,5 +1,5 @@
-import ProductDetailsAccordion from "@/src/app/components/products/ProductDetailsAccordion";
-import ProductInfo from "@/src/app/components/products/ProductInfo";
+import ProductDetailsAccordion from "@/src/components/products/ProductDetailsAccordion";
+import ProductInfo from "@/src/components/products/ProductInfo";
 import Image from "next/image";
 
 export default function ProductDetails() {

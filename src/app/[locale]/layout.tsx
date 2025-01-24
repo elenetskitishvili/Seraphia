@@ -3,8 +3,8 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/src/i18n/routing";
 
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;

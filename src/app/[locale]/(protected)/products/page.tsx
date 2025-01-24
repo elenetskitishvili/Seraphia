@@ -1,6 +1,6 @@
-import ProductsHeader from "@/src/app/components/products/ProductsHeader";
-import ProductCard from "@/src/app/components/products/ProductCard";
-import PremiumCTA from "@/src/app/components/premium/PremiumCTA";
+import ProductsHeader from "@/src/components/products/ProductsHeader";
+import ProductCard from "@/src/components/products/ProductCard";
+import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
 export default async function Products() {
   return (
