@@ -1,5 +1,29 @@
 {
-  "Header": {
-    "about": "About us"
+  "Contact": {
+    "heading": "Need help or have any questions? We are here to assist",
+    "subheading": "Contact us for any inquiries.",
+    "form-message": "The support team is active everyday from 8am to 8pm, so you can always email or call us.",
+    "name": "Name",
+    "name-placeholder": "Enter your name",
+    "email": "Email",
+    "email-placeholder": "Enter your email",
+    "subject": "Subject",
+    "subject-default": "Select a subject",
+    "subject-information": "Information request",
+    "subject-shipping": "Shipping or refund",
+    "subject-premium": "Premium membership",
+    "subject-other": "other",
+    "message": "Message",
+    "message-placeholder": "Enter a message",
+    "result-success": "Message sent successfully.",
+    "result-fail": "Failed to send.",
+    "requirement-name": "Please enter your name",
+    "requirement-email": "Please enter a valid email address",
+    "requirement-subject": "Please select a subject",
+    "requirement-message": "Message must be at least 10 characters",
+    "sending": "Sending...",
+    "send-another": "Send another",
+    "retry": "Retry",
+    "send": "Send message"
   }
 }

@@ -1,9 +1,15 @@
 "use client";
 
 import { z } from "zod";
+
 import Skeleton from "react-loading-skeleton";
+
 import "react-loading-skeleton/dist/skeleton.css";
 import { sendMessage } from "@/src/app/actions/sendMessage";
+
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+
 import { useState } from "react";
 
 interface ErrorMessages {
@@ -13,18 +19,21 @@ interface ErrorMessages {
   message?: string | string[];
 }
 
-const contactSchema = z.object({
-  name: z.string().min(2, { message: "Please enter your name" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  subject: z
-    .string()
-    .refine((val) => val !== "", { message: "Please select a subject" }),
-  message: z
-    .string()
-    .min(10, { message: "Message must be at least 10 characters" }),
-});
+const getContactSchema = (t: (key: string) => string) =>
+  z.object({
+    name: z.string().min(2, { message: t("requirement-name") }),
+    email: z.string().email({ message: t("requirement-email") }),
+    subject: z
+      .string()
+      .refine((val) => val !== "", { message: t("requirement-subject") }),
+    message: z.string().min(10, { message: t("requirement-message") }),
+  });
 
 export default function ContactForm() {
+  const t = useTranslations("Contact");
+  const locale = useLocale();
+  const contactSchema = getContactSchema(t);
+
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
     name: "",
@@ -79,18 +88,18 @@ export default function ContactForm() {
   };
 
   const renderButtonText = () => {
-    if (loading) return "Sending...";
+    if (loading) return t("sending");
     if (success)
       return (
         <>
-          <span className="mr-1">Send another</span>
+          <span className="mr-1"> {t("send-another")}</span>
           <i className="fas fa-arrow-right"></i>
         </>
       );
-    if (error) return "Retry";
+    if (error) return t("retry");
     return (
       <>
-        <span className="mr-1">Send message</span>
+        <span className="mr-1">{t("send")}</span>
         <i className="fas fa-arrow-right"></i>
       </>
     );
@@ -99,9 +108,12 @@ export default function ContactForm() {
   return (
     <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
       <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
-        <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
-          The support team is active everyday from 8am to 8pm, so you can always
-          email or call us.
+        <p
+          className={`text-lg text-customGray font-bold  leading-6 max-w-[300px] ${
+            locale === "en" ? "tracking-tighter" : ""
+          }`}
+        >
+          {t("form-message")}
         </p>
 
         {/* FORM */}
@@ -110,9 +122,11 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="name"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tighter" : ""
+              }`}
             >
-              Name
+              {t("name")}
             </label>
             {loading ? (
               <Skeleton borderRadius={0} className="h-14 w-full" />
@@ -122,7 +136,7 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 defaultValue=""
-                placeholder="Enter your name"
+                placeholder={t("name-placeholder")}
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             )}
@@ -139,9 +153,11 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="email"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tighter" : ""
+              }`}
             >
-              Email
+              {t("email")}
             </label>
             {loading ? (
               <Skeleton borderRadius={0} className="h-14 w-full" />
@@ -151,7 +167,7 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 defaultValue=""
-                placeholder="Enter your email"
+                placeholder={t("email-placeholder")}
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             )}
@@ -168,9 +184,11 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="subject"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tighter" : ""
+              }`}
             >
-              Subject
+              {t("subject")}
             </label>
             {loading ? (
               <Skeleton borderRadius={0} className="h-[50px] w-full" />
@@ -182,12 +200,16 @@ export default function ContactForm() {
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               >
                 <option value="" disabled>
-                  Select a subject
+                  {t("subject-default")}
                 </option>
-                <option value="information_request">Information request</option>
-                <option value="shipping_refund">Shipping or refund</option>
-                <option value="premium_membership">Premium membership</option>
-                <option value="other">other</option>
+                <option value="information_request">
+                  {t("subject-information")}
+                </option>
+                <option value="shipping_refund">{t("subject-shipping")}</option>
+                <option value="premium_membership">
+                  {t("subject-premium")}
+                </option>
+                <option value="other">{t("subject-other")}</option>
               </select>
             )}
           </div>
@@ -204,9 +226,11 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="message"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tighter" : ""
+              }`}
             >
-              Message
+              {t("message")}
             </label>
             {loading ? (
               <Skeleton
@@ -218,7 +242,7 @@ export default function ContactForm() {
                 id="message"
                 name="message"
                 defaultValue=""
-                placeholder="Enter a message"
+                placeholder={t("message-placeholder")}
                 className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
               />
             )}
@@ -237,7 +261,7 @@ export default function ContactForm() {
 
             {error && (
               <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
-                Failed to send.
+                {t("result-fail")}
               </p>
             )}
             {success && (
@@ -245,7 +269,7 @@ export default function ContactForm() {
                 className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
                 data-cy="product-creation-success-message"
               >
-                Message sent successfully.
+                {t("result-success")}
               </p>
             )}
 
