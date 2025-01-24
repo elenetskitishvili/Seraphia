@@ -232,15 +232,33 @@ export default function ContactForm() {
             </div>
           )}
 
-          {/* SUBMIT BUTTON */}
-          <button
-            type="submit"
-            className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
-              loading ? " cursor-not-allowed" : ""
-            }`}
-          >
-            {renderButtonText()}
-          </button>
+          <div className="flex flex-col min-[520px]:flex-row items-center justify-center min-[520px]:justify-end min-[520px]:gap-6 770px:gap-20 990px:gap-[120px]">
+            {/* RESULT */}
+
+            {error && (
+              <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
+                Failed to send.
+              </p>
+            )}
+            {success && (
+              <p
+                className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
+                data-cy="product-creation-success-message"
+              >
+                Message sent successfully.
+              </p>
+            )}
+
+            {/* SUBMIT BUTTON */}
+            <button
+              type="submit"
+              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
+                loading ? " cursor-not-allowed" : ""
+              }`}
+            >
+              {renderButtonText()}
+            </button>
+          </div>
         </form>
       </div>
     </section>
