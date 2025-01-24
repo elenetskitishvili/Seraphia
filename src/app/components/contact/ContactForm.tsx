@@ -1,6 +1,8 @@
 "use client";
 
 import { z } from "zod";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { sendMessage } from "@/src/app/actions/sendMessage";
 import { useState } from "react";
 
@@ -112,14 +114,18 @@ export default function ContactForm() {
             >
               Name
             </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              defaultValue=""
-              placeholder="Enter your name"
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-            />
+            {loading ? (
+              <Skeleton borderRadius={0} className="h-14 w-full" />
+            ) : (
+              <input
+                type="text"
+                id="name"
+                name="name"
+                defaultValue=""
+                placeholder="Enter your name"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            )}
           </div>
 
           {errorMessage?.name && (
@@ -137,14 +143,18 @@ export default function ContactForm() {
             >
               Email
             </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              defaultValue=""
-              placeholder="Enter your email"
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-            />
+            {loading ? (
+              <Skeleton borderRadius={0} className="h-14 w-full" />
+            ) : (
+              <input
+                type="text"
+                id="email"
+                name="email"
+                defaultValue=""
+                placeholder="Enter your email"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            )}
           </div>
 
           {errorMessage?.email && (
@@ -162,20 +172,24 @@ export default function ContactForm() {
             >
               Subject
             </label>
-            <select
-              id="subject"
-              name="subject"
-              defaultValue=""
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-            >
-              <option value="" disabled>
-                Select a subject
-              </option>
-              <option value="information_request">Information request</option>
-              <option value="shipping_refund">Shipping or refund</option>
-              <option value="premium_membership">Premium membership</option>
-              <option value="other">other</option>
-            </select>
+            {loading ? (
+              <Skeleton borderRadius={0} className="h-[50px] w-full" />
+            ) : (
+              <select
+                id="subject"
+                name="subject"
+                defaultValue=""
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              >
+                <option value="" disabled>
+                  Select a subject
+                </option>
+                <option value="information_request">Information request</option>
+                <option value="shipping_refund">Shipping or refund</option>
+                <option value="premium_membership">Premium membership</option>
+                <option value="other">other</option>
+              </select>
+            )}
           </div>
 
           {errorMessage?.subject && (
@@ -194,13 +208,20 @@ export default function ContactForm() {
             >
               Message
             </label>
-            <textarea
-              id="message"
-              name="message"
-              defaultValue=""
-              placeholder="Enter a message"
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
-            />
+            {loading ? (
+              <Skeleton
+                borderRadius={0}
+                className="h-20 990px:h-[168px] w-full"
+              />
+            ) : (
+              <textarea
+                id="message"
+                name="message"
+                defaultValue=""
+                placeholder="Enter a message"
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+              />
+            )}
           </div>
 
           {errorMessage?.message && (
