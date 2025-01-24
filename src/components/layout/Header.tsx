@@ -2,6 +2,7 @@ import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 import MenuButton from "./MenuButton";
 import CartButton from "./CartButton";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default async function Header() {
   return (
@@ -19,9 +20,7 @@ export default async function Header() {
         </Link>
         {/* Navigation */}
         <nav className="flex items-center text-sm font-bold tracking-tighter">
-          <button className="px-2 py-3 tracking-normal font-serif_ge font-light">
-            ქარ
-          </button>
+          <LanguageSwitcher />
           <CartButton />
           <MenuButton />
         </nav>
