@@ -62,7 +62,7 @@ const getProductSchema = (t: (key: string) => string) =>
 export default function AddProductForm() {
   const t = useTranslations("CreateProduct");
   const locale = useLocale();
-  const contactSchema = getProductSchema(t);
+  const productSchema = getProductSchema(t);
 
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
@@ -109,7 +109,7 @@ export default function AddProductForm() {
       setSuccess(null);
       setLoading(true);
 
-      const result = contactSchema.safeParse(formValues);
+      const result = productSchema.safeParse(formValues);
 
       if (!result.success) {
         const errorObj = result.error.flatten().fieldErrors;

@@ -66,5 +66,27 @@
     "images": "Upload Images",
     "result-fail": "Failed to add product.",
     "result-success": "Product added successfully."
+  },
+  "CreateBlog": {
+    "requirement-heading-en": "English heading must be at least 10 characters.",
+    "requirement-heading-ka": "Georgian heading must be at least 10 characters.",
+    "requirement-content-en": "English content must be at least 100 characters.",
+    "requirement-content-ka": "Georgian content must be at least 100 characters.",
+    "requirement-image": "An image is required.",
+    "message1": "Write your blog in both English and Georgian to reach a wider audience.",
+    "message2": "More people will engage with your content!",
+    "message3": "For the best display, please upload square images (1:1 ratio).",
+    "message4": "All fields are required.",
+    "heading-en": "Blog Heading (English)",
+    "heading-ka": " Blog Heading (Georgian)",
+    "content-en": "Blog Content (English)",
+    "content-ka": "Blog Content (Georgian)",
+    "image": "Upload Image",
+    "creating": "Creating...",
+    "createAnother": "Create another",
+    "retry": "Retry",
+    "create": "Create blog",
+    "result-fail": "Failed to create blog",
+    "result-success": "Blog added successfully"
   }
 }
