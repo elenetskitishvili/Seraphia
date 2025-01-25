@@ -37,6 +37,10 @@ const nonProtectedPages = ["/en/reset-password", "/ka/reset-password"];
 
 export const updateSession = async (request: NextRequest) => {
   try {
+    if (request.nextUrl.pathname.startsWith("/api")) {
+      return NextResponse.next();
+    }
+
     let response = createMiddleware(routing)(request);
 
     const supabase = createServerClient(
