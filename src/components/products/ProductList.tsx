@@ -1,0 +1,24 @@
+import ProductCard from "@/src/components/products/ProductCard";
+import { Product } from "@/src/types/types";
+
+export default async function ProductList({ params }: { params: any }) {
+  const search = params?.search || "";
+  const category = params?.category || "";
+  const sort = params?.sort || "asc";
+  const page = Number(params?.page) || 1;
+  const limit = 10;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/products?search=${search}&category=${category}&sort=${sort}&page=${page}&limit=${limit}`,
+    { cache: "no-store" }
+  );
+
+  const { products, total } = await res.json();
+  return (
+    <div className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
+      {products.map((product: Product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+}

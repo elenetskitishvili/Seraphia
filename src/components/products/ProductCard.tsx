@@ -30,7 +30,7 @@ export default async function ProductCard({ product }: { product: Product }) {
       </h3>
       <p className="text-base text-customGray font-semibold mt-auto">
         $ {(product.price / 100).toFixed(2)}
-        <span className="tracking-tighter">USD</span>
+        <span className="tracking-tighter"> USD</span>
       </p>
     </Link>
   );
