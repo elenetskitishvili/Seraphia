@@ -3,6 +3,8 @@ import ProductCard from "@/src/components/products/ProductCard";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import ProductsPagination from "@/src/components/products/ProductsPagination";
 import { Product } from "@/src/types/types";
+import ProductsSkeleton from "@/src/components/products/ProductsSkeleton";
+import { Suspense } from "react";
 
 export default async function Products({
   searchParams,
@@ -29,14 +31,14 @@ export default async function Products({
       <section className="px-6 770px:px-10 max-w-[1480px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-[160px]">
         <ProductsHeader />
 
-        {/* PRODUCTS LIST */}
-        <div className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
-          {products.map((product: Product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <Suspense fallback={<ProductsSkeleton />}>
+          <div className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
+            {products.map((product: Product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </Suspense>
 
-        {/* PAGINATION */}
         <ProductsPagination />
       </section>
       <PremiumCTA />
