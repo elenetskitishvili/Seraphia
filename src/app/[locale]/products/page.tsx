@@ -1,6 +1,7 @@
 import ProductsHeader from "@/src/components/products/ProductsHeader";
 import ProductCard from "@/src/components/products/ProductCard";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
+import ProductsPagination from "@/src/components/products/ProductsPagination";
 
 export default async function Products() {
   return (
@@ -19,6 +20,9 @@ export default async function Products() {
           <ProductCard />
           <ProductCard />
         </div>
+
+        {/* PAGINATION */}
+        <ProductsPagination />
       </section>
       <PremiumCTA />
     </>
