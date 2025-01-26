@@ -13,16 +13,25 @@ export async function GET(req: NextRequest) {
   const offset = (page - 1) * limit;
 
   try {
-    // ✅ Fetch total count separately (without pagination)
-    const { count, error: countError } = await supabase
+    let countQuery = supabase
       .from("products")
       .select("*", { count: "exact", head: true });
 
+    if (search) {
+      countQuery = countQuery.or(
+        `name_en.ilike.%${search}%,description_en.ilike.%${search}%`
+      );
+    }
+
+    if (category) {
+      countQuery = countQuery.eq("category", category);
+    }
+
+    const { count, error: countError } = await countQuery;
     if (countError) {
       return NextResponse.json({ error: countError.message }, { status: 500 });
     }
 
-    // ✅ Fetch paginated products separately
     let query = supabase.from("products").select("*");
 
     if (search) {
@@ -39,14 +48,19 @@ export async function GET(req: NextRequest) {
     query = query.range(offset, offset + limit - 1);
 
     const { data: products, error } = await query;
-
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    console.log("Total products count:", count);
+    const totalPages = Math.ceil((count || 0) / limit);
 
-    return NextResponse.json({ products, total: count, page, limit });
+    return NextResponse.json({
+      products,
+      total: count,
+      totalPages,
+      page,
+      limit,
+    });
   } catch (err) {
     console.error("Error fetching products:", err);
     return NextResponse.json(

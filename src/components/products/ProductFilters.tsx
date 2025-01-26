@@ -23,9 +23,9 @@ export default function ProductFilters() {
     if (category === "All Products") {
       params.delete("category");
     } else {
-      params.set("category", category.toLowerCase()); // Ensure lowercase match with Supabase
+      params.set("category", category.toLowerCase());
     }
-
+    params.set("page", "1");
     replace(`${pathname}?${params.toString()}`);
   };
 
