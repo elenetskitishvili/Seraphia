@@ -4,6 +4,9 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverActions: {
+    bodySizeLimit: "5mb",
+  },
   // output: "export", // Outputs a Single-Page Application (SPA).
   //distDir: "./build", // Changes the build output directory to `./dist`.
 };
