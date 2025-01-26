@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
 
   const search = searchParams.get("search") || "";
-  const category = searchParams.get("category");
+  const category = searchParams.get("category")?.toLowerCase();
   const sort = searchParams.get("sort") || "asc";
   const page = Number(searchParams.get("page")) || 1;
   const limit = Number(searchParams.get("limit")) || 10;

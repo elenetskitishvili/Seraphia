@@ -4,11 +4,13 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverActions: {
-    bodySizeLimit: "5mb",
-  },
   images: {
-    domains: ["fdynnqlewivodiidzfst.supabase.co"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fdynnqlewivodiidzfst.supabase.co",
+      },
+    ],
   },
 };
 
