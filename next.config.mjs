@@ -7,8 +7,9 @@ const nextConfig = {
   serverActions: {
     bodySizeLimit: "5mb",
   },
-  // output: "export", // Outputs a Single-Page Application (SPA).
-  //distDir: "./build", // Changes the build output directory to `./dist`.
+  images: {
+    domains: ["fdynnqlewivodiidzfst.supabase.co"],
+  },
 };
 
 export default withNextIntl(nextConfig);
