@@ -91,5 +91,18 @@
     "create": "Create blog",
     "result-fail": "Failed to create blog",
     "result-success": "Blog added successfully"
+  },
+  "ProductDetails": {
+    "whole-number": "Quantity must be a whole number.",
+    "positive-number": "Quantity must be greater than 0.",
+    "cart-success": "Product added to cart",
+    "max-quantity": "You can add a maximum of 5 items.",
+    "quantity-placeholder": "Enter quantity",
+    "result-fail": "Something went wrong. Please try again.",
+    "result-success": "Added to cart successfully!",
+    "adding": "Adding...",
+    "added": "Added!",
+    "retry": "Retry",
+    "add": "Add to Cart"
   }
 }

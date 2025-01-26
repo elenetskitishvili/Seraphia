@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Product } from "@/src/types/types";
+import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
+import AddToCartForm from "./AddToCartForm";
 
 export default function ProductInfo({ product }: { product: Product }) {
+  const t = useTranslations("ProductDetails");
   const locale = useLocale();
 
   const lastImageRef = useRef<HTMLImageElement | null>(null);
@@ -70,17 +73,7 @@ export default function ProductInfo({ product }: { product: Product }) {
             {locale === "en" ? product.description_en : product.description_ka}
           </p>
 
-          {/* ADD TO CART & QUANTITY */}
-          <div className="grid grid-cols-1 480px:grid-cols-[2fr_1fr] gap-4 mt-12 990px:max-w-[560px]">
-            <button className="w-full py-[11px] px-4 text-white bg-customBlue rounded-full hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]">
-              Add to Cart
-            </button>
-            <input
-              type="number"
-              defaultValue="1"
-              className="w-full py-[10px] px-[18px] rounded-full border border-bgBtn text-customGray bg-bgLighter focus:border-customBlue focus:ring-0 outline-none"
-            />
-          </div>
+          <AddToCartForm productId={String(product.id)} />
         </div>
       </div>
     </div>
