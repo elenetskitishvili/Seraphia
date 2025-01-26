@@ -12,6 +12,20 @@ export default async function Products({
   searchParams: any;
 }) {
   const params = await searchParams;
+
+  const search = params?.search || "";
+  const category = params?.category || "";
+  const sort = params?.sort || "asc";
+  const page = Number(params?.page) || 1;
+  const limit = 10;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/products?search=${search}&category=${category}&sort=${sort}&page=${page}&limit=${limit}`
+  );
+
+  const { products, total } = await res.json();
+  console.log("total:🌴", total);
+  console.log("Total products:", total);
   return (
     <>
       <section className="px-6 770px:px-10 max-w-[1480px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-[160px]">
@@ -20,7 +34,7 @@ export default async function Products({
           <ProductList params={params} />
         </Suspense>
 
-        <ProductsPagination />
+        <ProductsPagination params={params} total={total} />
       </section>
       <PremiumCTA />
     </>

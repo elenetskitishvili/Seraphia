@@ -6,8 +6,8 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 export default async function Header() {
   return (
-    <header className="bg-transparent fixed top-0 left-0 w-full z-40 ">
-      <div className="px-6 770px:px-10  py-4 480px:py-6 770px:py-8 990px:py-8 flex items-center justify-between ">
+    <header className="bg-transparent fixed top-0 left-0 w-full z-40">
+      <div className="px-6 770px:px-10  pt-4 480px:pt-6 770px:pt-8 990px:pt-8 flex items-center justify-between ">
         {/* Logo */}
         <Link href="/">
           <Image

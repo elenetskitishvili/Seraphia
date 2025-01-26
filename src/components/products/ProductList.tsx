@@ -6,11 +6,10 @@ export default async function ProductList({ params }: { params: any }) {
   const category = params?.category || "";
   const sort = params?.sort || "asc";
   const page = Number(params?.page) || 1;
-  const limit = 10;
+  const limit = 2;
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/products?search=${search}&category=${category}&sort=${sort}&page=${page}&limit=${limit}`,
-    { cache: "no-store" }
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/products?search=${search}&category=${category}&sort=${sort}&page=${page}&limit=${limit}`
   );
 
   const { products, total } = await res.json();
