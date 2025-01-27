@@ -14,8 +14,8 @@ export default async function Profile() {
 
   return (
     <section className="">
-      <div className="pt-10 990px:pt-[90px] pb-10 480px:pb-20 770px:pb-[120px] max-w-[1100px] ">
-        <div className="flex flex-col gap-4 px-6 770px:px-10 pb-4">
+      <div className="pt-10 990px:pt-[90px] pb-10 480px:pb-20 770px:pb-[120px] max-w-[1100px] 990px:grid 990px:grid-cols-2 ">
+        <div className="flex flex-col gap-4 px-6 770px:px-10 990px:pl-3 min-[1200px]:px-6 pb-4 990px:order-2">
           {/* EMAIL */}
           <div className="flex flex-col gap-[5px]">
             <label

@@ -113,7 +113,7 @@ export default function UpdateProfileForm({
   return (
     <>
       <form onSubmit={handleSubmit} className="mb-10">
-        <div className="flex flex-col gap-4 px-6 770px:px-10">
+        <div className="flex flex-col gap-4 px-6 770px:px-10 990px:px-3 min-[1200px]:px-6 ">
           {/* NAME */}
           <div className="flex flex-col gap-[5px]">
             <label
