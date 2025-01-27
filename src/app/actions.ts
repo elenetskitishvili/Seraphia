@@ -53,7 +53,7 @@ export const signInAction = async (formData: FormData) => {
   const supabase = await createClient();
   const locale = formData.get("locale")?.toString();
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
@@ -61,6 +61,28 @@ export const signInAction = async (formData: FormData) => {
   if (error) {
     return encodedRedirect("error", `/${locale}/sign-in`, error.message);
   }
+
+  const userId = data.user?.id;
+
+  if (userId) {
+    const { data: existingUser } = await supabase
+      .from("users")
+      .select("user_id")
+      .eq("user_id", userId)
+      .single();
+
+    if (!existingUser) {
+      const { data, error } = await supabase.from("users").insert([
+        {
+          user_id: userId,
+          makes_jewelry: false,
+          is_admin: false,
+          max_items: 5,
+        },
+      ]);
+    }
+  }
+
   //create cart for user
   const {
     data: { user },
