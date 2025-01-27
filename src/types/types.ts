@@ -34,6 +34,6 @@ export type User = {
   expires_at: string | null;
   makes_jewelry: boolean;
   is_admin: boolean;
-  max_items: number;
+  max_items: number | null;
   user_id: string;
 };

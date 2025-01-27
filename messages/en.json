@@ -104,5 +104,25 @@
     "added": "Added!",
     "retry": "Retry",
     "add": "Add to Cart"
+  },
+  "Profile": {
+    "required": "This field is required.",
+    "invalid-full-name": "Please enter your full name (first and last name).",
+    "invalid-phone": "Phone number must be 9 to 13 digits.",
+    "invalid-phone-format": "Phone number must contain only numbers and an optional leading '+'",
+    "invalid-address": "Please enter a valid address (at least 20 characters)",
+    "updating": "Updating...",
+    "updated": "Profile updated successfully!",
+    "retry": "Something went wrong. Please try again.",
+    "update": "Update Profile",
+    "result-fail": "Update failed. Please try again.",
+    "result-success": "Profile updated successfully!",
+    "full-name": "Full name",
+    "enter-full-name": "Enter your full name",
+    "phone": "Phone number",
+    "enter-phone": "Enter your phone number",
+    "makes-jewelry": "I Make Jewelry Myself",
+    "address": "Address",
+    "enter-address": "Enter your address"
   }
 }

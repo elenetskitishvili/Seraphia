@@ -2,6 +2,12 @@
 
 import { signOutAction } from "@/src/app/actions";
 import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
+import { z } from "zod";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useState } from "react";
+import { updateProfile } from "@/src/app/actions/updateProfile";
 
 type UpdateProfileFormProps = {
   fullName: string | null;
@@ -11,6 +17,29 @@ type UpdateProfileFormProps = {
   userId: string;
 };
 
+interface ErrorMessages {
+  fullName?: string | string[];
+  phone?: string | string[];
+  address?: string | string[];
+  userId?: string | string[];
+  makesJewelry?: string | string[];
+}
+
+const getUserProfileSchema = (t: (key: string) => string) =>
+  z.object({
+    fullName: z
+      .string()
+      .min(1, { message: t("required") })
+      .regex(/^\S+\s+\S+/, { message: t("invalid-full-name") }),
+    phone: z
+      .string()
+      .min(9, { message: t("invalid-phone") })
+      .max(15, { message: t("invalid-phone") })
+      .regex(/^\+?\d+$/, { message: t("invalid-phone-format") }),
+    address: z.string().min(20, { message: t("invalid-address") }),
+    makesJewelry: z.boolean(),
+  });
+
 export default function UpdateProfileForm({
   fullName,
   phone,
@@ -18,78 +47,229 @@ export default function UpdateProfileForm({
   address,
   userId,
 }: UpdateProfileFormProps) {
+  const t = useTranslations("Profile");
   const locale = useLocale();
+  const userProfileSchema = getUserProfileSchema(t);
+
+  const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
+    fullName: "",
+    phone: "",
+    makesJewelry: "",
+    address: "",
+  });
+
+  const [success, setSuccess] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const formValues = {
+      fullName: formData.get("fullName") as string,
+      phone: formData.get("phone") as string,
+      makesJewelry: formData.get("makesJewelry") === "on",
+      address: formData.get("address") as string,
+    };
+
+    try {
+      setErrorMessage({
+        fullName: "",
+        phone: "",
+        makesJewelry: "",
+        address: "",
+      });
+
+      setError(null);
+      setSuccess(null);
+      setLoading(true);
+
+      const result = userProfileSchema.safeParse(formValues);
+
+      if (!result.success) {
+        const errorObj = result.error.flatten().fieldErrors;
+
+        setErrorMessage(errorObj);
+
+        return;
+      }
+
+      await updateProfile(formData);
+      setSuccess("Profile was updated successfully");
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        setError(err.errors.map((e) => e.message).join(", "));
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
-      <form className="mb-10">
+      <form onSubmit={handleSubmit} className="mb-10">
         <div className="flex flex-col gap-4 px-6 770px:px-10">
           {/* NAME */}
           <div className="flex flex-col gap-[5px]">
             <label
-              htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              htmlFor="fullName"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
             >
-              Full name
+              {t("full-name")}
             </label>
-            <input
-              type="text"
-              defaultValue={fullName || ""}
-              placeholder="Enter your full name"
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-            />
+            {loading ? (
+              <Skeleton borderRadius={0} className="h-[53px] w-full" />
+            ) : (
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                defaultValue={fullName || ""}
+                placeholder={t("enter-full-name")}
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            )}
           </div>
+
+          {errorMessage?.fullName && (
+            <div className="text-orange-700 text-base">
+              {Array.isArray(errorMessage.fullName)
+                ? errorMessage.fullName.join(", ")
+                : errorMessage.fullName}
+            </div>
+          )}
 
           {/* PHONE NUMBER */}
           <div className="flex flex-col gap-[5px]">
             <label
-              htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              htmlFor="phone"
+              className={`text-sm text-customGray font-bold  leading-6 ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
             >
-              Phone number
+              {t("phone")}
             </label>
-            <input
-              type="tel"
-              defaultValue={phone || ""}
-              placeholder="Enter your phone number"
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-            />
+            {loading ? (
+              <Skeleton borderRadius={0} className="h-[53px] w-full" />
+            ) : (
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                defaultValue={phone || ""}
+                placeholder={t("enter-phone")}
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+              />
+            )}
           </div>
+
+          {errorMessage?.phone && (
+            <div className="text-orange-700 text-base">
+              {Array.isArray(errorMessage.phone)
+                ? errorMessage.phone.join(", ")
+                : errorMessage.phone}
+            </div>
+          )}
 
           {/* MAKES JEWELRY */}
           <div className="flex items-center gap-3 py-3">
             <input
               type="checkbox"
-              id="makes_jewelry"
+              id="makesJewelry"
+              name="makesJewelry"
               defaultChecked={makesJewelry}
               className="w-5 h-5 cursor-pointer"
+              disabled={loading}
             />
+
             <label
-              htmlFor="makes_jewelry"
-              className="text-[15px] text-customGray font-bold tracking-tight leading-6 cursor-pointer"
+              htmlFor="makesJewelry"
+              className={`text-[15px] text-customGray font-bold tracking-tight leading-6 cursor-pointer ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
             >
-              I Make Jewelry Myself
+              {t("makes-jewelry")}
             </label>
           </div>
 
+          {errorMessage?.makesJewelry && (
+            <div className="text-orange-700 text-base">
+              {Array.isArray(errorMessage.makesJewelry)
+                ? errorMessage.makesJewelry.join(", ")
+                : errorMessage.makesJewelry}
+            </div>
+          )}
           {/* ADDRESS */}
           <div className="flex flex-col gap-[5px]">
             <label
-              htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              htmlFor="address"
+              className={`text-sm text-customGray font-bold tracking-tight leading-6 ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
             >
-              Address
+              {t("address")}
             </label>
-            <textarea
-              placeholder="Enter your address"
-              defaultValue={address || ""}
-              className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
-            />
+            {loading ? (
+              <Skeleton
+                borderRadius={0}
+                className="h-[76px] 990px:h-[163px] w-full"
+              />
+            ) : (
+              <textarea
+                id="address"
+                name="address"
+                placeholder={t("address")}
+                defaultValue={address || ""}
+                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+              />
+            )}
           </div>
+
+          {errorMessage?.address && (
+            <div className="text-orange-700 text-base">
+              {Array.isArray(errorMessage.address)
+                ? errorMessage.address.join(", ")
+                : errorMessage.address}
+            </div>
+          )}
+
+          {error && (
+            <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
+              {t("result-fail")}
+            </p>
+          )}
+          {success && (
+            <p
+              className="text-customBlue text-lg text-center text-bold min-[520px]:mt-3"
+              data-cy="product-creation-success-message"
+            >
+              {t("result-success")}
+            </p>
+          )}
 
           {/* SUBMIT BUTTON */}
           <div className="480px:self-end">
-            <button className="w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgLight font-medium py-3  rounded-sm inline-block hover:bg-bgMedium transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 ">
-              <span className="">Update profile</span>
+            <button
+              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgLight font-medium py-3  rounded-sm inline-block hover:bg-bgMedium transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 ${
+                loading ? " cursor-not-allowed" : ""
+              }`}
+            >
+              <span>
+                {loading
+                  ? t("updating")
+                  : success
+                  ? t("updated")
+                  : error
+                  ? t("retry")
+                  : t("update")}
+              </span>
             </button>
           </div>
         </div>
