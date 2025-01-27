@@ -6,7 +6,6 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
 import { signOutAction } from "@/src/app/actions";
 import { useLocale } from "next-intl";
 import { Link } from "@/src/i18n/routing";
