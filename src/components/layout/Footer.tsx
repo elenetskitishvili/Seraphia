@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default async function Footer() {
   return (
-    <footer className="">
+    <footer className="border-t border-t-bgBtn">
       {/* TOP PART - GRID CONTAINER */}
       <div className="py-[60px] px-6 770px:px-10 grid grid-cols-2 990px:grid-cols-4 gap-x-6 gap-y-10 font-bold max-w-[1360px] mx-auto tracking-tighter">
         {/* 1 ITEM */}
