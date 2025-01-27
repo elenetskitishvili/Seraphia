@@ -2,6 +2,7 @@
 
 import { createClient } from "@/src/utils/supabase/server";
 import { getLocale } from "next-intl/server";
+import { revalidatePath } from "next/cache";
 
 export async function updateProfile(formData: FormData) {
   const supabase = await createClient();
@@ -18,7 +19,7 @@ export async function updateProfile(formData: FormData) {
 
     if (!userId) throw new Error("User not authenticated.");
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("users")
       .update({
         full_name: fullName,
@@ -26,18 +27,13 @@ export async function updateProfile(formData: FormData) {
         makes_jewelry: makesJewelry,
         address: address,
       })
-      .eq("user_id", userId)
-      .select()
-      .single();
+      .eq("user_id", userId);
 
-    console.log("data:🤩", data);
-    console.log("error:🤩", error);
+    revalidatePath(`${locale}/account/profile`);
 
     if (error) {
       throw new Error("Failed to update user in Supabase.");
     }
-
-    return data;
   } catch (error) {
     console.error("Error updating user information in Supabase:", error);
 

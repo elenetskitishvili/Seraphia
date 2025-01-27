@@ -63,7 +63,7 @@ export default function UpdateProfileForm({
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -112,7 +112,7 @@ export default function UpdateProfileForm({
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="mb-10">
+      <form action={updateProfile} onSubmit={handleSubmit} className="mb-10">
         <div className="flex flex-col gap-4 px-6 770px:px-10 990px:px-3 min-[1200px]:px-6 ">
           {/* NAME */}
           <div className="flex flex-col gap-[5px]">
