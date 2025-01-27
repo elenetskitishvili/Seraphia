@@ -107,7 +107,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
 
               <li>
                 <Link
-                  href="/profile"
+                  href="/account/profile"
                   onClick={() => onClose()}
                   className="inline-block py-2 px-5 transition-all duration-[400ms] hover:bg-[100%] hover:text-customDark hover:transform hover:translate-x-2"
                   style={{

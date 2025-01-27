@@ -76,3 +76,25 @@ export const fetchBlog = async function (id: string): Promise<Blog | null> {
     return null;
   }
 };
+
+// USER
+export const fetchUserProfile = async function (userId: string) {
+  const supabase = await createClient();
+  try {
+    const { data, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("user_id", userId)
+      .single();
+
+    if (error || !data) {
+      console.error("User profile not found:", error);
+      return null;
+    }
+
+    return data;
+  } catch (err) {
+    console.error((err as Error).message);
+    return null;
+  }
+};

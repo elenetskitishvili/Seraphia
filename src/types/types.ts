@@ -23,3 +23,17 @@ export interface Blog {
   user_id: string;
   image: string;
 }
+
+export type User = {
+  id: number;
+  created_at: string;
+  full_name: string | null;
+  phone: string | null;
+  address: string | null;
+  subscription_plan: string | null;
+  expires_at: string | null;
+  makes_jewelry: boolean;
+  is_admin: boolean;
+  max_items: number;
+  user_id: string;
+};

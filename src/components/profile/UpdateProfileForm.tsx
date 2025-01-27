@@ -3,11 +3,25 @@
 import { signOutAction } from "@/src/app/actions";
 import { useLocale } from "next-intl";
 
-export default function UpdateProfileForm() {
+type UpdateProfileFormProps = {
+  fullName: string | null;
+  phone: string | null;
+  makesJewelry: boolean;
+  address: string | null;
+  userId: string;
+};
+
+export default function UpdateProfileForm({
+  fullName,
+  phone,
+  makesJewelry,
+  address,
+  userId,
+}: UpdateProfileFormProps) {
   const locale = useLocale();
   return (
     <>
-      <form className=" ">
+      <form className="mb-10">
         <div className="flex flex-col gap-4 px-6 770px:px-10">
           {/* NAME */}
           <div className="flex flex-col gap-[5px]">
@@ -19,6 +33,7 @@ export default function UpdateProfileForm() {
             </label>
             <input
               type="text"
+              defaultValue={fullName || ""}
               placeholder="Enter your full name"
               className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
             />
@@ -34,6 +49,7 @@ export default function UpdateProfileForm() {
             </label>
             <input
               type="tel"
+              defaultValue={phone || ""}
               placeholder="Enter your phone number"
               className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
             />
@@ -44,6 +60,7 @@ export default function UpdateProfileForm() {
             <input
               type="checkbox"
               id="makes_jewelry"
+              defaultChecked={makesJewelry}
               className="w-5 h-5 cursor-pointer"
             />
             <label
@@ -64,6 +81,7 @@ export default function UpdateProfileForm() {
             </label>
             <textarea
               placeholder="Enter your address"
+              defaultValue={address || ""}
               className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
             />
           </div>
