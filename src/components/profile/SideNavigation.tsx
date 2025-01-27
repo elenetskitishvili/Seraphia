@@ -51,12 +51,12 @@ export default function SideNavigation() {
           </li>
         ))}
 
-        <li className="990px:mt-auto 770px:ml-auto 990px:mx-auto 990px:mb-10">
+        <li className="990px:mt-10 770px:ml-auto  990px:ml-0  990px:px-6 990px:w-full">
           <form action={signOutAction} className="hidden 770px:block">
             <input type="hidden" name="locale" value={locale} />
             <button
               type="submit"
-              className=" py-3 px-5 990px:px-10 rounded-sm text-customBlue 990px:text-white bg-bgLight 990px:bg-customBlue hover:bg-bgMedium 990px:hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+              className="990px:w-full py-3 px-5 990px:px-10 rounded-sm text-customBlue 990px:text-white bg-bgLight 990px:bg-customBlue hover:bg-bgMedium 990px:hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               Sign out
             </button>
