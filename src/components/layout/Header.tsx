@@ -6,10 +6,13 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 export default async function Header() {
   return (
-    <header className="bg-transparent fixed top-0 left-0 w-full z-40">
-      <div className="px-6 770px:px-10  pt-4 480px:pt-6 770px:pt-8 990px:pt-8 flex items-center justify-between ">
+    <header className="bg-transparent fixed top-0 left-0 w-full h-0 z-40">
+      <div className="   flex items-center justify-between ">
         {/* Logo */}
-        <Link href="/">
+        <Link
+          href="/"
+          className="absolute left-0 top-0 pt-4 480px:pt-6 770px:pt-8 990px:pt-8 pl-6 770px:pl-10"
+        >
           <Image
             src="/svg/logo-main.svg"
             alt="Logo"
@@ -19,11 +22,13 @@ export default async function Header() {
           />
         </Link>
         {/* Navigation */}
-        <nav className="flex items-center text-sm font-bold tracking-tighter">
-          <LanguageSwitcher />
-          <CartButton />
-          <MenuButton />
-        </nav>
+        <div className="absolute right-0 top-0 pt-4 480px:pt-6 770px:pt-8 990px:pt-8 pr-6 770px:pr-10">
+          <nav className="flex items-center text-sm font-bold tracking-tighter ">
+            <LanguageSwitcher />
+            <CartButton />
+            <MenuButton />
+          </nav>
+        </div>
       </div>
     </header>
   );
