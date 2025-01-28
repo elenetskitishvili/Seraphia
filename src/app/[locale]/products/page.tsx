@@ -24,8 +24,7 @@ export default async function Products({
   );
 
   const { products, total } = await res.json();
-  console.log("total:🌴", total);
-  console.log("Total products:", total);
+
   return (
     <>
       <section className="px-6 770px:px-10 max-w-[1480px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-[160px]">

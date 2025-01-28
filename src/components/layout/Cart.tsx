@@ -1,6 +1,9 @@
 "use client";
 
-import { Link } from "@/src/i18n/routing";
+import { fetchCartProducts } from "@/src/app/actions/fetchCartProducts";
+import { CartItem } from "@/src/types/types";
+import { useEffect, useState } from "react";
+import CartList from "./CartList";
 
 interface HeaderNavProps {
   isOpen: boolean;
@@ -8,6 +11,25 @@ interface HeaderNavProps {
 }
 
 export default function Cart({ isOpen, onClose }: HeaderNavProps) {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadCart() {
+      if (isOpen) {
+        try {
+          const items: CartItem[] = await fetchCartProducts();
+          setCartItems(items);
+          setError(null);
+        } catch (err) {
+          console.error("Error loading cart:", err);
+          setError("Failed to load cart. Please try again.");
+        }
+      }
+    }
+    loadCart();
+  }, [isOpen]);
+
   return (
     <>
       {/* OVERLAY */}
@@ -34,7 +56,15 @@ export default function Cart({ isOpen, onClose }: HeaderNavProps) {
 
         {/* CART CONTENT (Scrollable) */}
         <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
-          <p className="text-customGray text-lg text-center">No items found.</p>
+          {error ? (
+            <p className="text-customGray text-lg text-center">{error}</p>
+          ) : cartItems.length === 0 ? (
+            <p className="text-customGray text-lg text-center">
+              No items found.
+            </p>
+          ) : (
+            <CartList cartItems={cartItems} />
+          )}
         </div>
       </div>
     </>

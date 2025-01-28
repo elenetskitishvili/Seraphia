@@ -19,9 +19,6 @@ export default function ProductsPagination({
   const validTotal = Number.isFinite(total) ? total : 0;
   const totalPages = Math.max(1, Math.ceil(validTotal / limit));
 
-  console.log("Current Page:", page);
-  console.log("Total Pages:", totalPages);
-
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages) return;
 
@@ -30,7 +27,6 @@ export default function ProductsPagination({
     router.push(`?${newSearchParams.toString()}`);
   };
 
-  console.log("Page:", page, "Total Pages:", totalPages);
   return (
     <div className="mt-14 770px:mt-20">
       <div className="grid grid-cols-3 gap-4 items-center p-[7px] rounded-full border border-bgBtn 770px:w-[620px] 770px:mx-auto">

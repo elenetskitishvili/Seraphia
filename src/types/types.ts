@@ -44,4 +44,5 @@ export interface CartItem {
   user_id: string;
   product_id: number;
   quantity: number;
+  product?: Product;
 }

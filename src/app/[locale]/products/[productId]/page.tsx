@@ -10,8 +10,6 @@ export default async function ProductDetails({
   const { productId } = await params;
   const product = await fetchProduct(productId);
 
-  console.log(product, "🤩");
-
   if (!product) {
     return <div>Product not found.</div>;
   }
