@@ -5,6 +5,7 @@ import { routing } from "@/src/i18n/routing";
 
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import { CartProvider } from "@/src/context/CartProvider";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -26,9 +27,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Header />
-      {children}
-      <Footer />
+      <CartProvider>
+        <Header />
+        {children}
+        <Footer />
+      </CartProvider>
     </NextIntlClientProvider>
   );
 }

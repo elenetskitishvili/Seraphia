@@ -7,6 +7,8 @@ import { addToCart } from "@/src/app/actions/addToCart";
 import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useCart } from "@/src/context/CartProvider";
+import { createClient } from "@/src/utils/supabase/client";
 
 interface ErrorMessages {
   quantity?: string | string[];
@@ -25,6 +27,8 @@ export default function AddToCartForm({ productId }: { productId: string }) {
   const t = useTranslations("ProductDetails");
   const locale = useLocale();
   const cartSchema = getCartSchema(t);
+  const { updateCartCount } = useCart();
+  const supabase = createClient();
 
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
@@ -61,7 +65,29 @@ export default function AddToCartForm({ productId }: { productId: string }) {
         return;
       }
 
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setError("User not authenticated.");
+        return;
+      }
+
+      const { data: cartItems } = await supabase
+        .from("cart")
+        .select("product_id")
+        .eq("user_id", user.id);
+
+      const isNewProduct = !cartItems?.some(
+        (item) => item.product_id === productId
+      );
+
       await addToCart({ productId, quantity });
+
+      if (isNewProduct) {
+        updateCartCount("increase");
+      }
       setSuccess(t("cart-success"));
       form.reset();
     } catch (err) {

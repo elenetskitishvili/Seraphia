@@ -11,7 +11,6 @@ export default async function Header() {
   const supabase = await createClient();
   const userResponse = await supabase.auth.getUser();
   const userId = userResponse.data.user?.id;
-  const cart: CartItem[] = userId ? await fetchCart(userId) : [];
 
   return (
     <header className="bg-transparent fixed top-0 left-0 w-full h-0 z-40">
@@ -32,7 +31,7 @@ export default async function Header() {
       <div className="absolute right-0 top-0 pt-4 480px:pt-6 770px:pt-8 990px:pt-8 pr-6 770px:pr-10">
         <nav className="flex items-center text-sm font-bold tracking-tighter ">
           <LanguageSwitcher />
-          {userId ? <CartButton cart={cart} /> : null}
+          {userId ? <CartButton /> : null}
           <MenuButton />
         </nav>
       </div>
