@@ -83,7 +83,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
         type="submit"
         className={`w-full py-[11px] px-4 text-white bg-customBlue rounded-full hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
           loading ? " cursor-not-allowed opacity-70" : "opacity-100"
-        }`}
+        } order-1 480px:order-none`}
       >
         {loading
           ? t("adding")
@@ -108,7 +108,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
       )}
 
       {errorMessage?.quantity && (
-        <div className="text-orange-700 text-base text-right col-span-2">
+        <div className="text-orange-700 text-base text-right col-span-1 480px:col-span-2">
           {Array.isArray(errorMessage.quantity)
             ? errorMessage.quantity.join(", ")
             : errorMessage.quantity}
@@ -116,13 +116,13 @@ export default function AddToCartForm({ productId }: { productId: string }) {
       )}
 
       {error && (
-        <p className="text-orange-700 text-lg min-[520px]:mt-3 text-right col-span-2">
+        <p className="text-orange-700 text-lg min-[520px]:mt-3 text-center 480px:text-right col-span-1 480px:col-span-2 order-last ">
           {t("result-fail")}
         </p>
       )}
       {success && (
         <p
-          className="text-customBlue text-lg text-bold min-[520px]:mt-3 text-right col-span-2"
+          className="text-customBlue text-lg text-bold min-[520px]:mt-3 text-center 480px:text-right col-span-1 480px:col-span-2 order-last"
           data-cy="product-creation-success-message"
         >
           {t("result-success")}
