@@ -1,4 +1,5 @@
-import { createClient } from "@/src/utils/supabase/client";
+"use server";
+import { createClient } from "@/src/utils/supabase/server";
 
 export async function addToCart({
   productId,
@@ -8,15 +9,12 @@ export async function addToCart({
   quantity: number;
 }) {
   const supabase = await createClient();
-  const { data: user, error: authError } = await supabase.auth.getUser();
+  const userResponse = await supabase.auth.getUser();
+  const userId = userResponse.data.user?.id;
 
-  if (authError || !user?.user) {
-    throw new Error("User not authenticated.");
-  }
+  if (!userId) throw new Error("User not authenticated.");
 
-  const userId = user.user.id;
-
-  // Check if the product already exists in the cart
+  // CHECK IF THE ITEM ALREADY EXISTS IN CART
   const { data: existingCartItem, error: fetchError } = await supabase
     .from("cart")
     .select("id, quantity")

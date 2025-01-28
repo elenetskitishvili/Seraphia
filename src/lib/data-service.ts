@@ -98,3 +98,23 @@ export const fetchUserProfile = async function (userId: string) {
     return null;
   }
 };
+
+// CART
+export const fetchCart = async function (userId: string) {
+  const supabase = await createClient();
+  try {
+    const { data: cartItems, error } = await supabase
+      .from("cart")
+      .select("*")
+      .eq("user_id", userId);
+
+    if (error) {
+      throw new Error(`Error fetching cart items: ${error.message}`);
+    }
+
+    return cartItems;
+  } catch (err) {
+    console.error((err as Error).message);
+    return [];
+  }
+};

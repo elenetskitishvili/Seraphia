@@ -37,3 +37,11 @@ export type User = {
   max_items: number | null;
   user_id: string;
 };
+
+export interface CartItem {
+  id: number;
+  created_at: string;
+  user_id: string;
+  product_id: number;
+  quantity: number;
+}

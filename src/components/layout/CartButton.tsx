@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Cart from "./Cart";
+import { CartItem } from "@/src/types/types";
 
-export default function CartButton() {
+export default function CartButton({ cart }: { cart: CartItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -12,7 +13,7 @@ export default function CartButton() {
         className="px-2 py-3 mr-3"
       >
         <span className="pr-[1px]">Cart</span>(
-        <span className="text-xs">0</span>)
+        <span className="text-xs">{cart.length}</span>)
       </button>
       <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>

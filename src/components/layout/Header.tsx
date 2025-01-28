@@ -3,8 +3,16 @@ import Image from "next/image";
 import MenuButton from "./MenuButton";
 import CartButton from "./CartButton";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { fetchCart } from "@/src/lib/data-service";
+import { createClient } from "@/src/utils/supabase/server";
+import { CartItem } from "@/src/types/types";
 
 export default async function Header() {
+  const supabase = await createClient();
+  const userResponse = await supabase.auth.getUser();
+  const userId = userResponse.data.user?.id;
+  const cart: CartItem[] = userId ? await fetchCart(userId) : [];
+
   return (
     <header className="bg-transparent fixed top-0 left-0 w-full h-0 z-40">
       {/* Logo */}
@@ -24,7 +32,7 @@ export default async function Header() {
       <div className="absolute right-0 top-0 pt-4 480px:pt-6 770px:pt-8 990px:pt-8 pr-6 770px:pr-10">
         <nav className="flex items-center text-sm font-bold tracking-tighter ">
           <LanguageSwitcher />
-          <CartButton />
+          {userId ? <CartButton cart={cart} /> : null}
           <MenuButton />
         </nav>
       </div>
