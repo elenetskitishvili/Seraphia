@@ -30,7 +30,7 @@ export async function addToCart({
     // UPDATE QUANTITY IF PRODUCT IS ALREADY INSIDE CART
     const { error: updateError } = await supabase
       .from("cart")
-      .update({ quantity: existingCartItem.quantity + quantity })
+      .update({ quantity })
       .eq("id", existingCartItem.id);
 
     if (updateError) {

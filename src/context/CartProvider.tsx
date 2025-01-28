@@ -5,7 +5,7 @@ import { createClient } from "@/src/utils/supabase/client";
 
 interface CartContextType {
   cartCount: number;
-  updateCartCount: (change: "increase" | "decrease") => void;
+  updateCartCount: () => Promise<void>;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -55,15 +55,29 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  const updateCartCount = (change: "increase" | "decrease") => {
-    setCartCount((prev) =>
-      change === "increase" ? prev + 1 : Math.max(prev - 1, 0)
-    );
+  const updateCartCount = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) return;
+
+    const { data: cartItems, error } = await supabase
+      .from("cart")
+      .select("product_id")
+      .eq("user_id", user.id);
+
+    if (error) {
+      console.error("Error fetching updated cart count:", error);
+      return;
+    }
+
+    setCartCount(cartItems.length);
   };
 
   return (
     <CartContext.Provider value={{ cartCount, updateCartCount }}>
-      {children}{" "}
+      {children}
     </CartContext.Provider>
   );
 }
