@@ -6,10 +6,12 @@ import { useState } from "react";
 
 interface RemoveFromCartButtonProps {
   itemId: number;
+  onRemove: () => void;
 }
 
 export default function RemoveFromCartButton({
   itemId,
+  onRemove,
 }: RemoveFromCartButtonProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const { updateCartCount } = useCart();
@@ -18,6 +20,7 @@ export default function RemoveFromCartButton({
     try {
       setLoading(true);
       await removeFromCart(itemId);
+      onRemove();
       await updateCartCount();
     } catch {
     } finally {
