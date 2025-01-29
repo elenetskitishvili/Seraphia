@@ -124,5 +124,10 @@
     "makes-jewelry": "I Make Jewelry Myself",
     "address": "Address",
     "enter-address": "Enter your address"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for doesn't exist or has been moved.",
+    "button": "Go back home"
   }
 }
