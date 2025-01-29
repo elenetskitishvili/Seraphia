@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Cart from "./Cart";
-import { CartItem } from "@/src/types/types";
 import { useCart } from "@/src/context/CartProvider";
 
 export default function CartButton() {

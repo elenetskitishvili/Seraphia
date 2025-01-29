@@ -1,11 +1,9 @@
 import { Link } from "@/src/i18n/routing";
+import { createClient } from "@/src/utils/supabase/server";
 import Image from "next/image";
-import MenuButton from "./MenuButton";
 import CartButton from "./CartButton";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { fetchCart } from "@/src/lib/data-service";
-import { createClient } from "@/src/utils/supabase/server";
-import { CartItem } from "@/src/types/types";
+import MenuButton from "./MenuButton";
 
 export default async function Header() {
   const supabase = await createClient();

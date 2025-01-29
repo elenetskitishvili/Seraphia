@@ -4,6 +4,8 @@ import { fetchCartProducts } from "@/src/app/actions/fetchCartProducts";
 import { CartItem } from "@/src/types/types";
 import { useEffect, useState } from "react";
 import CartList from "./CartList";
+import { divide } from "lodash";
+import CartSkeleton from "./CartSkeleton";
 
 interface HeaderNavProps {
   isOpen: boolean;
@@ -13,17 +15,21 @@ interface HeaderNavProps {
 export default function Cart({ isOpen, onClose }: HeaderNavProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function loadCart() {
       if (isOpen) {
         try {
+          setLoading(true);
           const items: CartItem[] = await fetchCartProducts();
           setCartItems(items);
           setError(null);
         } catch (err) {
           console.error("Error loading cart:", err);
           setError("Failed to load cart. Please try again.");
+        } finally {
+          setLoading(false);
         }
       }
     }
@@ -55,17 +61,21 @@ export default function Cart({ isOpen, onClose }: HeaderNavProps) {
         </div>
 
         {/* CART CONTENT (Scrollable) */}
-        <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
-          {error ? (
+        {error ? (
+          <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
             <p className="text-customGray text-lg text-center">{error}</p>
-          ) : cartItems.length === 0 ? (
+          </div>
+        ) : cartItems.length === 0 ? (
+          <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
             <p className="text-customGray text-lg text-center">
               No items found.
             </p>
-          ) : (
-            <CartList cartItems={cartItems} />
-          )}
-        </div>
+          </div>
+        ) : loading ? (
+          <CartSkeleton />
+        ) : (
+          <CartList cartItems={cartItems} />
+        )}
       </div>
     </>
   );
