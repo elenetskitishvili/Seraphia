@@ -1,7 +1,7 @@
 import { Link } from "@/src/i18n/routing";
 import { createClient } from "@/src/utils/supabase/server";
 import Image from "next/image";
-import CartButton from "./CartButton";
+import CartButton from "../cart/CartButton";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MenuButton from "./MenuButton";
 
