@@ -32,7 +32,7 @@ export default function RemoveFromCartButton({
     <button
       onClick={handleRemove}
       disabled={loading}
-      className="text-red-500 text-sm hover:text-red-600 transition"
+      className="text-customGray text-sm hover:text-customBlue"
     >
       {loading ? "Removing..." : "Remove"}
     </button>
