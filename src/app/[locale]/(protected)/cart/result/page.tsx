@@ -1,11 +1,15 @@
 import type { Stripe } from "stripe";
 import { createClient } from "@/src/utils/supabase/server";
 import { stripe } from "@/src/lib/stripe";
+import { Link } from "@/src/i18n/routing";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ResultPage(props: {
   searchParams: Promise<{ session_id: string }>;
 }): Promise<JSX.Element> {
   const supabase = await createClient();
+  const t = await getTranslations("Order");
+  const locale = await getLocale();
 
   const searchParams = await props.searchParams;
   if (!searchParams.session_id)
@@ -30,23 +34,12 @@ export default async function ResultPage(props: {
 
   const productIdsFromCart = cartItems?.map((item) => item.product_id) || [];
 
-  console.log("cartItems🤩", cartItems);
-  console.log("cartError🤩", cartError);
-  console.log("productIdsFromCart🤩", productIdsFromCart);
-
-  // if (cartError) {
-  //   console.error("Error fetching products from Supabase:", cartError);
-  //   throw new Error("Failed to fetch product details.");
-  // }
-
   const userResponse = await supabase.auth.getUser();
   const userId = userResponse.data.user?.id;
-  console.log("userId🤩", userId);
 
   if (!userId) throw new Error("User is not authenticated.");
 
   const totalPrice = (checkoutSession.amount_total || 0) * 100;
-  console.log("totalPrice🤩", totalPrice);
 
   const { data: order, error: orderError } = await supabase
     .from("orders")
@@ -60,9 +53,6 @@ export default async function ResultPage(props: {
     .select()
     .single();
 
-  console.log("order🤩", order);
-  console.log("orderError🤩", orderError);
-
   if (orderError) {
     console.error("Error inserting order:", orderError);
     throw new Error("Failed to create order.");
@@ -72,9 +62,6 @@ export default async function ResultPage(props: {
     .from("products")
     .select("*")
     .in("id", productIdsFromCart);
-
-  console.log("products🤩", products);
-  console.log("productError🤩", productError);
 
   if (productError) {
     throw new Error("Failed to fetch product details.");
@@ -101,20 +88,39 @@ export default async function ResultPage(props: {
     .delete()
     .eq("user_id", userId);
 
-  console.log("clearCartError🤩", clearCartError);
-
   if (clearCartError) {
     console.error("Error clearing the cart:", clearCartError);
     throw new Error("Failed to clear cart.");
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className=" p-8 rounded-lg text-center">
-        <h1 className="text-4xl font-bold mb-4">
-          Thank you for your purchase!
-        </h1>
-      </div>
+    <div className="h-screen px-6 flex flex-col items-center justify-center  bg-bgLight tracking-tighter text-center font-bold">
+      <h2
+        className={`text-[32px]  770px:text-[64px] 990px:text-[80px]  mb-5 770px:mb-10 ${
+          locale === "en"
+            ? "-tracking-[2px] 480px:-tracking-[3px] 770px:-tracking-[4px] 480px:text-5xl"
+            : "min-[520px]:text-5xl"
+        }`}
+      >
+        {t("title")}
+      </h2>
+      <p
+        className={`text-lg text-customGray mb-6 770px:mb-10   ${
+          locale === "en"
+            ? "tracking-tighter leading-tight max-w-[400px]"
+            : "tracking-wide"
+        }`}
+      >
+        {t("description")}
+      </p>
+      <Link
+        href={"/"}
+        className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          locale === "en" ? "tracking-tighter" : "tracking-wide"
+        }`}
+      >
+        {t("button")}
+      </Link>
     </div>
   );
 }

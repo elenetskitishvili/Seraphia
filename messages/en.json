@@ -129,5 +129,10 @@
     "title": "Page Not Found",
     "description": "The page you are looking for doesn't exist or has been moved.",
     "button": "Go back home"
+  },
+  "Order": {
+    "title": "Order Placed",
+    "description": "Your order is confirmed! You can view it in your orders page.",
+    "button": "View My Orders"
   }
 }
