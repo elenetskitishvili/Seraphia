@@ -86,7 +86,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
       await addToCart({ productId, quantity });
 
       if (isNewProduct) {
-        updateCartCount("increase");
+        updateCartCount();
       }
       setSuccess(t("cart-success"));
       form.reset();

@@ -1,10 +1,12 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useCart } from "@/src/context/CartProvider";
 
 const CartSkeleton = () => {
+  const { cartCount } = useCart();
   return (
     <ul className="w-full mt-2">
-      {[...Array(3)].map((_, index) => (
+      {[...Array(cartCount)].map((_, index) => (
         <li
           key={index}
           className="grid grid-cols-[80fr_20fr] 770px:grid-cols-[70fr_15fr_15fr] items-center border-b border-gray-300 py-4 px-4"

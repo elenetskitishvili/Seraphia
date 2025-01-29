@@ -5,6 +5,7 @@ import { useCart } from "@/src/context/CartProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { CartItem } from "@/src/types/types";
+import RemoveFromCartButton from "./RemoveFromCartButton";
 
 interface CartListProps {
   cartItems: CartItem[];
@@ -50,9 +51,7 @@ export default function CartList({ cartItems }: CartListProps) {
             <p className="hidden 770px:block text-sm text-gray-500">
               x{item.quantity}
             </p>
-            <button className="text-red-500 text-sm hover:text-red-600 transition">
-              Remove
-            </button>
+            <RemoveFromCartButton itemId={item.product.id} />
           </li>
         );
       })}
