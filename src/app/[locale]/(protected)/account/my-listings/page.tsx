@@ -23,16 +23,34 @@ export default async function MyListings() {
         My Listings
       </h1>
       {products.length === 0 ? (
-        <p className="text-customGray text-lg">
-          No products listed yet.
-          <Link
-            href="/en/create-product"
-            className="text-primary font-medium underline"
+        <div className="h-[50vh] 990px:h-[80vh] px-6 flex flex-col items-center justify-center tracking-tighter text-center font-bold text-customGray">
+          <h2
+            className={`text-[32px]  770px:text-[64px] 990px:text-[80px]  mb-5 770px:mb-10 ${
+              locale === "en"
+                ? "-tracking-[2px] 480px:-tracking-[3px] 770px:-tracking-[4px] 480px:text-5xl"
+                : "min-[520px]:text-5xl"
+            }`}
           >
-            Create one now
+            No listings yet
+          </h2>
+          <p
+            className={`text-lg text-customGray mb-6 770px:mb-10   ${
+              locale === "en"
+                ? "tracking-tighter leading-tight max-w-[400px]"
+                : "tracking-wide"
+            }`}
+          >
+            Start selling your jewelry today
+          </p>
+          <Link
+            href={"/add-product"}
+            className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+              locale === "en" ? "tracking-tighter" : "tracking-wide"
+            }`}
+          >
+            Add product
           </Link>
-          !
-        </p>
+        </div>
       ) : (
         // PRODUCTS LIST
         <ul className="grid grid-cols-2 770px:grid-cols-3 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
