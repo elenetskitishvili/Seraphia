@@ -14,10 +14,10 @@ export default async function ProductList({ params }: { params: any }) {
 
   const { products, total } = await res.json();
   return (
-    <div className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
+    <ul className="grid grid-cols-2 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
       {products.map((product: Product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-    </div>
+    </ul>
   );
 }

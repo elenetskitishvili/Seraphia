@@ -189,3 +189,17 @@ export const fetchOrders = async function (
     return [];
   }
 };
+
+export async function fetchUserProducts(userId: string): Promise<Product[]> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false });
+
+  if (error) throw new Error("Failed to fetch user products");
+
+  return data || [];
+}
