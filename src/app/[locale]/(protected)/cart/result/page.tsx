@@ -114,7 +114,7 @@ export default async function ResultPage(props: {
         {t("description")}
       </p>
       <Link
-        href={"/"}
+        href={"/account/orders"}
         className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
           locale === "en" ? "tracking-tighter" : "tracking-wide"
         }`}

@@ -46,3 +46,46 @@ export interface CartItem {
   quantity: number;
   product?: Product;
 }
+
+export interface Order {
+  id: number;
+  created_at: string;
+  total_price: number;
+  stripe_session_id: string;
+  user_id: string;
+}
+
+export interface OrderItem {
+  id: number;
+  created_at: string;
+  order_id: number;
+  product_id: number;
+  quantity: number;
+  price_at_purchase: number;
+  product?: {
+    name_en: string;
+    name_ka: string;
+    images: string[];
+  };
+}
+
+export interface OrderWithItems {
+  id: number;
+  total_price: number;
+  created_at: string;
+  items: OrderItemWithProduct[];
+}
+
+export interface OrderItemWithProduct {
+  product: {
+    name_en: string;
+
+    name_ka: string;
+
+    image: string;
+  } | null;
+
+  product_id: string;
+
+  quantity: number;
+}
