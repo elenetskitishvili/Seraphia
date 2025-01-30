@@ -1,11 +1,14 @@
+import OrdersList from "@/src/components/account/OrdersList";
 import { Link } from "@/src/i18n/routing";
 import { fetchOrders } from "@/src/lib/data-service";
 import { OrderWithItems } from "@/src/types/types";
 import { createClient } from "@/src/utils/supabase/server";
-import Image from "next/image";
+import { getLocale } from "next-intl/server";
 
 export default async function Orders() {
   const supabase = await createClient();
+  const locale = await getLocale();
+
   const userResponse = await supabase.auth.getUser();
   const userId = userResponse.data.user?.id;
 
@@ -19,64 +22,36 @@ export default async function Orders() {
         Your Orders
       </h1>
       {orders.length === 0 ? (
-        <p className="text-customGray text-lg">No orders found.</p>
+        <div className="h-[50vh] 990px:h-[80vh] px-6 flex flex-col items-center justify-center tracking-tighter text-center font-bold text-customGray">
+          <h2
+            className={`text-[32px]  770px:text-[64px] 990px:text-[80px]  mb-5 770px:mb-10 ${
+              locale === "en"
+                ? "-tracking-[2px] 480px:-tracking-[3px] 770px:-tracking-[4px] 480px:text-5xl"
+                : "min-[520px]:text-5xl"
+            }`}
+          >
+            No orders yet
+          </h2>
+          <p
+            className={`text-lg text-customGray mb-6 770px:mb-10   ${
+              locale === "en"
+                ? "tracking-tighter leading-tight max-w-[400px]"
+                : "tracking-wide"
+            }`}
+          >
+            Find something special in our collection
+          </p>
+          <Link
+            href={"/products"}
+            className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+              locale === "en" ? "tracking-tighter" : "tracking-wide"
+            }`}
+          >
+            Shop now
+          </Link>
+        </div>
       ) : (
-        // ORDERS LIST
-        <ul className="space-y-6">
-          {orders.map((order) => (
-            <li key={order.id} className="border-t border-r-bgBtn py-6">
-              <div className="font-medium">
-                <p className="">
-                  <span className="tracking-tight">Created at: </span>
-                  {new Date(order.created_at).toLocaleDateString()}
-                </p>
-                <p className="">
-                  <span className="tracking-tight">Total price: </span>
-                  <span className="font-medium">
-                    ${order.total_price / 100}
-                  </span>
-                </p>
-              </div>
-              <ul className="mt-4 space-y-4">
-                {order.items.map((item) => (
-                  <li
-                    key={item.product_id}
-                    className=" border border-bgBtn max-w-screen-lg"
-                  >
-                    <Link
-                      href={`/products/${item.product_id}`}
-                      className="flex items-center gap-4 p-2"
-                    >
-                      {item.product?.image && (
-                        <Image
-                          width={100}
-                          height={100}
-                          src={item.product.image}
-                          alt={item.product.name_en}
-                          className="w-20 h-20 990px:w-24 990px:h-24 object-cover rounded-sm"
-                        />
-                      )}
-                      <div>
-                        <p className=" font-medium 990px:text-lg">
-                          {item.product?.name_en || "Unknown"}
-                        </p>
-                        <p className="text-customGray text-sm 990px:text-base">
-                          Quantity: {item.quantity}
-                        </p>
-                        <p className="text-customGray text-sm 990px:text-base">
-                          Price:
-                          <span className="font-medium ml-1">
-                            ${item.price_at_purchase / 100}
-                          </span>
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        <OrdersList orders={orders} />
       )}
     </div>
   );

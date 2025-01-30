@@ -1,4 +1,4 @@
-import UpdateProfileForm from "@/src/components/profile/UpdateProfileForm";
+import UpdateProfileForm from "@/src/components/account/UpdateProfileForm";
 import { fetchUserProfile } from "@/src/lib/data-service";
 import { createClient } from "@/src/utils/supabase/server";
 import { User } from "@/src/types/types";
