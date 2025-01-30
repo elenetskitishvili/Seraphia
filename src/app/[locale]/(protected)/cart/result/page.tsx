@@ -39,7 +39,7 @@ export default async function ResultPage(props: {
 
   if (!userId) throw new Error("User is not authenticated.");
 
-  const totalPrice = (checkoutSession.amount_total || 0) * 100;
+  const totalPrice = checkoutSession.amount_total || 0;
 
   const { data: order, error: orderError } = await supabase
     .from("orders")

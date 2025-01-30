@@ -79,13 +79,10 @@ export interface OrderWithItems {
 export interface OrderItemWithProduct {
   product: {
     name_en: string;
-
     name_ka: string;
-
     image: string;
   } | null;
-
-  product_id: string;
-
+  product_id: number;
   quantity: number;
+  price_at_purchase: number;
 }

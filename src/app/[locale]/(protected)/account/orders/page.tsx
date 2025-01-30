@@ -1,55 +1,82 @@
+import { Link } from "@/src/i18n/routing";
 import { fetchOrders } from "@/src/lib/data-service";
 import { OrderWithItems } from "@/src/types/types";
 import { createClient } from "@/src/utils/supabase/server";
+import Image from "next/image";
 
 export default async function Orders() {
   const supabase = await createClient();
   const userResponse = await supabase.auth.getUser();
   const userId = userResponse.data.user?.id;
+
   if (!userId) throw new Error("User not authenticated.");
 
   const orders: OrderWithItems[] = await fetchOrders(userId);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">My Orders</h1>
-
+    <div className=" p-4 770px:px-10 770px:pt-6 990px:pt-20 990px:pl-0 990px:pr-10">
+      <h1 className="text-2xl 990px:text-4xl font-bold tracking-tighter pb-1">
+        Your Orders
+      </h1>
       {orders.length === 0 ? (
-        <p className="text-gray-500">You have no orders yet.</p>
+        <p className="text-customGray text-lg">No orders found.</p>
       ) : (
-        <div className="space-y-6">
+        // ORDERS LIST
+        <ul className="space-y-6">
           {orders.map((order) => (
-            <div key={order.id} className="border p-4 rounded-lg shadow-md">
-              <div className="mb-3">
-                <p className="text-lg font-semibold">Order #{order.id}</p>
-                <p className="text-sm text-gray-600">
-                  Placed on: {new Date(order.created_at).toLocaleDateString()}
+            <li key={order.id} className="border-t border-r-bgBtn py-6">
+              <div className="font-medium">
+                <p className="">
+                  <span className="tracking-tight">Created at: </span>
+                  {new Date(order.created_at).toLocaleDateString()}
                 </p>
-                <p className="font-medium">
-                  Total: ${(order.total_price / 100).toFixed(2)}
+                <p className="">
+                  <span className="tracking-tight">Total price: </span>
+                  <span className="font-medium">
+                    ${order.total_price / 100}
+                  </span>
                 </p>
               </div>
-
-              <div className="space-y-4">
-                {order.items.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <img
-                      src={item.product?.image ?? ""}
-                      alt={item.product?.name_en ?? "Product image"}
-                      className="w-16 h-16 object-cover rounded-md"
-                    />
-                    <div>
-                      <p className="font-medium">{item.product?.name_en}</p>
-                      <p className="text-sm text-gray-600">
-                        Quantity: {item.quantity}
-                      </p>
-                    </div>
-                  </div>
+              <ul className="mt-4 space-y-4">
+                {order.items.map((item) => (
+                  <li
+                    key={item.product_id}
+                    className=" border border-bgBtn max-w-screen-lg"
+                  >
+                    <Link
+                      href={`/products/${item.product_id}`}
+                      className="flex items-center gap-4 p-2"
+                    >
+                      {item.product?.image && (
+                        <Image
+                          width={100}
+                          height={100}
+                          src={item.product.image}
+                          alt={item.product.name_en}
+                          className="w-20 h-20 990px:w-24 990px:h-24 object-cover rounded-sm"
+                        />
+                      )}
+                      <div>
+                        <p className=" font-medium 990px:text-lg">
+                          {item.product?.name_en || "Unknown"}
+                        </p>
+                        <p className="text-customGray text-sm 990px:text-base">
+                          Quantity: {item.quantity}
+                        </p>
+                        <p className="text-customGray text-sm 990px:text-base">
+                          Price:
+                          <span className="font-medium ml-1">
+                            ${item.price_at_purchase / 100}
+                          </span>
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
