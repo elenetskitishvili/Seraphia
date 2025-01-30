@@ -68,7 +68,10 @@
     "result-success": "Product added successfully.",
     "error-image-size": "Total file size exceeds the 5MB limit. Please upload smaller images.",
     "error-body-limit": "The uploaded files are too large. Please try again with smaller images.",
-    "error-unexpected": "An unexpected error occurred. Please try again."
+    "error-unexpected": "An unexpected error occurred. Please try again.",
+    "updating": "Updating...",
+    "updated": "Updated!",
+    "update": "Update"
   },
   "CreateBlog": {
     "requirement-heading-en": "English heading must be at least 10 characters.",

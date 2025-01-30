@@ -77,7 +77,7 @@ export default async function MyListings() {
               </Link>
               <div className="flex flex-col 480px:flex-row  gap-3 mt-3">
                 <Link
-                  href={"/"}
+                  href={`/edit-product/${product.id}`}
                   className="py-2 px-3 border border-blue-200 rounded-sm flex gap-2 items-center justify-center text-customBlue"
                 >
                   <PencilIcon className="w-5 h-5 " /> <span>Modify</span>
