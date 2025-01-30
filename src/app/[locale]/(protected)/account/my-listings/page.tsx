@@ -1,3 +1,4 @@
+import DeleteProduct from "@/src/components/account/DeleteProduct";
 import { Link } from "@/src/i18n/routing";
 import { fetchUserProducts } from "@/src/lib/data-service";
 import { Product } from "@/src/types/types";
@@ -53,9 +54,9 @@ export default async function MyListings() {
         </div>
       ) : (
         // PRODUCTS LIST
-        <ul className="grid grid-cols-2 770px:grid-cols-3 990px:grid-cols-4 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
+        <ul className="grid grid-cols-2 770px:grid-cols-3 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
           {products.map((product) => (
-            <li key={product.id} className="">
+            <li key={product.id} className="flex flex-col">
               <Link href={`/products/${product.id}`} className=" flex flex-col">
                 {product.images[0] && (
                   <Image
@@ -66,24 +67,23 @@ export default async function MyListings() {
                     className="aspect-square w-full object-cover"
                   />
                 )}
-                <div className="flex flex-col justify-between">
-                  <h2
-                    className={`text-lg mb-1 mt-2 leading-6 font-semibold  ${
-                      locale === "en" ? "tracking-tighter" : ""
-                    }`}
-                  >
-                    {product.name_en}
-                  </h2>
-                  <div className="flex flex-col 480px:flex-row  gap-3 mt-3">
-                    <button className="py-2 px-3 border border-blue-200 rounded-sm flex gap-2 items-center justify-center text-customBlue">
-                      <PencilIcon className="w-5 h-5 " /> <span>Modify</span>
-                    </button>
-                    <button className="p-2 border border-bgBtn items-center justify-center text-customGray rounded-sm  flex gap-2">
-                      <TrashIcon className="w-5 h-5 " /> <span>Delete</span>
-                    </button>
-                  </div>
-                </div>
+                <h2
+                  className={`text-lg mb-1 mt-2 leading-6 font-semibold  ${
+                    locale === "en" ? "tracking-tighter" : ""
+                  }`}
+                >
+                  {product.name_en}
+                </h2>
               </Link>
+              <div className="flex flex-col 480px:flex-row  gap-3 mt-3">
+                <Link
+                  href={"/"}
+                  className="py-2 px-3 border border-blue-200 rounded-sm flex gap-2 items-center justify-center text-customBlue"
+                >
+                  <PencilIcon className="w-5 h-5 " /> <span>Modify</span>
+                </Link>
+                <DeleteProduct productId={product.id} />
+              </div>
             </li>
           ))}
         </ul>
