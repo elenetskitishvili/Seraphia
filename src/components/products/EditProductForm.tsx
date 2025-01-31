@@ -12,6 +12,7 @@ import { useLocale } from "next-intl";
 
 import { useState } from "react";
 import { Product } from "@/src/types/types";
+import ImageUpload from "./ImageUpload";
 
 interface ErrorMessages {
   nameEn?: string | string[];
@@ -52,11 +53,7 @@ const getProductSchema = (t: (key: string) => string) =>
         .min(10, { message: t("price-min") })
     ),
     images: z
-      .array(
-        z.instanceof(File).refine((file) => file.size > 0, {
-          message: t("requirement-image-url"),
-        })
-      )
+      .array(z.union([z.string(), z.instanceof(File)]))
       .min(1, { message: t("requirement-image") }),
   });
 
@@ -79,6 +76,12 @@ export default function EditProductForm({ product }: { product: Product }) {
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const [images, setImages] = useState<(string | File)[]>(product.images || []);
+
+  const handleImagesChange = (updatedImages: (string | File)[]) => {
+    setImages(updatedImages);
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -92,7 +95,7 @@ export default function EditProductForm({ product }: { product: Product }) {
       descriptionKa: formData.get("descriptionKa") as string,
       category: (formData.get("category") as string) || "",
       price: parseFloat(formData.get("price") as string) || 0,
-      images: formData.getAll("images") as File[],
+      images: images,
     };
 
     try {
@@ -119,6 +122,12 @@ export default function EditProductForm({ product }: { product: Product }) {
 
         return;
       }
+
+      images.forEach((image) => {
+        if (image instanceof File) {
+          formData.append("images", image);
+        }
+      });
 
       await editProduct(formData);
       setSuccess("Product was added successfully");
@@ -349,16 +358,14 @@ export default function EditProductForm({ product }: { product: Product }) {
                 {t("images")}
               </label>
               {loading ? (
-                <Skeleton borderRadius={0} className="h-[57px] w-full" />
+                <Skeleton borderRadius={0} className="h-[175px] w-full" />
               ) : (
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  id="images"
-                  name="images"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
-                />
+                <div className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none">
+                  <ImageUpload
+                    existingImages={product.images}
+                    onImagesChange={handleImagesChange}
+                  />
+                </div>
               )}
             </div>
 
@@ -375,7 +382,7 @@ export default function EditProductForm({ product }: { product: Product }) {
 
               {error && (
                 <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
-                  {t("result-fail")}
+                  {t("update-fail")}
                 </p>
               )}
               {success && (
@@ -383,7 +390,7 @@ export default function EditProductForm({ product }: { product: Product }) {
                   className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
                   data-cy="product-creation-success-message"
                 >
-                  {t("result-success")}
+                  {t("update-success")}
                 </p>
               )}
 
