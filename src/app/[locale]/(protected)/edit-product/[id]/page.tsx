@@ -5,15 +5,19 @@ import { Product } from "@/src/types/types";
 export default async function EditProduct({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const productId = await params.id;
+  const resolvedParams = await params;
+  const productId = await resolvedParams.id;
   const product: Product | null = await fetchProduct(productId);
-  console.log("product🌎", product);
 
   if (!product) {
     return <div>Product not found</div>;
   }
 
-  return <EditProductForm product={product} />;
+  return (
+    <div className="pt-[60px] 770px:pt-20 ">
+      <EditProductForm product={product} />
+    </div>
+  );
 }

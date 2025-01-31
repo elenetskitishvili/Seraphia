@@ -17,18 +17,11 @@ export async function removeFromCart(itemId: number) {
       .eq("product_id", itemId)
       .single();
 
-    console.log("Existing Item After Fix:", existingItem);
-
-    console.log("User ID:", userId);
-    console.log("Item ID:", itemId, "Type:", typeof itemId);
-
     const { error } = await supabase
       .from("cart")
       .delete()
       .eq("user_id", userId)
       .eq("product_id", itemId);
-
-    console.log("error😀", error);
 
     if (error) {
       throw new Error("Failed to remove item from cart.");

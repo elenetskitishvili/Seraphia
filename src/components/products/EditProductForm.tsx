@@ -123,8 +123,12 @@ export default function EditProductForm({ product }: { product: Product }) {
         return;
       }
 
+      formData.append("productId", product.id.toString());
+
       images.forEach((image) => {
-        if (image instanceof File) {
+        if (typeof image === "string") {
+          formData.append("existingImages", image);
+        } else {
           formData.append("images", image);
         }
       });
@@ -376,6 +380,9 @@ export default function EditProductForm({ product }: { product: Product }) {
                   : errorMessage.images}
               </div>
             )}
+
+            {/* PRODUCT ID */}
+            <input type="hidden" name="productId" value={product.id} />
 
             <div className="flex flex-col min-[520px]:flex-row items-center justify-center min-[520px]:justify-end min-[520px]:gap-6 770px:gap-20 990px:gap-[120px]">
               {/* RESULT */}
