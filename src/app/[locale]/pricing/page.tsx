@@ -1,6 +1,9 @@
 import CheckoutFormPremium from "@/src/components/premium/CheckoutFormPremium";
+import { Link } from "@/src/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 export default async function Pricing() {
+  const t = await getTranslations("Pricing");
   return (
     <section className="my-[120px] max-w-lg min-[900px]:max-w-[1200px] mx-auto px-10">
       <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-10 min-[900px]:gap-6 990px:gap-12">
@@ -22,23 +25,23 @@ export default async function Pricing() {
             {/* CARD HEADING */}
             <h3 className="text-[28px] font-light uppercase text-white absolute top-[120px] right-5 text-right w-[75%]">
               <span className="decoration-clone py-[10px] px-[15px] bg-gradient-to-tr from-[rgba(255,185,0,0.85)] to-[rgba(255,119,48,0.85)]">
-                Standard Seller
+                {t("standard")}
               </span>
             </h3>
             {/* CARD DETAILS */}
             <div className="p-[30px]">
               <ul className="w-[80%] mx-auto">
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Sell up to 5 items
+                  {t("standard-feature1")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  No subscription needed
+                  {t("standard-feature2")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Great for small sellers
+                  {t("standard-feature3")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] ">
-                  Upgrade anytime
+                  {t("standard-feature4")}
                 </li>
               </ul>
             </div>
@@ -46,12 +49,15 @@ export default async function Pricing() {
           <div className="w-full rounded-[3px] backface-hidden h-[500px] transition-all duration-[800ms] rotate-y-180  group-hover:rotate-y-0  absolute top-0 left-0 bg-gradient-to-br from-[#ffb900] to-[#ff7730] shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] text-center">
               <div className=" mb-20 text-white">
-                <p className="text-[15px]">Forever</p>
-                <p className="text-[60px] font-thin">FREE</p>
+                <p className="text-[15px]">{t("forever")}</p>
+                <p className="text-[60px] font-thin">{t("free")}</p>
               </div>
-              <button className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]">
-                Start Selling
-              </button>
+              <Link
+                href={"/add-product"}
+                className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
+              >
+                {t("standard-btn")}
+              </Link>
             </div>
           </div>
         </div>
@@ -73,23 +79,23 @@ export default async function Pricing() {
             {/* CARD HEADING */}
             <h3 className="text-[28px] font-light uppercase text-white absolute top-[120px] right-5 text-right w-[75%]">
               <span className="decoration-clone py-[10px] px-[15px] bg-gradient-to-tr from-[rgba(126,213,111,0.85)] to-[rgba(40,180,133,0.85)]">
-                Premium Seller
+                {t("premium")}
               </span>
             </h3>
             {/* CARD DETAILS */}
             <div className="p-[30px]">
               <ul className="w-[80%] mx-auto">
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Sell unlimited products
+                  {t("premium-feature1")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  No restrictions
+                  {t("premium-feature2")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Boost your business
+                  {t("premium-feature3")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] ">
-                  Priority support
+                  {t("premium-feature4")}
                 </li>
               </ul>
             </div>
@@ -97,11 +103,11 @@ export default async function Pricing() {
           <div className="w-full rounded-[3px] backface-hidden h-[500px] transition-all duration-[800ms] rotate-y-180  group-hover:rotate-y-0  absolute top-0 left-0 bg-gradient-to-br from-[#7ed56f] to-[#28b485] shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] text-center">
               <div className=" mb-20 text-white">
-                <p className="text-[15px] font-sans">Monthly</p>
+                <p className="text-[15px] font-sans">{t("monthly")}</p>
                 <p className="text-[60px] font-thin font-sans">$9.99</p>
               </div>
               <button className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]">
-                Get Premium
+                {t("premium-btn")}
               </button>
             </div>
           </div>
@@ -124,23 +130,23 @@ export default async function Pricing() {
             {/* CARD HEADING */}
             <h3 className="text-[28px] font-light uppercase text-white absolute top-[120px] right-5 text-right w-[75%]">
               <span className="decoration-clone py-[10px] px-[15px] bg-gradient-to-tr from-[rgba(41,152,255,0.85)] to-[rgba(86,67,250,0.85)]">
-                Exclusive Seller
+                {t("exclusive")}
               </span>
             </h3>
             {/* CARD DETAILS */}
             <div className="p-[30px]">
               <ul className="w-[80%] mx-auto">
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Sell unlimited products
+                  {t("exclusive-feature1")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Photography service
+                  {t("exclusive-feature2")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] border-b border-b-[#eee]">
-                  Marketing support
+                  {t("exclusive-feature3")}
                 </li>
                 <li className="text-center text-[15px] p-[10px] ">
-                  Get featured in blogs
+                  {t("exclusive-feature4")}
                 </li>
               </ul>
             </div>
@@ -148,11 +154,11 @@ export default async function Pricing() {
           <div className="w-full rounded-[3px] backface-hidden h-[500px] transition-all duration-[800ms] rotate-y-180  group-hover:rotate-y-0  absolute top-0 left-0 bg-gradient-to-br from-[#2998ff] to-[#5643fa] shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] text-center">
               <div className=" mb-20 text-white">
-                <p className="text-[15px] font-sans">Monthly</p>
+                <p className="text-[15px] font-sans">{t("monthly")}</p>
                 <p className="text-[60px] font-thin font-sans">$29.99</p>
               </div>
               <button className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]">
-                Get Elite
+                {t("exclusive-btn")}
               </button>
             </div>
           </div>

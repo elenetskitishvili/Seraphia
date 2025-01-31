@@ -139,5 +139,28 @@
     "title": "Order Placed",
     "description": "Your order is confirmed! You can view it in your orders page.",
     "button": "View My Orders"
+  },
+  "Pricing": {
+    "standard": "Standard Seller",
+    "standard-feature1": "Sell up to 5 items",
+    "standard-feature2": "No subscription needed",
+    "standard-feature3": "Great for small sellers",
+    "standard-feature4": "Upgrade anytime",
+    "forever": "Forever",
+    "free": "FREE",
+    "standard-btn": "Start Selling",
+    "premium": "Premium Seller",
+    "premium-feature1": "Sell unlimited products",
+    "premium-feature2": "No restrictions",
+    "premium-feature3": "Boost your business",
+    "premium-feature4": "Priority support",
+    "monthly": "Monthly",
+    "premium-btn": "Get Premium",
+    "exclusive": "Exclusive Seller",
+    "exclusive-feature1": "Sell unlimited products",
+    "exclusive-feature2": "Photography service",
+    "exclusive-feature3": "Marketing support",
+    "exclusive-feature4": "Get featured in blogs",
+    "exclusive-btn": "Get Elite"
   }
 }
