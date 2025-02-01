@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/src/i18n/routing";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 interface HeaderNavProps {
   isOpen: boolean;
@@ -25,6 +26,8 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
         } ease-[cubic-bezier(0.25, 1, 0.5, 1)]`}
       >
         <div className="flex items-center justify-center bg-customDark">
+          {/* THEME SWITCHER */}
+          <ThemeSwitcher />
           <nav
             className={`opacity-0 w-0 transition-opacity duration-[800ms] ${
               isOpen ? "opacity-100 w-full" : ""
