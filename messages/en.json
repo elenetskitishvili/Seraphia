@@ -28,7 +28,9 @@
     "contact-email": "Send us a message",
     "office": "Visit our office",
     "contact-location": "4140 Parker Rd. Allentown, Tbilisi 31134",
-    "contact-call": "Give us a call"
+    "contact-call": "Give us a call",
+    "faq": "Frequently Asked Questions",
+    "help-center": "Visit our Help Center"
   },
   "CreateProduct": {
     "name-en-min": "Product name (English) must be at least 3 characters.",

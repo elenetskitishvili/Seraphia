@@ -109,7 +109,7 @@ export default function ContactForm() {
     <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
       <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
         <p
-          className={`text-lg text-customGray font-bold  leading-6 max-w-[300px] ${
+          className={`text-lg text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 max-w-[300px] ${
             locale === "en" ? "tracking-tighter" : ""
           }`}
         >
@@ -122,7 +122,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="name"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tighter" : ""
               }`}
             >
@@ -137,13 +137,13 @@ export default function ContactForm() {
                 name="name"
                 defaultValue=""
                 placeholder={t("name-placeholder")}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               />
             )}
           </div>
 
           {errorMessage?.name && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.name)
                 ? errorMessage.name.join(", ")
                 : errorMessage.name}
@@ -153,7 +153,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="email"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tighter" : ""
               }`}
             >
@@ -168,13 +168,13 @@ export default function ContactForm() {
                 name="email"
                 defaultValue=""
                 placeholder={t("email-placeholder")}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               />
             )}
           </div>
 
           {errorMessage?.email && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.email)
                 ? errorMessage.email.join(", ")
                 : errorMessage.email}
@@ -184,7 +184,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="subject"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tighter" : ""
               }`}
             >
@@ -197,7 +197,7 @@ export default function ContactForm() {
                 id="subject"
                 name="subject"
                 defaultValue=""
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               >
                 <option value="" disabled>
                   {t("subject-default")}
@@ -215,7 +215,7 @@ export default function ContactForm() {
           </div>
 
           {errorMessage?.subject && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.subject)
                 ? errorMessage.subject.join(", ")
                 : errorMessage.subject}
@@ -226,7 +226,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="message"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tighter" : ""
               }`}
             >
@@ -243,13 +243,13 @@ export default function ContactForm() {
                 name="message"
                 defaultValue=""
                 placeholder={t("message-placeholder")}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none 990px:h-[168px]"
               />
             )}
           </div>
 
           {errorMessage?.message && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.message)
                 ? errorMessage.message.join(", ")
                 : errorMessage.message}
@@ -260,13 +260,13 @@ export default function ContactForm() {
             {/* RESULT */}
 
             {error && (
-              <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
+              <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
                 {t("result-fail")}
               </p>
             )}
             {success && (
               <p
-                className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
+                className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
                 data-cy="product-creation-success-message"
               >
                 {t("result-success")}
@@ -276,7 +276,7 @@ export default function ContactForm() {
             {/* SUBMIT BUTTON */}
             <button
               type="submit"
-              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
+              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue dark:text-darkModeText bg-bgMedium dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
                 loading ? " cursor-not-allowed" : ""
               }`}
             >
