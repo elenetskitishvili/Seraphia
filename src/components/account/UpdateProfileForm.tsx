@@ -118,7 +118,7 @@ export default function UpdateProfileForm({
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="fullName"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tight" : ""
               }`}
             >
@@ -133,7 +133,7 @@ export default function UpdateProfileForm({
                 name="fullName"
                 defaultValue={fullName || ""}
                 placeholder={t("enter-full-name")}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             )}
           </div>
@@ -150,7 +150,7 @@ export default function UpdateProfileForm({
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="phone"
-              className={`text-sm text-customGray font-bold  leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
                 locale === "en" ? "tracking-tight" : ""
               }`}
             >
@@ -165,7 +165,7 @@ export default function UpdateProfileForm({
                 name="phone"
                 defaultValue={phone || ""}
                 placeholder={t("enter-phone")}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
               />
             )}
           </div>
@@ -191,7 +191,7 @@ export default function UpdateProfileForm({
 
             <label
               htmlFor="makesJewelry"
-              className={`text-[15px] text-customGray font-bold tracking-tight leading-6 cursor-pointer ${
+              className={`text-[15px] text-customGray dark:text-darkModeTextTertiary font-bold tracking-tight leading-6 cursor-pointer ${
                 locale === "en" ? "tracking-tight" : ""
               }`}
             >
@@ -210,7 +210,7 @@ export default function UpdateProfileForm({
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="address"
-              className={`text-sm text-customGray font-bold tracking-tight leading-6 ${
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tight leading-6 ${
                 locale === "en" ? "tracking-tight" : ""
               }`}
             >
@@ -227,7 +227,7 @@ export default function UpdateProfileForm({
                 name="address"
                 placeholder={t("address")}
                 defaultValue={address || ""}
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+                className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
               />
             )}
           </div>
@@ -257,7 +257,7 @@ export default function UpdateProfileForm({
           {/* SUBMIT BUTTON */}
           <div className="480px:self-end">
             <button
-              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgLight font-medium py-3  rounded-sm inline-block hover:bg-bgMedium transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 ${
+              className={`w-full 480px:w-auto 480px:px-[50px]  text-customBlue dark:text-white bg-bgLight dark:bg-indigo-600 font-medium py-3  rounded-sm dark:rounded-full inline-block hover:bg-bgMedium dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 ${
                 loading ? " cursor-not-allowed" : ""
               }`}
             >

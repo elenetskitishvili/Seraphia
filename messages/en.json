@@ -130,7 +130,11 @@
     "enter-phone": "Enter your phone number",
     "makes-jewelry": "I Make Jewelry Myself",
     "address": "Address",
-    "enter-address": "Enter your address"
+    "enter-address": "Enter your address",
+    "email": "Email",
+    "plan": "Subscription plan",
+    "expiry": "Subscription expiry",
+    "max-items": "Maximum items you can sell"
   },
   "NotFound": {
     "title": "Page Not Found",

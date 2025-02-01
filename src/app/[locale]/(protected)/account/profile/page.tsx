@@ -2,8 +2,11 @@ import UpdateProfileForm from "@/src/components/account/UpdateProfileForm";
 import { fetchUserProfile } from "@/src/lib/data-service";
 import { createClient } from "@/src/utils/supabase/server";
 import { User } from "@/src/types/types";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Profile() {
+  const t = await getTranslations("Profile");
+  const locale = await getLocale();
   const supabase = await createClient();
 
   const userResponse = await supabase.auth.getUser();
@@ -20,35 +23,45 @@ export default async function Profile() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor=""
-              className="text-sm text-customGray font-bold tracking-tight leading-6"
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold leading-6 ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
             >
-              Email
+              {t("email")}
             </label>
             <input
               type="email"
               disabled
               value={userEmail}
-              className="border border-bgBtn py-[15px] px-4 "
+              className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 "
             />
           </div>
 
           {/* SUBSCRIPTION PLAN */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-sm text-customGray font-bold tracking-tight leading-6">
-              Subscription plan
+            <label
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold leading-6  ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
+            >
+              {t("plan")}
             </label>
             <input
               type="text"
               disabled
               value={user?.subscription_plan || "No subscription"}
-              className="border border-bgBtn py-[15px] px-4 "
+              className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 "
             />
           </div>
 
           {/* SUBSCRIPTION EXPIRY */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-sm text-customGray font-bold tracking-tight leading-6">
-              Subscription expiry
+            <label
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold leading-6  ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
+            >
+              {t("expiry")}
             </label>
             <input
               type="date"
@@ -58,20 +71,24 @@ export default async function Profile() {
                   ? new Date(user.expires_at).toISOString().split("T")[0]
                   : ""
               }
-              className="border border-bgBtn py-[15px] px-4 "
+              className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 "
             />
           </div>
 
           {/* MAX ITEMS */}
           <div className="flex flex-col gap-[5px]">
-            <label className="text-sm text-customGray font-bold tracking-tight leading-6">
-              Maximum items you can sell
+            <label
+              className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold leading-6  ${
+                locale === "en" ? "tracking-tight" : ""
+              }`}
+            >
+              {t("max-items")}
             </label>
             <input
               type="number"
               disabled
               value={user?.max_items || 0}
-              className="border border-bgBtn py-[15px] px-4 "
+              className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 "
             />
           </div>
         </div>

@@ -33,14 +33,14 @@ export default function SideNavigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="990px:border-r 990px:border-r-bgBtn  pt-[120px] px-6 770px:px-10 990px:px-0 ">
+    <nav className="990px:border-r 990px:border-r-bgBtn dark:990px:border-r-darkModeBorder  pt-[120px] px-6 770px:px-10 990px:px-0 ">
       <ul className="flex flex-col 770px:flex-row 990px:flex-col gap-2 h-full text-base 990px:text-lg">
         {navLinks.map((link) => (
           <li key={link.name}>
             <Link
-              className={` py-3 px-5 hover:bg-bgLight transition-colors flex items-center gap-4 font-medium hover:text-customBlue ${
+              className={` py-3 px-5 hover:bg-bgLight dark:hover:bg-indigo-600 transition-colors flex items-center gap-4 font-medium hover:text-customBlue dark:hover:text-white ${
                 pathname === `/${locale}${link.href}`
-                  ? "bg-bgLight text-customBlue"
+                  ? "bg-bgLight dark:bg-indigo-600 text-customBlue dark:text-white"
                   : ""
               } transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]`}
               href={link.href}
@@ -56,7 +56,7 @@ export default function SideNavigation() {
             <input type="hidden" name="locale" value={locale} />
             <button
               type="submit"
-              className="990px:w-full py-3 px-5 990px:px-10 rounded-sm text-customBlue 990px:text-white bg-bgLight 990px:bg-customBlue hover:bg-bgMedium 990px:hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+              className="990px:w-full py-3 px-5 990px:px-10 rounded-sm dark:rounded-full text-customBlue dark:text-white 990px:text-white bg-bgLight dark:bg-indigo-600 990px:bg-customBlue dark:990px:bg-indigo-600 hover:bg-bgMedium dark:hover:bg-indigo-500 990px:hover:bg-customBlueDarker dark:990px:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               Sign out
             </button>
