@@ -16,7 +16,7 @@ export default function HeaderLogo() {
   if (!mounted) return null;
 
   const logoSrc =
-    theme === "dark" ? "/svg/logo-main-blue.svg" : "/svg/logo-main.svg";
+    theme === "dark" ? "/svg/logo-main-white.svg" : "/svg/logo-main.svg";
 
   return (
     <Link

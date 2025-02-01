@@ -27,7 +27,7 @@ export default async function Products({
 
   return (
     <>
-      <section className="px-6 770px:px-10 max-w-[1480px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-[160px]">
+      <section className="px-6 770px:px-10 max-w-[1480px] mx-auto pb-[60px] 480px:pb-20 770px:pb-[120px] 990px:pb-[160px] dark:border-b dark:border-b-darkModeBorder">
         <ProductsHeader />
         <Suspense fallback={<ProductsSkeleton />}>
           <ProductList params={params} />

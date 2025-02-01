@@ -35,7 +35,7 @@ export default function ProductSearch() {
         placeholder="Search for your perfect piece..."
         value={query}
         onChange={handleChange}
-        className="w-full text-sm border border-gray-400 py-3 px-4 focus:border-customBlue focus:ring-0 outline-none rounded-full"
+        className="w-full text-sm border border-gray-400 dark:border-darkModeBorder dark:bg-darkModeBorder py-3 px-4 focus:border-customBlue  dark:border-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none rounded-full"
       />
     </div>
   );

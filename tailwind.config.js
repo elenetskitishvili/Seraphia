@@ -33,11 +33,15 @@ module.exports = {
         bgMedium: "#efede5",
         bgDark: "#dbd9d2",
         bgBtn: "#dedede",
+
+        // DARK MODE
         darkModeBg: "#181818",
         darkModeBgLighter: "#282828",
-        darkModeText: "#e0e0e0",
-        darkModeTextLighter: "#eee",
         darkModeBorder: "#333333",
+        darkModeTextLighter: "#eee",
+        darkModeText: "#e0e0e0",
+        darkModeTextSecondary: "#cfcfcf",
+        darkModeTextTertiary: "#a8a8a8",
       },
     },
   },

@@ -40,8 +40,8 @@ export default function ProductFilters() {
           <button
             key={category}
             onClick={() => handleFilter(category)}
-            className={`text-sm 480px:text-base font-bold tracking-tighter py-1 px-5 border border-bgBtn rounded-full m-1 480px:m-[6px] transition-all duration-[600ms] ease-[cubic-bezier(.23,1,.32,1)] cursor-pointer text-customGray hover:bg-bgBtn  
-              ${isActive ? "bg-bgBtn " : ""}
+            className={`text-sm 480px:text-base font-bold tracking-tighter py-1 px-5 border border-bgBtn dark:bg-darkModeBorder dark:border-darkModeBorder rounded-full m-1 480px:m-[6px] transition-all duration-[600ms] ease-[cubic-bezier(.23,1,.32,1)] cursor-pointer text-customGray dark:text-darkModeText hover:bg-bgBtn  
+              ${isActive ? "bg-bgBtn dark:bg-indigo-600" : ""}
               
             `}
           >

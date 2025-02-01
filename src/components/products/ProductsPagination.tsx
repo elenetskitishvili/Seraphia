@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 interface ProductsPaginationProps {
   params: { [key: string]: string | string[] | undefined };
-  total: number; // ✅ Ensure total count is passed
+  total: number;
 }
 
 export default function ProductsPagination({
@@ -29,10 +29,10 @@ export default function ProductsPagination({
 
   return (
     <div className="mt-14 770px:mt-20">
-      <div className="grid grid-cols-3 gap-4 items-center p-[7px] rounded-full border border-bgBtn 770px:w-[620px] 770px:mx-auto">
+      <div className="grid grid-cols-3 gap-4 items-center p-[7px] rounded-full border border-bgBtn dark:border-darkModeBgLighter 770px:w-[620px] 770px:mx-auto dark:bg-darkModeBgLighter">
         {page > 1 ? (
           <button
-            className="justify-self-start text-xs text-customBlue w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium rounded-full cursor-pointer font-bold hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="justify-self-start text-xs text-customBlue dark:text-darkModeText w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium dark:bg-indigo-600 rounded-full cursor-pointer font-bold hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
             onClick={() => handlePageChange(page - 1)}
           >
             Previous
@@ -51,7 +51,7 @@ export default function ProductsPagination({
 
         {page < totalPages && (
           <button
-            className="justify-self-end text-xs text-customBlue w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium rounded-full cursor-pointer font-bold hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="justify-self-end text-xs text-customBlue dark:text-darkModeText w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium dark:bg-indigo-600 rounded-full cursor-pointer font-bold hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
             onClick={() => handlePageChange(page + 1)}
           >
             Next
