@@ -3,13 +3,14 @@ import { Link } from "@/src/i18n/routing";
 import { fetchUserProducts } from "@/src/lib/data-service";
 import { Product } from "@/src/types/types";
 import { createClient } from "@/src/utils/supabase/server";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { getLocale } from "next-intl/server";
+import { PencilIcon } from "@heroicons/react/24/outline";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export default async function MyListings() {
   const supabase = await createClient();
   const locale = await getLocale();
+  const t = await getTranslations("Listing");
 
   const userResponse = await supabase.auth.getUser();
   const userId = userResponse.data.user?.id;
@@ -20,11 +21,15 @@ export default async function MyListings() {
 
   return (
     <div className="p-4 770px:px-10 770px:pt-6 990px:pt-20 990px:pl-0 990px:pr-10">
-      <h1 className="text-2xl 990px:text-4xl font-bold tracking-tighter pb-1">
-        My Listings
+      <h1
+        className={`text-2xl 990px:text-4xl   pb-1 ${
+          locale === "en" ? "tracking-tighter font-bold" : ""
+        }`}
+      >
+        {t("heading")}
       </h1>
       {products.length === 0 ? (
-        <div className="h-[50vh] 990px:h-[80vh] px-6 flex flex-col items-center justify-center tracking-tighter text-center font-bold text-customGray">
+        <div className="h-[50vh] 990px:h-[80vh] px-6 flex flex-col items-center justify-center text-center font-bold text-customGray">
           <h2
             className={`text-[32px]  770px:text-[64px] 990px:text-[80px]  mb-5 770px:mb-10 ${
               locale === "en"
@@ -32,7 +37,7 @@ export default async function MyListings() {
                 : "min-[520px]:text-5xl"
             }`}
           >
-            No listings yet
+            {t("no-listings")}
           </h2>
           <p
             className={`text-lg text-customGray mb-6 770px:mb-10   ${
@@ -41,15 +46,15 @@ export default async function MyListings() {
                 : "tracking-wide"
             }`}
           >
-            Start selling your jewelry today
+            {t("cta-text")}
           </p>
           <Link
             href={"/add-product"}
-            className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+            className={`w-full 480px:w-auto text-base text-white bg-customBlue dark:bg-indigo-600 rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
               locale === "en" ? "tracking-tighter" : "tracking-wide"
             }`}
           >
-            Add product
+            {t("cta-btn")}
           </Link>
         </div>
       ) : (
@@ -64,7 +69,7 @@ export default async function MyListings() {
                     width={390}
                     height={390}
                     alt={product.name_en}
-                    className="aspect-square w-full object-cover"
+                    className="aspect-square w-full object-cover dark:rounded-lg dark:brightness-[80%]"
                   />
                 )}
                 <h2
@@ -72,15 +77,15 @@ export default async function MyListings() {
                     locale === "en" ? "tracking-tighter" : ""
                   }`}
                 >
-                  {product.name_en}
+                  {locale === "en" ? product.name_en : product.name_ka}
                 </h2>
               </Link>
               <div className="flex flex-col 480px:flex-row  gap-3 mt-3">
                 <Link
                   href={`/edit-product/${product.id}`}
-                  className="py-2 px-3 border border-blue-200 rounded-sm flex gap-2 items-center justify-center text-customBlue"
+                  className="py-2 px-3 border border-blue-200 dark:border-darkModeBorder dark:bg-darkModeBorder rounded-sm flex gap-2 items-center justify-center text-customBlue dark:text-indigo-400"
                 >
-                  <PencilIcon className="w-5 h-5 " /> <span>Modify</span>
+                  <PencilIcon className="w-5 h-5" /> <span>{t("modify")}</span>
                 </Link>
                 <DeleteProduct productId={product.id} />
               </div>

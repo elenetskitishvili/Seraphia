@@ -144,7 +144,13 @@
   "Order": {
     "title": "Order Placed",
     "description": "Your order is confirmed! You can view it in your orders page.",
-    "button": "View My Orders"
+    "button": "View My Orders",
+    "your-orders": "Your Orders",
+    "created-at": "Created at: ",
+    "total-price": "Total price: ",
+    "no-orders": "No orders yet",
+    "cta-text": "Find something special in our collection",
+    "shop-now": "Shop now"
   },
   "Pricing": {
     "standard": "Standard Seller",
@@ -168,5 +174,16 @@
     "exclusive-feature3": "Marketing support",
     "exclusive-feature4": "Get featured in blogs",
     "exclusive-btn": "Get Elite"
+  },
+  "Listing": {
+    "heading": "My Listings",
+    "no-listings": "No listings yet",
+    "cta-text": "Start selling your jewelry today",
+    "cta-btn": "Add product",
+    "delete": "Delete",
+    "question": "Are you sure you want to delete this product?",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
+    "modify": "Modify"
   }
 }
