@@ -16,7 +16,6 @@ export default function ImageUpload({
   const [images, setImages] = useState<(string | File)[]>(existingImages || []);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
 
-  // Generate preview URLs and clean up old ones
   useEffect(() => {
     const urls = images.map((image) =>
       typeof image === "string" ? image : URL.createObjectURL(image)
@@ -26,7 +25,6 @@ export default function ImageUpload({
     return () => urls.forEach((url) => URL.revokeObjectURL(url));
   }, [images]);
 
-  // Update parent state only after images state changes (prevents update during render)
   useEffect(() => {
     onImagesChange(images);
   }, [images, onImagesChange]);
@@ -57,7 +55,7 @@ export default function ImageUpload({
             <button
               type="button"
               onClick={() => removeImage(index)}
-              className="absolute -top-2 -right-2 bg-white shadow-lg rounded-full w-6 h-6 flex items-center justify-center text-base"
+              className="absolute -top-2 -right-2 bg-white text-customDark shadow-lg rounded-full w-6 h-6 flex items-center justify-center text-base"
             >
               <XMarkIcon className="w-[18px] h-[18px]" />
             </button>
