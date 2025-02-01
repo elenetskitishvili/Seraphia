@@ -1,10 +1,11 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React, { useState } from "react";
-// import { createCheckoutSession } from "../actions/stripe";
+import { createPremiumCheckoutSession } from "@/src/app/actions/createPremiumCheckoutSession";
 
 export default function CheckoutFormPremium() {
+  const t = useTranslations("Pricing");
   const [loading, setLoading] = useState<boolean>(false);
   const locale = useLocale();
 
@@ -13,15 +14,14 @@ export default function CheckoutFormPremium() {
 
     const formData = new FormData();
     formData.append("uiMode", "hosted");
-    formData.append("priceId", "price_1QWjnEDzVRyJ9zCn2ZqfDTWs");
+    formData.append("priceId", "price_1QnOM4DzVRyJ9zCnBtF8PM5A");
     formData.append("locale", locale);
-    formData.append("purchaseType", "subscription");
 
-    // const { url } = await createCheckoutSession(formData);
+    const { url } = await createPremiumCheckoutSession(formData);
 
-    // if (url) {
-    //   window.location.assign(url);
-    // }
+    if (url) {
+      window.location.assign(url);
+    }
 
     setLoading(false);
   };
@@ -29,11 +29,11 @@ export default function CheckoutFormPremium() {
   return (
     <>
       <button
-        className="block bg-purple-800 hover:bg-purple-600 transition-all text-white rounded-full px-10 py-5 mt-10 text-center"
         onClick={formAction}
         disabled={loading}
+        className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
       >
-        Subscribe for $19.99/month
+        {t("premium-btn")}
       </button>
     </>
   );

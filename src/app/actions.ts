@@ -78,6 +78,7 @@ export const signInAction = async (formData: FormData) => {
           makes_jewelry: false,
           is_admin: false,
           max_items: 5,
+          subscription_plan: "standard",
         },
       ]);
     }
