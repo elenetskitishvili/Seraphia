@@ -18,7 +18,7 @@ const row2Images = [
 
 export default function HeroMarquee() {
   return (
-    <div className="overflow-hidden bg-bgMedium py-3 480px:py-6 990px:py-48 space-y-3  480px:space-y-6">
+    <div className="overflow-hidden bg-bgMedium dark:bg-darkModeBgLighter py-3 480px:py-6 990px:py-48 space-y-3  480px:space-y-6">
       {/* First Row - Moves Left */}
       <motion.div
         className="flex whitespace-nowrap space-x-3 480px:space-x-6"
@@ -39,7 +39,7 @@ export default function HeroMarquee() {
               key={`row1-${index}`}
               src={src}
               alt={`Marquee ${index + 1}`}
-              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
+              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover dark:brightness-[80%]"
             />
           )
         )}
@@ -65,7 +65,7 @@ export default function HeroMarquee() {
               key={`row2-${index}`}
               src={src}
               alt={`Marquee ${index + 1}`}
-              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover"
+              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover dark:brightness-[80%]"
             />
           )
         )}
