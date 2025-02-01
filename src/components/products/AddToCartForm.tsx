@@ -107,7 +107,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
     >
       <button
         type="submit"
-        className={`w-full py-[11px] px-4 text-white bg-customBlue rounded-full hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`w-full py-[11px] px-4 text-white bg-customBlue dark:bg-indigo-600 rounded-full hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
           loading ? " cursor-not-allowed opacity-70" : "opacity-100"
         } order-1 480px:order-none`}
       >
@@ -129,7 +129,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
           min="1"
           step="0.01"
           placeholder={t("quantity-placeholder")}
-          className="w-full py-[10px] px-[18px] rounded-full border border-bgBtn text-customGray bg-bgLighter focus:border-customBlue focus:ring-0 outline-none"
+          className="w-full py-[10px] px-[18px] rounded-full border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder  text-customGray dark:text-darkModeText bg-bgLighter  dark:bg-darkModeBorder focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
         />
       )}
 

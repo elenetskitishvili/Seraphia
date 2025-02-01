@@ -32,7 +32,7 @@ export default function ProductInfo({ product }: { product: Product }) {
   return (
     <div className="relative flex flex-col-reverse 990px:grid 990px:grid-cols-2">
       {/* GALLERY */}
-      <div className="pt-[60px] 480px:pt-20 770px:pt-[120px] px-6 480px:pb-10 770px:px-10 990px:px-[44px] pb-6 770px:pb-14 bg-bgLight flex flex-col gap-6 480px:gap-10 770px:gap-14">
+      <div className="pt-[60px] 480px:pt-20 770px:pt-[120px] px-6 480px:pb-10 770px:px-10 990px:px-[44px] pb-6 770px:pb-14 bg-bgLight dark:bg-darkModeBg flex flex-col gap-6 480px:gap-10 770px:gap-14">
         {product.images.map((image, index) => (
           <Image
             key={index}
@@ -41,7 +41,7 @@ export default function ProductInfo({ product }: { product: Product }) {
             alt={product.name_en}
             width={912}
             height={912}
-            className="aspect-[1/1] w-full object-cover"
+            className="aspect-[1/1] w-full object-cover dark:brightness-[80%] dark:rounded-sm"
           />
         ))}
       </div>
@@ -62,11 +62,11 @@ export default function ProductInfo({ product }: { product: Product }) {
           >
             {locale === "en" ? product.name_en : product.name_ka}
           </h2>
-          <p className="text-xl 480px:text-2xl mb-6 770px:mb-10 text-customGray">
+          <p className="text-xl 480px:text-2xl mb-6 770px:mb-10 text-customGray dark:text-darkModeTextSecondary">
             $ {(product.price / 100).toFixed(2)} USD
           </p>
           <p
-            className={`text-lg text-customGray leading-6 770px:max-w-[510px]  ${
+            className={`text-lg text-customGray dark:text-darkModeText leading-6 770px:max-w-[510px]  ${
               locale === "en" ? "tracking-tighter" : ""
             }`}
           >
