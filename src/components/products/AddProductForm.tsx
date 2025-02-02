@@ -138,13 +138,13 @@ export default function AddProductForm() {
       <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
         <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
           <div className="flex flex-col gap-[14px] mt-6">
-            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+            <p className="text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px]">
               {t("message1")}
             </p>
-            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+            <p className="text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px]">
               {t("message2")}
             </p>
-            <p className="text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px]">
+            <p className="text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px]">
               {t("message3")}
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="nameEn"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("name-en")}
               </label>
@@ -169,13 +169,13 @@ export default function AddProductForm() {
                   name="nameEn"
                   defaultValue=""
                   placeholder="Enter product name in English"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.nameEn && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.nameEn)
                   ? errorMessage.nameEn.join(", ")
                   : errorMessage.nameEn}
@@ -186,7 +186,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="nameKa"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("name-ka")}
               </label>
@@ -199,13 +199,13 @@ export default function AddProductForm() {
                   name="nameKa"
                   defaultValue=""
                   placeholder="პროდუქტის სახელი ქართულად"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.nameKa && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.nameKa)
                   ? errorMessage.nameKa.join(", ")
                   : errorMessage.nameKa}
@@ -216,7 +216,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="price"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("price")} <span className="tracking-normal">($)</span>
               </label>
@@ -231,13 +231,13 @@ export default function AddProductForm() {
                   min="0.01"
                   step="0.01"
                   placeholder={t("price-placeholder")}
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.price && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.price)
                   ? errorMessage.price.join(", ")
                   : errorMessage.price}
@@ -248,7 +248,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="descriptionEn"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("description-en")}
               </label>
@@ -260,13 +260,13 @@ export default function AddProductForm() {
                   name="descriptionEn"
                   defaultValue=""
                   placeholder="Enter product description in English"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.descriptionEn && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.descriptionEn)
                   ? errorMessage.descriptionEn.join(", ")
                   : errorMessage.descriptionEn}
@@ -277,7 +277,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="descriptionKa"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("description-ka")}
               </label>
@@ -290,13 +290,13 @@ export default function AddProductForm() {
                   name="descriptionKa"
                   defaultValue=""
                   placeholder="პროდუქტის აღწერა ქართულად"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.descriptionKa && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.descriptionKa)
                   ? errorMessage.descriptionKa.join(", ")
                   : errorMessage.descriptionKa}
@@ -307,7 +307,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="category"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("category")}
               </label>
@@ -318,7 +318,7 @@ export default function AddProductForm() {
                   id="category"
                   name="category"
                   defaultValue=""
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 >
                   <option value="" disabled>
                     {t("select-default")}
@@ -332,7 +332,7 @@ export default function AddProductForm() {
             </div>
 
             {errorMessage?.category && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.category)
                   ? errorMessage.category.join(", ")
                   : errorMessage.category}
@@ -343,7 +343,7 @@ export default function AddProductForm() {
             <div className="flex flex-col gap-[5px]">
               <label
                 htmlFor="images"
-                className="text-sm text-customGray font-bold tracking-tighter leading-6"
+                className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
               >
                 {t("images")}
               </label>
@@ -356,13 +356,13 @@ export default function AddProductForm() {
                   multiple
                   id="images"
                   name="images"
-                  className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                  className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
                 />
               )}
             </div>
 
             {errorMessage?.images && (
-              <div className="text-orange-700 text-base">
+              <div className="text-orange-700 dark:text-red-500 text-base">
                 {Array.isArray(errorMessage.images)
                   ? errorMessage.images.join(", ")
                   : errorMessage.images}
@@ -373,13 +373,13 @@ export default function AddProductForm() {
               {/* RESULT */}
 
               {error && (
-                <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
+                <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
                   {t("result-fail")}
                 </p>
               )}
               {success && (
                 <p
-                  className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
+                  className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
                   data-cy="product-creation-success-message"
                 >
                   {t("result-success")}
@@ -389,7 +389,7 @@ export default function AddProductForm() {
               {/* SUBMIT BUTTON */}
               <button
                 type="submit"
-                className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
+                className={`w-full 480px:w-auto 480px:px-[50px]  text-customBlue dark:text-white bg-bgMedium dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
                   loading ? " cursor-not-allowed" : ""
                 }`}
               >

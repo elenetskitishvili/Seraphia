@@ -75,7 +75,9 @@
     "error-unexpected": "An unexpected error occurred. Please try again.",
     "updating": "Updating...",
     "updated": "Updated!",
-    "update": "Update"
+    "update": "Update",
+    "heading": "Your Jewelry, Their Treasure",
+    "subheading": "Start selling today."
   },
   "CreateBlog": {
     "requirement-heading-en": "English heading must be at least 10 characters.",
