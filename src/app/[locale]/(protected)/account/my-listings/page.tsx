@@ -69,7 +69,7 @@ export default async function MyListings() {
                     width={390}
                     height={390}
                     alt={product.name_en}
-                    className="aspect-square w-full object-cover dark:rounded-lg dark:brightness-[80%]"
+                    className="aspect-square w-full object-cover dark:rounded-lg dark:brightness-[85%]"
                   />
                 )}
                 <h2

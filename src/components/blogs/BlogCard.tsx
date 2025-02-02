@@ -4,14 +4,14 @@ export default function BlogCard() {
   return (
     <Link
       href={"/blogs"}
-      className="border border-bgBtn group transform duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)]"
+      className="border border-bgBtn dark:border-darkModeBorder group transform duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)]"
     >
       {/* IMAGE */}
       <div className="overflow-hidden">
         <img
           src="/images/hero/image2.jpeg"
           alt="blog"
-          className="aspect-[157/100] w-full object-cover transform group-hover:scale-105 duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)]"
+          className="aspect-[157/100] w-full object-cover transform group-hover:scale-105 duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)] dark:brightness-[85%]"
         />
       </div>
 
@@ -20,7 +20,7 @@ export default function BlogCard() {
         <h3 className="text-xl 480px:text-2xl tracking-tighter mb-10 770px:mb-14">
           What are the biggest fashion trends for summer 2022?
         </h3>
-        <p className="text-base text-customGray ">
+        <p className="text-base text-customGray dark:text-darkModeTextTertiary ">
           <span className="tracking-tighter mr-1">Read more</span>
           <span>
             <i className="fas fa-arrow-right"></i>

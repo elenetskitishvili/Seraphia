@@ -31,7 +31,7 @@ export default async function ContactHero() {
         <img
           src="/images/contact/image1.jpeg"
           alt="contact"
-          className="h-full w-auto object-cover dark:brightness-[80%]"
+          className="h-full w-auto object-cover dark:brightness-[85%]"
         />
       </div>
     </section>

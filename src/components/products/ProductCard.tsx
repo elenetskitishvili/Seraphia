@@ -18,7 +18,7 @@ export default async function ProductCard({ product }: { product: Product }) {
             height={392}
             src={product.images?.[0]}
             alt={product.name_en}
-            className="aspect-square w-full object-cover transform group-hover:scale-105 duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)] dark:brightness-[80%] "
+            className="aspect-square w-full object-cover transform group-hover:scale-105 duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)] dark:brightness-[85%] "
           />
         </div>
         {/* DESCRIPTION */}

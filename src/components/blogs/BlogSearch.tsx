@@ -6,7 +6,7 @@ export default function BlogSearch() {
       <input
         type="search"
         placeholder="Search for blog topics..."
-        className="w-full text-sm border border-bgDark py-[14px] px-4 focus:border-customDark focus:ring-0 outline-none "
+        className="w-full text-sm border dark:border-b-[3px] border-bgDark dark:border-darkModeBorder dark:bg-darkModeBorder py-[14px] px-4 focus:border-customDark dark:focus:border-b-indigo-800 focus:ring-0 outline-none "
       />
     </div>
   );

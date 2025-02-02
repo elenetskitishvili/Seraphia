@@ -41,7 +41,7 @@ export default function ProductInfo({ product }: { product: Product }) {
             alt={product.name_en}
             width={912}
             height={912}
-            className="aspect-[1/1] w-full object-cover dark:brightness-[80%] dark:rounded-sm"
+            className="aspect-[1/1] w-full object-cover dark:brightness-[85%] dark:rounded-sm"
           />
         ))}
       </div>
