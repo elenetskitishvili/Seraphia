@@ -8,6 +8,26 @@ export async function addProduct(formData: FormData) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
   const supabase = await createClient();
 
+  const userResponse = await supabase.auth.getUser();
+  const userId = userResponse.data.user?.id;
+  if (!userId) throw new Error("User not authenticated.");
+
+  // Get user's current max_items
+  const { data: user, error: userError } = await supabase
+    .from("users")
+    .select("max_items")
+    .eq("user_id", userId)
+    .single();
+
+  if (userError) throw new Error("Failed to fetch user data.");
+
+  // Check if user has reached their product limit
+  if (user.max_items !== null && user.max_items <= 0) {
+    throw new Error(
+      "Product limit reached. Upgrade to premium for unlimited listings."
+    );
+  }
+
   // GET DATA
   const nameEn = formData.get("nameEn") as string;
   const nameKa = formData.get("nameKa") as string;
@@ -90,7 +110,14 @@ export async function addProduct(formData: FormData) {
 
     if (error) throw new Error("Failed to create product in Supabase.");
 
-    return data;
+    if (user.max_items !== null) {
+      await supabase
+        .from("users")
+        .update({ max_items: user.max_items - 1 })
+        .eq("user_id", userId);
+    }
+
+    return { success: true };
   } catch (error) {
     console.error("Error creating product in Supabase:", error);
     if (stripeProduct) await stripe.products.del(stripeProduct.id);

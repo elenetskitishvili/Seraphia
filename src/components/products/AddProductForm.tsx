@@ -126,7 +126,7 @@ export default function AddProductForm() {
       if (err instanceof z.ZodError) {
         setError(err.errors.map((e) => e.message).join(", "));
       } else {
-        setError("An unexpected error occurred.");
+        setError(String(err));
       }
     } finally {
       setLoading(false);
