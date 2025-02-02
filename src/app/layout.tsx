@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import SkeletonWrapper from "../components/layout/SkeletonWrapper";
 
 export const metadata = {
   title: "OmniShop",
@@ -22,7 +23,7 @@ export default async function RootLayout(props: RootLayoutProps) {
     <html lang={locale} suppressHydrationWarning>
       <body className="font-inter text-customDark dark:bg-darkModeBg dark:text-darkModeText">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <SkeletonWrapper>{children}</SkeletonWrapper>
         </ThemeProvider>
       </body>
     </html>
