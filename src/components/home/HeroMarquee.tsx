@@ -65,7 +65,7 @@ export default function HeroMarquee() {
               key={`row2-${index}`}
               src={src}
               alt={`Marquee ${index + 1}`}
-              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover dark:brightness-[80%]"
+              className="w-[120px] h-[120px] 480px:w-[180px] 480px:h-[180px] 770px:w-60 770px:h-60 object-cover dark:brightness-[85%]"
             />
           )
         )}

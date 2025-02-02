@@ -99,7 +99,9 @@
     "retry": "Retry",
     "create": "Create blog",
     "result-fail": "Failed to create blog",
-    "result-success": "Blog added successfully"
+    "result-success": "Blog added successfully",
+    "heading": "Inspire with Your Jewelry Story",
+    "subheading": "Sparkle, Shine, and Share"
   },
   "ProductDetails": {
     "whole-number": "Quantity must be a whole number.",

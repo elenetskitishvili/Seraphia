@@ -102,16 +102,16 @@ export default function CreateBlogForm() {
     <section className="max-w-[1360px] mx-auto mb-[60px] 480px:mb-20 770px:mb-[120px] 990px:mb-40 pt-10 px-6 770px:px-10">
       <div className="grid grid-cols-1 gap-10 990px:grid-cols-[31fr_69fr]">
         <div className="flex flex-col  mt-6">
-          <p className="pb-2 text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn">
+          <p className="pb-2 text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn dark:border-b-darkModeBorder">
             {t("message1")}
           </p>
-          <p className="py-2 text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn">
+          <p className="py-2 text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn dark:border-b-darkModeBorder">
             {t("message2")}
           </p>
-          <p className="py-2 text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn">
+          <p className="py-2 text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px] border-b border-b-bgBtn dark:border-b-darkModeBorder">
             {t("message3")}
           </p>
-          <p className="pt-2 text-lg text-customGray font-bold tracking-tighter leading-6 max-w-[300px] ">
+          <p className="pt-2 text-lg text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6 max-w-[300px] ">
             {t("message4")}
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function CreateBlogForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="headingEn"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
             >
               {t("heading-en")}
             </label>
@@ -135,13 +135,13 @@ export default function CreateBlogForm() {
                 name="headingEn"
                 defaultValue=""
                 placeholder="Enter blog heading in English"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               />
             )}
           </div>
 
           {errorMessage?.headingEn && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.headingEn)
                 ? errorMessage.headingEn.join(", ")
                 : errorMessage.headingEn}
@@ -152,7 +152,7 @@ export default function CreateBlogForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="headingKa"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
             >
               {t("heading-ka")}
             </label>
@@ -166,13 +166,13 @@ export default function CreateBlogForm() {
                 name="headingKa"
                 defaultValue=""
                 placeholder="ბლოგის სათაური ქართულად"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               />
             )}
           </div>
 
           {errorMessage?.headingKa && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.headingKa)
                 ? errorMessage.headingKa.join(", ")
                 : errorMessage.headingKa}
@@ -183,7 +183,7 @@ export default function CreateBlogForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="contentEn"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
             >
               {t("content-en")}
             </label>
@@ -199,13 +199,13 @@ export default function CreateBlogForm() {
                 name="contentEn"
                 defaultValue=""
                 placeholder="Write your blog content in English"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+                className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none 990px:h-[168px]"
               />
             )}
           </div>
 
           {errorMessage?.contentEn && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.contentEn)
                 ? errorMessage.contentEn.join(", ")
                 : errorMessage.contentEn}
@@ -215,7 +215,7 @@ export default function CreateBlogForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="contentKa"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
             >
               {t("content-ka")}
             </label>
@@ -231,13 +231,13 @@ export default function CreateBlogForm() {
                 name="contentKa"
                 defaultValue=""
                 placeholder="ბლოგის ტექსტი ქართულად"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none 990px:h-[168px]"
+                className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none 990px:h-[168px]"
               />
             )}
           </div>
 
           {errorMessage?.contentKa && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.contentKa)
                 ? errorMessage.contentKa.join(", ")
                 : errorMessage.contentKa}
@@ -247,7 +247,7 @@ export default function CreateBlogForm() {
           <div className="flex flex-col gap-[5px]">
             <label
               htmlFor="image"
-              className="text-sm text-customGray font-bold tracking-tighter leading-6"
+              className="text-sm text-customGray dark:text-darkModeTextTertiary font-bold tracking-tighter leading-6"
             >
               {t("image")}
             </label>
@@ -260,13 +260,13 @@ export default function CreateBlogForm() {
                 accept="image/*"
                 id="image"
                 name="image"
-                className="border border-gray-400 py-[15px] px-4 focus:border-customBlue focus:ring-0 outline-none"
+                className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
               />
             )}
           </div>
 
           {errorMessage?.image && (
-            <div className="text-orange-700 text-base">
+            <div className="text-orange-700 dark:text-red-500 text-base">
               {Array.isArray(errorMessage.image)
                 ? errorMessage.image.join(", ")
                 : errorMessage.image}
@@ -277,13 +277,13 @@ export default function CreateBlogForm() {
             {/* RESULT */}
 
             {error && (
-              <p className="text-orange-700 text-lg text-center min-[520px]:mt-3">
+              <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
                 {t("result-fail")}
               </p>
             )}
             {success && (
               <p
-                className="text-green-700 text-lg text-center text-bold min-[520px]:mt-3"
+                className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
                 data-cy="product-creation-success-message"
               >
                 {t("result-success")}
@@ -292,7 +292,7 @@ export default function CreateBlogForm() {
             {/* SUBMIT BUTTON */}
             <button
               type="submit"
-              className={`w-full 480px:w-auto 480px:px-[50px]    text-customBlue bg-bgMedium font-medium py-3  rounded-full inline-block hover:bg-bgDark transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
+              className={`w-full 480px:w-auto 480px:px-[50px] text-customBlue dark:text-white bg-bgMedium  dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
                 loading ? " cursor-not-allowed" : ""
               }`}
             >
