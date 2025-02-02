@@ -85,9 +85,11 @@ export default async function Profile() {
               {t("max-items")}
             </label>
             <input
-              type="number"
+              type="text"
               disabled
-              value={user?.max_items || 0}
+              value={
+                user?.max_items === null ? t("unlimited") : user?.max_items
+              }
               className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 "
             />
           </div>

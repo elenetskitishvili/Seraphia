@@ -134,7 +134,8 @@
     "email": "Email",
     "plan": "Subscription plan",
     "expiry": "Subscription expiry",
-    "max-items": "Maximum items you can sell"
+    "max-items": "Maximum items you can sell",
+    "unlimited": "Unlimited"
   },
   "NotFound": {
     "title": "Page Not Found",
@@ -173,7 +174,13 @@
     "exclusive-feature2": "Photography service",
     "exclusive-feature3": "Marketing support",
     "exclusive-feature4": "Get featured in blogs",
-    "exclusive-btn": "Get Elite"
+    "exclusive-btn": "Get Elite",
+    "premium-title": "Premium Activated",
+    "premium-description": "Your premium is active! Enjoy unlimited listings & exclusive features.Manage it on your profile.",
+    "premium-button": "Go to Profile",
+    "exclusive-title": "Exclusive Activated",
+    "exclusive-description": "Your exclusive membership is active! Enjoy top-tier benefits & personalized support. Manage it on your profile.",
+    "exclusive-button": "Go to Profile"
   },
   "Listing": {
     "heading": "My Listings",
