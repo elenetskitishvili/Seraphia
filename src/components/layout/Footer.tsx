@@ -2,75 +2,83 @@ import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 import PaymentIcons from "./PaymentIcons";
 import FooterLogo from "./FooterLogo";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Footer() {
+  const t = await getTranslations("Footer");
+  const locale = await getLocale();
+
   return (
     <footer className="border-t border-t-bgBtn dark:border-t-darkModeBorder">
       {/* TOP PART - GRID CONTAINER */}
-      <div className="py-[60px] px-6 770px:px-10 grid grid-cols-2 990px:grid-cols-4 gap-x-6 gap-y-10 font-bold max-w-[1360px] mx-auto tracking-tighter">
+      <div
+        className={`py-[60px] px-6 770px:px-10 grid grid-cols-2 990px:grid-cols-4 gap-x-6 gap-y-10 font-bold max-w-[1360px] mx-auto ${
+          locale === "en" ? "tracking-tighter" : ""
+        }`}
+      >
         {/* 1 ITEM */}
         <div className="">
-          <h2 className="mb-3 text-lg">Information</h2>
+          <h2 className="mb-3 text-lg">{t("information")}</h2>
           <div className="flex flex-col gap-3 mb-3 ">
             <Link
               href={"/"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Home
+              {t("home")}
             </Link>
             <Link
               href={"/about"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              About
+              {t("about")}
             </Link>
             <Link
               href={"/products"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Products
+              {t("products")}
             </Link>
             <Link
               href={"/blogs"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Blog
+              {t("blog")}
             </Link>
           </div>
         </div>
         {/* 2 ITEM */}
         <div className="">
-          <h2 className="mb-3 text-lg">Categories</h2>
+          <h2 className="mb-3 text-lg">{t("categories")}</h2>
           <div className="flex flex-col gap-3 mb-3 ">
             <Link
-              href={"/products"}
+              href={"/products?category=necklaces&page=1"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Necklaces
+              {t("necklaces")}
             </Link>
             <Link
-              href={"/products"}
+              href={"/products?category=rings&page=1"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Rings
+              {t("rings")}
             </Link>
             <Link
-              href={"/products"}
+              href={"/products?category=bracelets&page=1"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Bracelets
+              {t("bracelets")}
             </Link>
             <Link
-              href={"/products"}
+              href={"/products?category=earrings&page=1"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Earrings
+              {t("earrings")}
             </Link>
           </div>
         </div>
         {/* 3 ITEM */}
         <div className="">
-          <h2 className="mb-3 text-lg">Social</h2>
+          <h2 className="mb-3 text-lg">{t("social")}</h2>
           <div className="flex flex-col gap-3 mb-3">
             <Link
               href={"https://www.youtube.com/"}
@@ -116,31 +124,31 @@ export default async function Footer() {
         </div>
         {/* 4 ITEM */}
         <div className="">
-          <h2 className="mb-3 text-lg">Help</h2>
+          <h2 className="mb-3 text-lg">{t("help")}</h2>
           <div className="flex flex-col gap-3 mb-3">
             <Link
               href={"/contact"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Contact
+              {t("contact")}
             </Link>
             <Link
               href={"/contact"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Help Center
+              {t("help-center")}
             </Link>
             <Link
               href={"/contact"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Terms of Service
+              {t("terms")}
             </Link>
             <Link
               href={"/contact"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              Privacy Policy
+              {t("privacy")}
             </Link>
           </div>
         </div>

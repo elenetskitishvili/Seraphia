@@ -196,5 +196,23 @@
     "cancel": "Cancel",
     "deleting": "Deleting...",
     "modify": "Modify"
+  },
+  "Footer": {
+    "information": "Information",
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "blog": "Blog",
+    "categories": "Categories",
+    "necklaces": "Necklaces",
+    "rings": "Rings",
+    "bracelets": "Bracelets",
+    "earrings": "Earrings",
+    "social": "Social",
+    "help": "Help",
+    "contact": "Contact",
+    "help-center": "Help Center",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
   }
 }
