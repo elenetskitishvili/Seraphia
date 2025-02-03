@@ -9,7 +9,12 @@ import ProductList from "@/src/components/products/ProductList";
 export default async function Products({
   searchParams,
 }: {
-  searchParams: any;
+  searchParams: Promise<{
+    search?: string;
+    category?: string;
+    sort?: "asc" | "desc";
+    page?: string;
+  }>;
 }) {
   const params = await searchParams;
 

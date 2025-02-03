@@ -1,7 +1,16 @@
 import ProductCard from "@/src/components/products/ProductCard";
 import { Product } from "@/src/types/types";
 
-export default async function ProductList({ params }: { params: any }) {
+export default async function ProductList({
+  params,
+}: {
+  params: {
+    search?: string;
+    category?: string;
+    sort?: "asc" | "desc";
+    page?: string;
+  };
+}) {
   const search = params?.search || "";
   const category = params?.category || "";
   const sort = params?.sort || "asc";

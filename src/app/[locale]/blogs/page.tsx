@@ -1,8 +1,34 @@
 import BlogCard from "@/src/components/blogs/BlogCard";
+import BlogList from "@/src/components/blogs/BlogList";
 import BlogSearch from "@/src/components/blogs/BlogSearch";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
+import ProductsPagination from "@/src/components/products/ProductsPagination";
+import ProductsSkeleton from "@/src/components/products/ProductsSkeleton";
+import { Suspense } from "react";
 
-export default async function Blogs() {
+export default async function Blogs({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    search?: string;
+    sort?: "asc" | "desc";
+    page?: string;
+  }>;
+}) {
+  const params = await searchParams;
+  console.log("params🔮", params);
+
+  const search = params?.search || "";
+  const sort = params?.sort || "asc";
+  const page = Number(params?.page) || 1;
+  const limit = 10;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/blogs?search=${search}&sort=${sort}&page=${page}&limit=${limit}`
+  );
+
+  const { blogs, total } = await res.json();
+
   return (
     <>
       <section>
@@ -20,15 +46,11 @@ export default async function Blogs() {
           <BlogSearch />
         </div>
 
-        {/* BLOGS LIST */}
-        <div className="grid grid-cols-1 480px:grid-cols-2 990px:grid-cols-3 480px:gap-x-6 gap-y-6 480px:gap-y-10 px-6 770px:px-10 py-[60px] 770px:py-20 990px:py-[120px] ">
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-        </div>
+        <Suspense fallback={<ProductsSkeleton />}>
+          <BlogList params={params} />
+        </Suspense>
+
+        <ProductsPagination params={params} total={total} />
       </section>
       <PremiumCTA />
     </>
