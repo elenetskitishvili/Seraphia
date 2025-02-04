@@ -198,6 +198,17 @@
     "deleting": "Deleting...",
     "modify": "Modify"
   },
+  "MyBlogs": {
+    "heading": "My Blogs",
+    "no-listings": "No blogs yet",
+    "cta-text": "Start inspiring others",
+    "cta-btn": "Add blog",
+    "delete": "Delete",
+    "question": "Are you sure you want to delete this blog?",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
+    "modify": "Modify"
+  },
   "Footer": {
     "information": "Information",
     "home": "Home",

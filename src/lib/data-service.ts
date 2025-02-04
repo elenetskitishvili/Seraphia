@@ -203,3 +203,17 @@ export async function fetchUserProducts(userId: string): Promise<Product[]> {
 
   return data || [];
 }
+
+export async function fetchUserBlogs(userId: string): Promise<Blog[]> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .from("blogs")
+    .select("*")
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false });
+
+  if (error) throw new Error("Failed to fetch user Blogs");
+
+  return data || [];
+}

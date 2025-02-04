@@ -3,6 +3,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
   Squares2X2Icon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 
 import { usePathname } from "next/navigation";
@@ -25,6 +26,11 @@ const navLinks = [
     name: "My Listings",
     href: "/account/my-listings",
     icon: <Squares2X2Icon className="h-5 w-5 990px:h-6 990px:w-6" />,
+  },
+  {
+    name: "My Blogs",
+    href: "/account/my-blogs",
+    icon: <PencilSquareIcon className="h-5 w-5 990px:h-6 990px:w-6" />,
   },
 ];
 
