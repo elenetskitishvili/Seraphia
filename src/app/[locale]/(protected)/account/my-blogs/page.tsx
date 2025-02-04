@@ -82,7 +82,7 @@ export default async function MyBlogs() {
               </Link>
               <div className="flex flex-col 480px:flex-row  gap-3 mt-3">
                 <Link
-                  href={`/edit-product/${blog.id}`}
+                  href={`/edit-blog/${blog.id}`}
                   className="py-2 px-3 border border-blue-200 dark:border-darkModeBorder dark:bg-darkModeBorder rounded-sm flex gap-2 items-center justify-center text-customBlue dark:text-indigo-400"
                 >
                   <PencilIcon className="w-5 h-5" /> <span>{t("modify")}</span>

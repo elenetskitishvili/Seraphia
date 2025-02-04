@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-interface ImageUploadProps {
+interface ImagesUploadProps {
   existingImages: string[];
   onImagesChange: (updatedImages: (string | File)[]) => void;
 }
 
-export default function ImageUpload({
+export default function ImagesUpload({
   existingImages,
   onImagesChange,
-}: ImageUploadProps) {
+}: ImagesUploadProps) {
   const [images, setImages] = useState<(string | File)[]>(existingImages || []);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
 

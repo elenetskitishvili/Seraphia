@@ -41,7 +41,13 @@ export default async function Blog({ params }: { params: { blogId: string } }) {
               <span>{formattedDate}</span>
             </div>
           </div>
-          <h2 className="text-[32px] 480px:text-4xl 770px:text-[64px] font-bold leading-none 770px:leading-[55px] tracking-tighter mb-6 990px:mb-10 ">
+          <h2
+            className={`text-[32px] 480px:text-4xl font-bold  mb-6 990px:mb-10 ${
+              locale === "en"
+                ? " 770px:text-[64px] leading-none 770px:leading-[55px] tracking-tighter"
+                : "leading-loose"
+            }`}
+          >
             {locale === "en" ? blog.heading_en : blog.heading_ka}
           </h2>
         </div>
@@ -62,7 +68,7 @@ export default async function Blog({ params }: { params: { blogId: string } }) {
         <h3 className="text-[28px] 480px:text-4xl mb-8 leading-none font-bold tracking-tighter">
           {locale === "en" ? blog.heading_en : blog.heading_ka}
         </h3>
-        <article className="text-customGray dark:text-darkModeTextSecondary text-lg">
+        <article className="text-customGray dark:text-darkModeTextSecondary text-lg flex flex-col gap-6">
           <ReactMarkdown>
             {locale === "en" ? blog.content_en : blog.content_ka}
           </ReactMarkdown>

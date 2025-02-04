@@ -12,7 +12,7 @@ import { useLocale } from "next-intl";
 
 import { useState } from "react";
 import { Product } from "@/src/types/types";
-import ImageUpload from "./ImageUpload";
+import ImagesUpload from "./ImagesUpload";
 
 interface ErrorMessages {
   nameEn?: string | string[];
@@ -391,7 +391,7 @@ export default function EditProductForm({ product }: { product: Product }) {
                 <Skeleton borderRadius={0} className="h-[175px] w-full" />
               ) : (
                 <div className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none">
-                  <ImageUpload
+                  <ImagesUpload
                     existingImages={product.images}
                     onImagesChange={handleImagesChange}
                   />
