@@ -6,7 +6,7 @@ export default async function NotFound() {
   const locale = await getLocale();
 
   return (
-    <div className="h-screen px-6 flex flex-col items-center justify-center  bg-bgLight tracking-tighter text-center font-bold">
+    <div className="h-screen px-6 flex flex-col items-center justify-center  bg-bgLight dark:bg-darkModeBg text-center font-bold">
       <h2
         className={`text-[32px]  770px:text-[64px] 990px:text-[80px]  mb-5 770px:mb-10 ${
           locale === "en"
@@ -17,7 +17,7 @@ export default async function NotFound() {
         {t("title")}
       </h2>
       <p
-        className={`text-lg text-customGray mb-6 770px:mb-10   ${
+        className={`text-lg text-customGray dark:text-darkModeTextSecondary mb-6 770px:mb-10   ${
           locale === "en"
             ? "tracking-tighter leading-tight max-w-[400px]"
             : "tracking-wide"
@@ -27,7 +27,7 @@ export default async function NotFound() {
       </p>
       <Link
         href={"/"}
-        className={`w-full 480px:w-auto text-base text-white bg-customBlue rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`w-full 480px:w-auto text-base text-white bg-customBlue dark:bg-indigo-600 rounded-full py-3 px-[50px] inline-block hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
           locale === "en" ? "tracking-tighter" : "tracking-wide"
         }`}
       >
