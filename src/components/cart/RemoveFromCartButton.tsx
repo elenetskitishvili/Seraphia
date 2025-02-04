@@ -2,6 +2,7 @@
 
 import { removeFromCart } from "@/src/app/actions/removeFromCart";
 import { useCart } from "@/src/context/CartProvider";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 interface RemoveFromCartButtonProps {
@@ -13,6 +14,8 @@ export default function RemoveFromCartButton({
   itemId,
   onRemove,
 }: RemoveFromCartButtonProps) {
+  const t = useTranslations("Cart");
+
   const [loading, setLoading] = useState<boolean>(false);
   const { updateCartCount } = useCart();
 
@@ -32,9 +35,9 @@ export default function RemoveFromCartButton({
     <button
       onClick={handleRemove}
       disabled={loading}
-      className="text-customGray text-sm hover:text-customBlue"
+      className="text-customGray dark:text-darkModeTextTertiary text-sm hover:text-customBlue dark:hover:text-indigo-600"
     >
-      {loading ? "Removing..." : "Remove"}
+      {loading ? t("removing") : t("remove")}
     </button>
   );
 }

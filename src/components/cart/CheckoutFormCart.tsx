@@ -2,7 +2,7 @@
 
 import { createProductCheckoutSession } from "@/src/app/actions/createProductCheckoutSession";
 import { CartItem } from "@/src/types/types";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function CheckoutFormCart({
@@ -11,6 +11,7 @@ export default function CheckoutFormCart({
   items: CartItem[];
 }): JSX.Element {
   const locale = useLocale();
+  const t = useTranslations("Cart");
   const [loading, setLoading] = useState<boolean>(false);
 
   const formAction = async (): Promise<void> => {
@@ -48,9 +49,9 @@ export default function CheckoutFormCart({
       <button
         onClick={formAction}
         disabled={loading}
-        className="mt-4 w-full text-base py-2 rounded-full text-white bg-customBlueDarker font-bold inline-block hover:bg-customBlue transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+        className="mt-4 w-full text-base py-2 rounded-full text-white bg-customBlueDarker dark:bg-indigo-600 font-bold inline-block hover:bg-customBlue dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
       >
-        {loading ? "Processing..." : "Checkout"}
+        {loading ? t("processing") : t("checkout")}
       </button>
     </>
   );

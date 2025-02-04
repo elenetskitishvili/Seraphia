@@ -10,35 +10,35 @@ const CartSkeleton = () => {
         {[...Array(cartCount)].map((_, index) => (
           <li
             key={index}
-            className="grid grid-cols-[80fr_20fr] 770px:grid-cols-[70fr_15fr_15fr] items-center border-b border-gray-300 py-4 px-4"
+            className="grid grid-cols-[80fr_20fr] 770px:grid-cols-[70fr_15fr_15fr] items-center border-b border-bgBtn dark:border-darkModeBorder py-4 px-4"
           >
-            {/* Product Link Skeleton */}
+            {/* PRODUCT LINK */}
             <div className="flex items-center gap-3">
-              {/* Product Image Skeleton */}
+              {/* IMAGE */}
               <Skeleton width={64} height={64} className="rounded-sm" />
               <div>
-                {/* Product Name Skeleton */}
+                {/* NAME */}
                 <Skeleton width={120} height={20} />
-                {/* Quantity Skeleton (hidden on smaller screens) */}
+                {/* QUANTITY - SMALL SCREEN */}
                 <div className="770px:hidden">
                   <Skeleton width={30} height={16} />
                 </div>
-                {/* Total Price Skeleton */}
+                {/* PRICE */}
                 <Skeleton width={50} height={20} />
               </div>
             </div>
-            {/* Quantity Skeleton (visible on larger screens) */}
+            {/* QUANTITY - LARGE SCREEN */}
             <div className="hidden 770px:block">
               <Skeleton width={30} height={16} />
             </div>
-            {/* Remove Button Skeleton */}
+            {/* REMOVE BUTTON */}
             <Skeleton width={50} height={20} />
           </li>
         ))}
       </ul>
 
       <div className="p-4">
-        {/* Total Price Skeleton */}
+        {/* TOTAL PRICE */}
         <div className="flex justify-between text-lg font-semibold">
           <span>
             <Skeleton width={50} />
@@ -48,7 +48,7 @@ const CartSkeleton = () => {
           </span>
         </div>
 
-        {/* Checkout Button Skeleton */}
+        {/* CHECKOUT BUTTON */}
         <Skeleton height={40} className="mt-4 w-full rounded-sm" />
       </div>
     </>

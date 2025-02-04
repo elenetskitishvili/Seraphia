@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import CartList from "./CartList";
 import CartSkeleton from "./CartSkeleton";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useLocale, useTranslations } from "next-intl";
 
 interface HeaderNavProps {
   isOpen: boolean;
@@ -13,6 +14,9 @@ interface HeaderNavProps {
 }
 
 export default function Cart({ isOpen, onClose }: HeaderNavProps) {
+  const locale = useLocale();
+  const t = useTranslations("Cart");
+
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -48,16 +52,22 @@ export default function Cart({ isOpen, onClose }: HeaderNavProps) {
 
       {/* CART */}
       <div
-        className={`z-50 fixed top-0 right-0 w-full 990px:w-[500px] min-h-screen flex flex-col bg-white shadow-lg transition-transform duration-[800ms] transform ${
+        className={`z-50 fixed top-0 right-0 w-full 990px:w-[500px] min-h-screen flex flex-col bg-white dark:bg-customDark shadow-lg transition-transform duration-[800ms] transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } ease-[cubic-bezier(0.25, 1, 0.5, 1)]`}
       >
         {/* CART HEADER (Fixed) */}
-        <div className="flex items-center justify-between border-b border-b-bgBtn py-4 px-6 bg-white sticky top-0 z-10">
-          <h4 className="text-xl 480px:text-2xl tracking-tighter">Your Cart</h4>
+        <div className="flex items-center justify-between border-b border-b-bgBtn dark:border-b-darkModeBorder py-4 px-6 bg-white dark:bg-customDark sticky top-0 z-10">
+          <h4
+            className={`text-xl 480px:text-2xl  ${
+              locale === "en" ? "tracking-tighter" : ""
+            }`}
+          >
+            {t("your-cart")}
+          </h4>
           <button
             onClick={onClose}
-            className=" hover:text-customBlue transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+            className=" hover:text-customBlue dark:text-white dark:hover:text-indigo-600 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
           >
             <XMarkIcon className="w-6 h-6 " />
           </button>
@@ -66,13 +76,15 @@ export default function Cart({ isOpen, onClose }: HeaderNavProps) {
         {/* CART CONTENT (Scrollable) */}
         {error ? (
           <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
-            <p className="text-customGray text-lg text-center">{error}</p>
+            <p className="text-customGray dark:text-darkModeTextTertiary text-lg text-center">
+              {error}
+            </p>
           </div>
         ) : loading ? (
           <CartSkeleton />
         ) : cartItems.length === 0 ? (
           <div className="flex-1 overflow-y-auto p-6 flex items-center justify-center">
-            <p className="text-customGray text-lg text-center">
+            <p className="text-customGray dark:text-darkModeTextTertiary text-lg text-center">
               No items found.
             </p>
           </div>

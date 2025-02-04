@@ -215,5 +215,13 @@
     "help-center": "Help Center",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy"
+  },
+  "Cart": {
+    "total": "Total: ",
+    "your-cart": "Your Cart",
+    "processing": "Processing...",
+    "checkout": "Checkout",
+    "removing": "Removing...",
+    "remove": "Remove"
   }
 }
