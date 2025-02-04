@@ -24,9 +24,14 @@ const getBlogSchema = (t: (key: string) => string) =>
     headingKa: z.string().min(10, { message: t("requirement-heading-ka") }),
     contentEn: z.string().min(100, { message: t("requirement-content-en") }),
     contentKa: z.string().min(100, { message: t("requirement-content-ka") }),
-    image: z.custom<File>((file) => file instanceof File && file.size > 0, {
-      message: t("requirement-image"),
-    }),
+    image: z
+      .any()
+      .refine(
+        (value) =>
+          value instanceof File ||
+          (typeof value === "string" && value.startsWith("http")),
+        { message: t("requirement-image") }
+      ),
   });
 
 export default function CreateBlogForm({ blog }: { blog: Blog }) {
@@ -62,7 +67,7 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
       headingKa: formData.get("headingKa") as string,
       contentEn: formData.get("contentEn") as string,
       contentKa: formData.get("contentKa") as string,
-      image: formData.get("image") as File,
+      image: imageFile || blog.image,
     };
 
     try {
