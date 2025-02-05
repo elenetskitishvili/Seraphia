@@ -1,9 +1,10 @@
 "use server";
 
-import { encodedRedirect } from "../utils/utils";
-import { createClient } from "../utils/supabase/server";
+import { encodedRedirect } from "@/src/utils/utils";
+import { createClient } from "@/src/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getLocale } from "next-intl/server";
 
 // Sign Up
 export const signUpAction = async (formData: FormData) => {
@@ -46,7 +47,7 @@ export const signInAction = async (formData: FormData) => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const supabase = await createClient();
-  const locale = formData.get("locale")?.toString();
+  const locale = await getLocale();
 
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
@@ -54,7 +55,7 @@ export const signInAction = async (formData: FormData) => {
   });
 
   if (error) {
-    return encodedRedirect("error", `/${locale}/sign-in`, error.message);
+    return { error: error.message };
   }
 
   const userId = data.user?.id;

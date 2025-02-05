@@ -237,5 +237,19 @@
     "checkout": "Checkout",
     "removing": "Removing...",
     "remove": "Remove"
+  },
+  "Auth": {
+    "requirement-email": "Please enter a valid email address",
+    "requirement-password": "Password is required",
+    "sign-in": "Sign in",
+    "no-account": "Don't have an account?",
+    "sign-up": " Sign up",
+    "email": "Email",
+    "password": "Password",
+    "forgot": "Forgot Password?",
+    "result-fail": "Incorrect email or password",
+    "result-success": "Logged in successfully",
+    "enter-email": "Enter your email",
+    "enter-password": "Enter your password"
   }
 }
