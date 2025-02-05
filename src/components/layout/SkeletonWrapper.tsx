@@ -1,4 +1,3 @@
-// components/SkeletonWrapper.tsx
 "use client";
 
 import { FC, ReactNode } from "react";

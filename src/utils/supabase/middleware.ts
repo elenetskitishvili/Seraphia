@@ -4,33 +4,26 @@ import createMiddleware from "next-intl/middleware";
 import { routing } from "@/src/i18n/routing";
 
 const restrictedPages = [
-  "/en",
-  "/en/about",
-  "/en/blogs",
-  "/en/contact",
-  "/en/create-product",
-  "/en/pricing",
-  "/en/products",
-  "/en/profile",
+  "/en/account/profile",
+  "/en/account/my-blogs",
+  "/en/account/my-listings",
+  "/en/account/orders",
+  "/en/add-product",
+  "/en/cart",
+  "/en/create-blog",
+  "/en/edit-blog",
+  "/en/edit-product",
   "/en/reset-password",
-  "/ka",
-  "/ka/about",
-  "/ka/blogs",
-  "/ka/contact",
-  "/ka/create-product",
-  "/ka/pricing",
-  "/ka/products",
-  "/ka/profile",
+  "/ka/account/profile",
+  "/ka/account/my-blogs",
+  "/ka/account/my-listings",
+  "/ka/account/orders",
+  "/ka/add-product",
+  "/ka/cart",
+  "/ka/create-blog",
+  "/ka/edit-blog",
+  "/ka/edit-product",
   "/ka/reset-password",
-];
-
-const authPages = [
-  "/en/sign-in",
-  "/en/sign-up",
-  "/en/forgot-password",
-  "/ka/sign-in",
-  "/ka/sign-up",
-  "/ka/forgot-password",
 ];
 
 const nonProtectedPages = ["/en/reset-password", "/ka/reset-password"];

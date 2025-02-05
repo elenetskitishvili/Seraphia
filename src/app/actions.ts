@@ -38,11 +38,6 @@ export const signUpAction = async (formData: FormData) => {
       `/${locale}/sign-up`,
       "Thanks for signing up! Please check your email for a verification link."
     );
-    return encodedRedirect(
-      "success",
-      `/${locale}/sign-in`,
-      "Account created successfully! You are now logged in."
-    );
   }
 };
 
@@ -163,7 +158,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     );
   }
 
-  encodedRedirect("success", `/${locale}/reset-password`, "Password updated");
+  encodedRedirect("success", `/${locale}/sign-in`, "Password updated");
 };
 
 // Sign Out
