@@ -284,7 +284,7 @@ export default function UpdateProfileForm({
           type="submit"
           className="w-full 480px:w-[250px] 480px:px-[50px]  text-white bg-customBlue dark:bg-indigo-600 font-medium py-3  rounded-sm inline-block hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 "
         >
-          Sign out
+          {t("sign-out")}
         </button>
       </form>
     </>

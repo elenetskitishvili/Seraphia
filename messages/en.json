@@ -143,7 +143,8 @@
     "plan": "Subscription plan",
     "expiry": "Subscription expiry",
     "max-items": "Maximum items you can sell",
-    "unlimited": "Unlimited"
+    "unlimited": "Unlimited",
+    "sign-out": "Sign Out"
   },
   "NotFound": {
     "title": "Page Not Found",
@@ -288,6 +289,11 @@
     "add-blog": "Add Blog",
     "pricing": "Pricing",
     "account": "Account",
-    "contact": "Contact"
+    "contact": "Contact",
+    "my-profile": "My Profile",
+    "order-history": "Order History",
+    "my-listings": "My Listings",
+    "my-blogs": "My Blogs",
+    "sign-out": "Sign Out"
   }
 }
