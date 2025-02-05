@@ -271,6 +271,9 @@
     "success-signup": "Thanks for signing up! Please check your email for a verification link.",
     "success-reset-password": "Check your email for a link to reset your password.",
     "success-password-update": "Password updated successfully.",
-    "reset-password": "Reset Password"
+    "reset-password": "Reset Password",
+    "enter-password-below": "Please enter your new password below.",
+    "new-password": "New password",
+    "confirm-password": "Confirm password"
   }
 }

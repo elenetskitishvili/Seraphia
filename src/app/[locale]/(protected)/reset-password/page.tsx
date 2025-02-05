@@ -1,8 +1,7 @@
 import { resetPasswordAction } from "@/src/app/actions/authActions";
 import { FormMessage, Message } from "@/src/components/form-message";
 import { SubmitButton } from "@/src/components/submit-button";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
+import { getTranslations } from "next-intl/server";
 
 export default async function ResetPassword(props: {
   searchParams: Promise<Message>;
@@ -10,36 +9,60 @@ export default async function ResetPassword(props: {
 }) {
   const searchParams = await props.searchParams;
   const { locale } = await props.params;
+  const t = await getTranslations("Auth");
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <form className="flex flex-col w-full max-w-md p-4 gap-2 [&>input]:mb-4">
         <input type="hidden" name="locale" value={locale} />
-        <h1 className="text-4xl font-medium">Reset password</h1>
-        <p className="text-xl text-foreground/60">
-          Please enter your new password below.
+        <h1
+          className={`text-3xl font-medium  mb-2  ${
+            locale === "en" ? "tracking-tighter" : ""
+          }`}
+        >
+          {t("reset-password")}
+        </h1>
+        <p className="text-base text-foreground mt-3 mb-3 flex items-center gap-1">
+          {t("enter-password-below")}
         </p>
-        <Label htmlFor="password" className="text-xl">
-          New password
-        </Label>
-        <Input
+        <label
+          htmlFor="password"
+          className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
+            locale === "en" ? "tracking-tighter" : ""
+          }`}
+        >
+          {t("new-password")}
+        </label>
+        <input
           type="password"
           name="password"
-          placeholder="New password"
+          placeholder={t("new-password")}
           required
+          className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
         />
-        <Label htmlFor="confirmPassword" className="text-xl">
-          Confirm password
-        </Label>
-        <Input
+        <label
+          htmlFor="confirmPassword"
+          className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
+            locale === "en" ? "tracking-tighter" : ""
+          }`}
+        >
+          {t("confirm-password")}
+        </label>
+        <input
           type="password"
           name="confirmPassword"
-          placeholder="Confirm password"
+          placeholder={t("confirm-password")}
           required
+          className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
         />
-        <SubmitButton formAction={resetPasswordAction}>
-          Reset password
-        </SubmitButton>
-        <FormMessage message={searchParams} />
+        <button
+          formAction={resetPasswordAction}
+          className={`w-full text-white dark:text-darkModeText bg-customBlue dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end`}
+        >
+          {t("reset-password")}
+        </button>
+        <div className="text-center">
+          <FormMessage message={searchParams} />
+        </div>
       </form>
     </div>
   );
