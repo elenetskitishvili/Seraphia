@@ -1,14 +1,19 @@
 import { signInWithGithubAction } from "@/src/app/actions/authActions";
+import { FormMessage, Message } from "@/src/components/form-message";
 import SignInForm from "@/src/components/auth/SignInForm";
 import { getLocale } from "next-intl/server";
 
-export default async function Login() {
+export default async function Login(props: { searchParams: Promise<Message> }) {
+  const searchParams = await props.searchParams;
   const locale = await getLocale();
 
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="">
         <SignInForm />
+        <div className="dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3">
+          <FormMessage message={searchParams} />
+        </div>
 
         {/* GITHUB */}
         <form action={signInWithGithubAction}>

@@ -165,19 +165,6 @@ export default function SignInForm() {
           </div>
         )}
 
-        {error && (
-          <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
-            {t("result-fail")}
-          </p>
-        )}
-        {success && (
-          <p
-            className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
-            data-cy="product-creation-success-message"
-          >
-            {t("result-success")}
-          </p>
-        )}
         <button
           type="submit"
           data-cy="sign-in-button"

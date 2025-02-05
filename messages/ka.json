@@ -261,6 +261,15 @@
     "requirement-password-number": "პაროლში უნდა იყოს მინიმუმ ერთი ციფრი",
     "requirement-password-special": "პაროლში უნდა იყოს მინიმუმ ერთი სპეციალური სიმბოლო",
     "already-account": "გაქვთ უკვე ანგარიში?",
-    "signing-up": "რეგისტრირდება..."
+    "signing-up": "რეგისტრირდება...",
+    "require-email-password": "ელ-ფოსტა და პაროლი აუცილებელია.",
+    "require-email": "ელ-ფოსტა აუცილებელია.",
+    "require-password-confirm": "პაროლი და დამოწმებული პაროლი აუცილებელია.",
+    "error-password-mismatch": "პაროლები არ ემთხვევა.",
+    "error-password-update": "პაროლის განახლება ვერ მოხერხდა.",
+    "error-reset-password": "პაროლის აღდგენა ვერ მოხერხდა.",
+    "success-signup": "მადლობა რეგისტრაციისთვის! გთხოვთ შეამოწმოთ თქვენი ელ-ფოსტა დასადასტურებელი ბმულისთვის.",
+    "success-reset-password": "შეამოწმეთ ელ-ფოსტა პაროლის აღდგენის ბმულისთვის.",
+    "success-password-update": "პაროლი წარმატებით განახლდა."
   }
 }

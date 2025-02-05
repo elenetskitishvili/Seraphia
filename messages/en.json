@@ -261,6 +261,15 @@
     "requirement-password-number": "Password must contain at least one number",
     "requirement-password-special": "Password must contain at least one special character",
     "already-account": "Already have an account?",
-    "signing-up": "Signing up..."
+    "signing-up": "Signing up...",
+    "require-email-password": "Email and password are required.",
+    "require-email": "Email is required.",
+    "require-password-confirm": "Password and confirm password are required.",
+    "error-password-mismatch": "Passwords do not match.",
+    "error-password-update": "Password update failed.",
+    "error-reset-password": "Could not reset password.",
+    "success-signup": "Thanks for signing up! Please check your email for a verification link.",
+    "success-reset-password": "Check your email for a link to reset your password.",
+    "success-password-update": "Password updated successfully."
   }
 }
