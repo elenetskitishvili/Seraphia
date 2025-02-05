@@ -242,6 +242,7 @@
     "requirement-email": "გთხოვთ, შეიყვანეთ სწორი ელფოსტა",
     "requirement-password": "პაროლი აუცილებელია",
     "sign-in": "შესვლა",
+    "signing-in": "შესვლა...",
     "no-account": "არ გაქვთ ანგარიში?",
     "sign-up": " რეგისტრაცია",
     "email": "ელფოსტა",
@@ -249,7 +250,17 @@
     "forgot": "დაგავიწყდა პაროლი?",
     "result-fail": "ელფოსტა ან პაროლი არასწორია",
     "result-success": "ავტორიზაცია წარმატებულია",
+    "result-fail-signup": "ავტორიზაცია ვერ მოხერხდა",
+    "result-success-signup": "ავტორიზაცია წარმატებულია",
     "enter-email": "შეიყვანეთ თქვენი ელფოსტა",
-    "enter-password": "შეიყვანეთ თქვენი პაროლი"
+    "enter-password": "შეიყვანეთ თქვენი პაროლი",
+    "requirement-password-min": "პაროლი უნდა შეიცავდეს მინიმუმ 8 სიმბოლოს",
+    "requirement-password-max": "პაროლი არ უნდა აღემატებოდეს 32 სიმბოლოს",
+    "requirement-password-uppercase": "პაროლში უნდა იყოს მინიმუმ ერთი დიდი ასო",
+    "requirement-password-lowercase": "პაროლში უნდა იყოს მინიმუმ ერთი პატარა ასო",
+    "requirement-password-number": "პაროლში უნდა იყოს მინიმუმ ერთი ციფრი",
+    "requirement-password-special": "პაროლში უნდა იყოს მინიმუმ ერთი სპეციალური სიმბოლო",
+    "already-account": "გაქვთ უკვე ანგარიში?",
+    "signing-up": "რეგისტრირდება..."
   }
 }

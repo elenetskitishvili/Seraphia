@@ -242,6 +242,7 @@
     "requirement-email": "Please enter a valid email address",
     "requirement-password": "Password is required",
     "sign-in": "Sign in",
+    "signing-in": "Signing in...",
     "no-account": "Don't have an account?",
     "sign-up": " Sign up",
     "email": "Email",
@@ -249,7 +250,17 @@
     "forgot": "Forgot Password?",
     "result-fail": "Incorrect email or password",
     "result-success": "Logged in successfully",
+    "result-fail-signup": "Could not sign up",
+    "result-success-signup": "Signed up successfully",
     "enter-email": "Enter your email",
-    "enter-password": "Enter your password"
+    "enter-password": "Enter your password",
+    "requirement-password-min": "Password must be at least 8 characters",
+    "requirement-password-max": "Password must not exceed 32 characters",
+    "requirement-password-uppercase": "Password must contain at least one uppercase letter",
+    "requirement-password-lowercase": "Password must contain at least one lowercase letter",
+    "requirement-password-number": "Password must contain at least one number",
+    "requirement-password-special": "Password must contain at least one special character",
+    "already-account": "Already have an account?",
+    "signing-up": "Signing up..."
   }
 }

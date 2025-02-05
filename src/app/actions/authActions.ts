@@ -12,7 +12,7 @@ export const signUpAction = async (formData: FormData) => {
   const password = formData.get("password")?.toString();
   const supabase = await createClient();
   const origin = (await headers()).get("origin");
-  const locale = formData.get("locale")?.toString();
+  const locale = await getLocale();
 
   if (!email || !password) {
     return encodedRedirect(

@@ -3,7 +3,7 @@
 import { z } from "zod";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { signInAction } from "@/src/app/actions/authActions";
+import { signInAction, signUpAction } from "@/src/app/actions/authActions";
 import { Link } from "@/src/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
@@ -13,16 +13,23 @@ interface ErrorMessages {
   password?: string | string[];
 }
 
-const getSignInSchema = (t: (key: string) => string) =>
+const getSignUpSchema = (t: (key: string) => string) =>
   z.object({
     email: z.string().email({ message: t("requirement-email") }),
-    password: z.string().min(1, { message: t("requirement-password") }),
+    password: z
+      .string()
+      .min(8, { message: t("requirement-password-min") })
+      .max(32, { message: t("requirement-password-max") })
+      .regex(/[A-Z]/, { message: t("requirement-password-uppercase") })
+      .regex(/[a-z]/, { message: t("requirement-password-lowercase") })
+      .regex(/\d/, { message: t("requirement-password-number") })
+      .regex(/[\W_]/, { message: t("requirement-password-special") }),
   });
 
-export default function SignInForm() {
+export default function SignUpForm() {
   const t = useTranslations("Auth");
   const locale = useLocale();
-  const SignInSchema = getSignInSchema(t);
+  const SignUpSchema = getSignUpSchema(t);
 
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
@@ -49,7 +56,7 @@ export default function SignInForm() {
       setSuccess(null);
       setLoading(true);
 
-      const result = SignInSchema.safeParse(formValues);
+      const result = SignUpSchema.safeParse(formValues);
 
       if (!result.success) {
         const errorObj = result.error.flatten().fieldErrors;
@@ -59,8 +66,8 @@ export default function SignInForm() {
         return;
       }
 
-      await signInAction(formData);
-      setSuccess("Logged in successfully");
+      await signUpAction(formData);
+      setSuccess("Successful sign up");
       form.reset();
     } catch (err) {
       if (err instanceof z.ZodError) {
@@ -76,26 +83,22 @@ export default function SignInForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex-1 flex flex-col min-w-64 480px:min-w-96"
+      className="flex flex-col min-w-64 480px:min-w-96 480px:max-w-96 mx-auto"
     >
       <h1
         className={`text-3xl font-medium  mb-2  ${
           locale === "en" ? "tracking-tighter" : ""
         }`}
       >
-        {t("sign-in")}
+        {t("sign-up")}
       </h1>
       <p className="text-sm text-foreground mt-2 flex items-center gap-2">
-        <span>{t("no-account")}</span>
-        <Link
-          className="text-foreground font-medium underline"
-          href={`/sign-up`}
-          data-cy="sign-up-link"
-        >
-          {t("sign-up")}
+        {t("already-account")}
+        <Link className="text-primary font-medium underline" href={`/sign-in`}>
+          {t("sign-in")}
         </Link>
       </p>
-      <div className="flex flex-col gap-2 [&>input]:mb-3 mt-4">
+      <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
         <label
           htmlFor="email"
           className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
@@ -113,7 +116,7 @@ export default function SignInForm() {
             name="email"
             placeholder={t("enter-email")}
             defaultValue=""
-            data-cy="email-input"
+            data-cy="signup-email-input"
             className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
           />
         )}
@@ -126,33 +129,23 @@ export default function SignInForm() {
           </div>
         )}
 
-        <div className="flex justify-between items-center">
-          <label
-            htmlFor="password"
-            className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
-              locale === "en" ? "tracking-tighter" : ""
-            }`}
-          >
-            {t("password")}
-          </label>
-          <Link
-            className="text-sm text-foreground underline"
-            href={`/forgot-password`}
-          >
-            {t("forgot")}
-          </Link>
-        </div>
-
+        <label
+          htmlFor="password"
+          className={`text-sm text-customGray dark:text-darkModeTextTertiary font-bold  leading-6 ${
+            locale === "en" ? "tracking-tighter" : ""
+          }`}
+        >
+          {t("password")}
+        </label>
         {loading ? (
           <Skeleton borderRadius={0} className="h-14 w-full" />
         ) : (
           <input
             type="password"
             name="password"
-            id="password"
             placeholder={t("enter-password")}
             defaultValue=""
-            data-cy="password-input"
+            data-cy="signup-password-input"
             className="border border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:border-b-[3px] dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
           />
         )}
@@ -165,27 +158,14 @@ export default function SignInForm() {
           </div>
         )}
 
-        {error && (
-          <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
-            {t("result-fail")}
-          </p>
-        )}
-        {success && (
-          <p
-            className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
-            data-cy="product-creation-success-message"
-          >
-            {t("result-success")}
-          </p>
-        )}
         <button
           type="submit"
-          data-cy="sign-in-button"
           className={`w-full text-white dark:text-darkModeText bg-customBlue dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
             loading ? " cursor-not-allowed" : ""
           }`}
+          data-cy="sign-up-button"
         >
-          {loading ? t("signing-in") : t("sign-in")}
+          {loading ? t("signing-up") : t("sign-up")}
         </button>
       </div>
     </form>
