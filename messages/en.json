@@ -275,5 +275,19 @@
     "enter-password-below": "Please enter your new password below.",
     "new-password": "New password",
     "confirm-password": "Confirm password"
+  },
+  "Navigation": {
+    "sign-in": "Sign in",
+    "cart": "Cart",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "products": "Products",
+    "add-product": "Add product",
+    "blogs": "Blog Posts",
+    "add-blog": "Add Blog",
+    "pricing": "Pricing",
+    "account": "Account",
+    "contact": "Contact"
   }
 }

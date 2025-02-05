@@ -2,6 +2,7 @@
 
 import { Link } from "@/src/i18n/routing";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { useTranslations } from "next-intl";
 
 interface HeaderNavProps {
   isOpen: boolean;
@@ -9,6 +10,8 @@ interface HeaderNavProps {
 }
 
 export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
+  const t = useTranslations("Navigation");
+
   return (
     <>
       {/* OVERLAY */}
@@ -45,7 +48,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Products
+                  {t("products")}
                 </Link>
               </li>
 
@@ -60,7 +63,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Sell & Earn
+                  {t("add-product")}
                 </Link>
               </li>
               <li>
@@ -74,7 +77,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Blog Posts
+                  {t("blogs")}
                 </Link>
               </li>
 
@@ -89,7 +92,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Add Blog
+                  {t("add-blog")}
                 </Link>
               </li>
 
@@ -104,7 +107,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Pricing
+                  {t("pricing")}
                 </Link>
               </li>
 
@@ -119,7 +122,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Account
+                  {t("account")}
                 </Link>
               </li>
               <li>
@@ -133,7 +136,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                     backgroundSize: "250%",
                   }}
                 >
-                  Contact
+                  {t("contact")}
                 </Link>
               </li>
             </ul>

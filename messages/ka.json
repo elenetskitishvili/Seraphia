@@ -275,5 +275,19 @@
     "enter-password-below": "შეიყვანეთ ახალი პაროლი",
     "new-password": "ახალი პაროლი",
     "confirm-password": "გაიმეორეთ პაროლი"
+  },
+  "Navigation": {
+    "sign-in": "შესვლა",
+    "cart": "კალათა",
+    "light": "ღია",
+    "dark": "მუქი",
+    "system": "სისტემური",
+    "products": "პროდუქტები",
+    "add-product": "პროდუქტის დამატება",
+    "blogs": "ბლოგპოსტები",
+    "add-blog": "ბლოგის დამატება",
+    "pricing": "პრემიუმი",
+    "account": "ანგარიში",
+    "contact": "კონტაქტი"
   }
 }

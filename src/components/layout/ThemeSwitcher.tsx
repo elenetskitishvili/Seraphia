@@ -7,8 +7,10 @@ import {
   MoonIcon,
   ComputerDesktopIcon,
 } from "@heroicons/react/24/outline";
+import { useTranslations } from "next-intl";
 
 export default function ThemeSwitcher() {
+  const t = useTranslations("Navigation");
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -26,7 +28,7 @@ export default function ThemeSwitcher() {
         }`}
       >
         <SunIcon className="w-5 h-5" />
-        <span>Light</span>
+        <span>{t("light")}</span>
       </button>
 
       {/* DARK MODE BUTTON */}
@@ -39,7 +41,7 @@ export default function ThemeSwitcher() {
         }`}
       >
         <MoonIcon className="w-5 h-5" />
-        <span>Dark</span>
+        <span>{t("dark")}</span>
       </button>
 
       {/* SYSTEM MODE BUTTON */}
@@ -52,7 +54,7 @@ export default function ThemeSwitcher() {
         }`}
       >
         <ComputerDesktopIcon className="w-5 h-5" />
-        <span>System</span>
+        <span>{t("system")}</span>
       </button>
     </div>
   );
