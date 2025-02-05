@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { usePathname } from "next/navigation";
-import { signOutAction } from "@/src/app/actions";
+import { signOutAction } from "@/src/app/actions/authActions";
 import { useLocale } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 

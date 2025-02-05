@@ -1,6 +1,6 @@
 "use client";
 
-import { signOutAction } from "@/src/app/actions";
+import { signOutAction } from "@/src/app/actions/authActions";
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
 import { z } from "zod";

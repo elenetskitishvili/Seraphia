@@ -27,10 +27,10 @@ export default async function Footer() {
               {t("home")}
             </Link>
             <Link
-              href={"/about"}
+              href={"/blogs"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              {t("about")}
+              {t("blog")}
             </Link>
             <Link
               href={"/products"}
@@ -39,10 +39,10 @@ export default async function Footer() {
               {t("products")}
             </Link>
             <Link
-              href={"/blogs"}
+              href={"/contact"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
-              {t("blog")}
+              {t("contact")}
             </Link>
           </div>
         </div>
