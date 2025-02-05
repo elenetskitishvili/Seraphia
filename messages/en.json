@@ -270,6 +270,7 @@
     "error-reset-password": "Could not reset password.",
     "success-signup": "Thanks for signing up! Please check your email for a verification link.",
     "success-reset-password": "Check your email for a link to reset your password.",
-    "success-password-update": "Password updated successfully."
+    "success-password-update": "Password updated successfully.",
+    "reset-password": "Reset Password"
   }
 }
