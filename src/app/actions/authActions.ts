@@ -173,7 +173,7 @@ export const signOutAction = async (formData: FormData) => {
 // Sign In with GitHub
 export const signInWithGithubAction = async (formData: FormData) => {
   const supabase = await createClient();
-  const locale = formData.get("locale")?.toString();
+  const locale = await getLocale();
   const origin = (await headers()).get("origin");
 
   const { data, error } = await supabase.auth.signInWithOAuth({
