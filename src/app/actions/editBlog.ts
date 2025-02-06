@@ -59,14 +59,14 @@ export async function editBlog(formData: FormData) {
       .eq("user_id", userId);
 
     if (error) {
-      throw new Error("Failed to create blog in Supabase.");
+      throw new Error("Failed to edit blog in Supabase.");
     }
 
-    revalidatePath(`/${locale}/edit-blog/${blogId}`);
+    revalidatePath(`/${locale}/blogs/${blogId}`);
 
     return data;
   } catch (error) {
-    console.error("Error creating product in Supabase:", error);
+    console.error("Error editing product in Supabase:", error);
 
     throw error;
   }

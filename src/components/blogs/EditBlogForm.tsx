@@ -287,7 +287,7 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
 
             {error && (
               <p className="text-orange-700 dark:text-red-500 text-lg text-center min-[520px]:mt-3">
-                {t("result-fail")}
+                {t("edit-result-fail")}
               </p>
             )}
             {success && (
@@ -295,7 +295,7 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
                 className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
                 data-cy="product-creation-success-message"
               >
-                {t("result-success")}
+                {t("edit-result-success")}
               </p>
             )}
             {/* SUBMIT BUTTON */}

@@ -100,6 +100,8 @@
     "create": "Create blog",
     "result-fail": "Failed to create blog",
     "result-success": "Blog added successfully",
+    "edit-result-fail": "Failed to edit blog",
+    "edit-result-success": "Blog edited successfully",
     "heading": "Inspire with Your Jewelry Story",
     "subheading": "Sparkle, Shine, and Share",
     "read-more": "Read more",
