@@ -17,6 +17,9 @@ export default async function Blog({ params }: { params: { blogId: string } }) {
     return notFound();
   }
 
+  // Simulate a 3-second delay
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
   const localeFormat = locale === "ka" ? ka : enUS;
   const date = new Date(blog.created_at);
   const formattedTime = format(date, "h:mm a", { locale: localeFormat });
