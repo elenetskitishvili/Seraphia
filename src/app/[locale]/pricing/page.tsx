@@ -1,11 +1,20 @@
 import CheckoutFormExclusive from "@/src/components/premium/CheckoutFormExclusive";
 import CheckoutFormPremium from "@/src/components/premium/CheckoutFormPremium";
 import { Link } from "@/src/i18n/routing";
+import { createClient } from "@/src/utils/supabase/server";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export default async function Pricing() {
   const t = await getTranslations("Pricing");
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const userId = user ? user.id : null;
+
   return (
     <section className="my-[120px] max-w-lg min-[900px]:max-w-[1200px] mx-auto px-10">
       <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-10 min-[900px]:gap-6 990px:gap-12">
@@ -58,12 +67,21 @@ export default async function Pricing() {
                 <p className="text-[15px]">{t("forever")}</p>
                 <p className="text-[60px] font-thin">{t("free")}</p>
               </div>
-              <Link
-                href="/add-product"
-                className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
-              >
-                {t("standard-btn")}
-              </Link>
+              {userId ? (
+                <Link
+                  href="/add-product"
+                  className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
+                >
+                  {t("standard-btn")}
+                </Link>
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
+                >
+                  {t("login-cta-btn")}
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -118,7 +136,16 @@ export default async function Pricing() {
                 <p className="text-[15px] font-sans">{t("monthly")}</p>
                 <p className="text-[60px] font-thin font-sans">$9.99</p>
               </div>
-              <CheckoutFormPremium />
+              {userId ? (
+                <CheckoutFormPremium />
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
+                >
+                  {t("login-cta-btn")}
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -174,7 +201,16 @@ export default async function Pricing() {
                 <p className="text-[15px] font-sans">{t("monthly")}</p>
                 <p className="text-[60px] font-thin font-sans">$29.99</p>
               </div>
-              <CheckoutFormExclusive />
+              {userId ? (
+                <CheckoutFormExclusive />
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="btn relative inline-block rounded-full transition-all duration-200 px-20 py-[15px] bg-white text-[#777] hover:-translate-y-[3px] active:-translate-y-[1px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]"
+                >
+                  {t("login-cta-btn")}
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -207,7 +207,8 @@
     "premium-button": "Go to Profile",
     "exclusive-title": "Exclusive Activated",
     "exclusive-description": "Your exclusive membership is active! Enjoy top-tier benefits & personalized support. Manage it on your profile.",
-    "exclusive-button": "Go to Profile"
+    "exclusive-button": "Go to Profile",
+    "login-cta-btn": "Sign in"
   },
   "Listing": {
     "heading": "My Listings",
