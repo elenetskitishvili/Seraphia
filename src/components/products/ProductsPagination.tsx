@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface ProductsPaginationProps {
@@ -11,6 +12,7 @@ export default function ProductsPagination({
   params,
   total,
 }: ProductsPaginationProps) {
+  const t = useTranslations("ProductDetails");
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -35,7 +37,7 @@ export default function ProductsPagination({
             className="justify-self-start text-xs text-customBlue dark:text-darkModeText w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium dark:bg-indigo-600 rounded-full cursor-pointer font-bold hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
             onClick={() => handlePageChange(page - 1)}
           >
-            Previous
+            {t("previous")}
           </button>
         ) : (
           <span>&nbsp;</span>
@@ -54,7 +56,7 @@ export default function ProductsPagination({
             className="justify-self-end text-xs text-customBlue dark:text-darkModeText w-[90px] 480px:w-[124px] h-10 flex items-center justify-center bg-bgMedium dark:bg-indigo-600 rounded-full cursor-pointer font-bold hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed"
             onClick={() => handlePageChange(page + 1)}
           >
-            Next
+            {t("next")}
           </button>
         )}
       </div>

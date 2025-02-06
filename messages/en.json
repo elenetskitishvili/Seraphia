@@ -120,7 +120,16 @@
     "adding": "Adding...",
     "added": "Added!",
     "retry": "Retry",
-    "add": "Add to Cart"
+    "add": "Add to Cart",
+    "previous": "Previous",
+    "next": "Next",
+    "search": "Search for your perfect piece...",
+    "all": "All Products",
+    "necklaces": "Necklaces",
+    "rings": "Rings",
+    "bracelets": "Bracelets",
+    "earrings": "Earrings",
+    "collection": "Shopverse Shop Collection"
   },
   "Profile": {
     "required": "This field is required.",
