@@ -1,5 +1,6 @@
 import CreateBlogForm from "@/src/components/blogs/CreateBlogForm";
 import { getLocale, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export default async function CreateBlog() {
   const locale = await getLocale();
@@ -10,11 +11,14 @@ export default async function CreateBlog() {
       {/* HERO */}
       <section className="bg-bgLight dark:bg-darkModeBorder  grid grid-cols-1 990px:grid-cols-2 990px:h-[800px] 990px:overflow-hidden">
         {/* IMAGE */}
-        <div className="">
-          <img
+        <div className="relative w-full h-[800px]">
+          <Image
             src="/images/hero/image6.jpeg"
             alt="contact"
-            className="h-full w-auto object-cover dark:brightness-[85%]"
+            fill
+            sizes="(max-width: 990px) 100vw, 50vw"
+            className="object-cover dark:brightness-[85%]"
+            priority
           />
         </div>
 
@@ -38,7 +42,6 @@ export default async function CreateBlog() {
           </h1>
         </div>
       </section>
-
       <CreateBlogForm />
     </>
   );
