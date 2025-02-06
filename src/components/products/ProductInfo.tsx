@@ -7,7 +7,12 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import AddToCartForm from "./AddToCartForm";
 
-export default function ProductInfo({ product }: { product: Product }) {
+interface ProductInfoProps {
+  product: Product;
+  userId: string | null;
+}
+
+export default function ProductInfo({ product, userId }: ProductInfoProps) {
   const t = useTranslations("ProductDetails");
   const locale = useLocale();
 
@@ -73,7 +78,7 @@ export default function ProductInfo({ product }: { product: Product }) {
             {locale === "en" ? product.description_en : product.description_ka}
           </p>
 
-          <AddToCartForm productId={String(product.id)} />
+          {userId && <AddToCartForm productId={String(product.id)} />}
         </div>
       </div>
     </div>

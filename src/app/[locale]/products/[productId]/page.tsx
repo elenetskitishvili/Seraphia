@@ -1,5 +1,6 @@
 import ProductInfo from "@/src/components/products/ProductInfo";
 import { fetchProduct } from "@/src/lib/data-service";
+import { createClient } from "@/src/utils/supabase/server";
 import { notFound } from "next/navigation";
 
 export default async function ProductDetails({
@@ -14,9 +15,16 @@ export default async function ProductDetails({
     return notFound();
   }
 
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const userId = user ? user.id : null;
+
   return (
     <>
-      <ProductInfo product={product} />
+      <ProductInfo product={product} userId={userId} />
     </>
   );
 }
