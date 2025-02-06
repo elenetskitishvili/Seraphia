@@ -129,7 +129,8 @@
     "rings": "Rings",
     "bracelets": "Bracelets",
     "earrings": "Earrings",
-    "collection": "Shopverse Shop Collection"
+    "collection": "Shopverse Shop Collection",
+    "no-product": "No products found."
   },
   "Profile": {
     "required": "This field is required.",
@@ -163,7 +164,10 @@
     "button": "Go back home",
     "title-product": "Product Not Found",
     "description-product": "The product you are looking for doesn't exist or has been moved.",
-    "button-product": "Products"
+    "button-product": "Products",
+    "title-blog": "Blog Not Found",
+    "description-blog": "The blog you are looking for doesn't exist or has been moved.",
+    "button-blog": "Blogs"
   },
   "Order": {
     "title": "Order Placed",

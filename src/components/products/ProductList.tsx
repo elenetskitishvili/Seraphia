@@ -1,6 +1,6 @@
 import ProductCard from "@/src/components/products/ProductCard";
 import { Product } from "@/src/types/types";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ProductList({
   params,
@@ -13,6 +13,7 @@ export default async function ProductList({
   };
 }) {
   const locale = await getLocale();
+  const t = await getTranslations("ProductDetails");
   const search = params?.search || "";
   const category = params?.category || "";
   const sort = params?.sort || "asc";
@@ -38,7 +39,7 @@ export default async function ProductList({
             locale === "en" ? "tracking-tighter " : ""
           }`}
         >
-          No products found.
+          {t("no-product")}
         </p>
       )}
     </div>

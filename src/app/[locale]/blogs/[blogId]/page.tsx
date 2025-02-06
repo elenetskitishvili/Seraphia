@@ -5,6 +5,7 @@ import { fetchBlog } from "@/src/lib/data-service";
 import { getLocale } from "next-intl/server";
 import { format } from "date-fns";
 import { enUS, ka } from "date-fns/locale";
+import { notFound } from "next/navigation";
 
 export default async function Blog({ params }: { params: { blogId: string } }) {
   const locale = await getLocale();
@@ -13,7 +14,7 @@ export default async function Blog({ params }: { params: { blogId: string } }) {
   const blog = await fetchBlog(blogId);
 
   if (!blog) {
-    return <div>Blog not found.</div>;
+    return notFound();
   }
 
   const localeFormat = locale === "ka" ? ka : enUS;

@@ -60,11 +60,6 @@ export const fetchBlog = async function (id: string): Promise<Blog | null> {
       .eq("id", id)
       .single();
 
-    if (error || !data) {
-      console.error("Blog not found:", error);
-      return null;
-    }
-
     return data;
   } catch (err) {
     console.error((err as Error).message);
