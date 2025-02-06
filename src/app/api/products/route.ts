@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const category = searchParams.get("category")?.toLowerCase();
   const sort = searchParams.get("sort") || "asc";
   const page = Math.max(1, Number(searchParams.get("page")) || 1);
-  const limit = Number(searchParams.get("limit")) || 10;
+  const limit = Number(searchParams.get("limit")) || 12;
   const offset = (page - 1) * limit;
 
   try {
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 
     if (search) {
       query = query.or(
-        `name_en.ilike.%${search}%,description_en.ilike.%${search}%`
+        `name_en.ilike.%${search}%,description_en.ilike.%${search}%,name_ka.ilike.%${search}%,description_ka.ilike.%${search}%`
       );
     }
 

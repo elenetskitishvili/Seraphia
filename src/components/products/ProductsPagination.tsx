@@ -15,7 +15,7 @@ export default function ProductsPagination({
   const searchParams = useSearchParams();
 
   const page = Number(params.page) || 1;
-  const limit = 2;
+  const limit = 12;
   const validTotal = Number.isFinite(total) ? total : 0;
   const totalPages = Math.max(1, Math.ceil(validTotal / limit));
 
