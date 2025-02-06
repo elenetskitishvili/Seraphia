@@ -13,7 +13,7 @@ export default async function BlogList({
   const search = params?.search || "";
   const sort = params?.sort || "asc";
   const page = Number(params?.page) || 1;
-  const limit = 10;
+  const limit = 9;
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL}/api/blogs?search=${search}&sort=${sort}&page=${page}&limit=${limit}`
