@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
 
     if (search) {
       query = query.or(
-        `heading_en.ilike.%${search}%,content_en.ilike.%${search}%`
+        `heading_en.ilike.%${search}%,content_en.ilike.%${search}%,heading_ka.ilike.%${search}%,content_ka.ilike.%${search}%`
       );
     }
 
