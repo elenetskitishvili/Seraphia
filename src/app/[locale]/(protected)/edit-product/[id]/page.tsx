@@ -16,9 +16,6 @@ export default async function EditProduct({
     return notFound();
   }
 
-  // Simulate a 3-second delay
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-
   return (
     <div className="pt-[60px] 770px:pt-20 ">
       <EditProductForm product={product} />
