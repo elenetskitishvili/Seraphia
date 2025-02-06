@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
+import Image from "next/image";
 
 export default async function ContactHero() {
   const t = await getTranslations("Contact");
@@ -27,12 +28,17 @@ export default async function ContactHero() {
         </h1>
       </div>
       {/* IMAGE */}
-      <div className="">
-        <img
-          src="/images/contact/image1.jpeg"
+      <div className="relative w-full h-[800px]">
+        <Image
+          src="/images/contact/image1.jpg"
           alt="contact"
-          className="h-full w-auto object-cover dark:brightness-[85%]"
+          fill
+          sizes="(max-width: 990px) 100vw, 50vw"
+          className="object-cover dark:brightness-[85%]"
+          priority
         />
+        {/* Overlay for Light & Dark Mode */}
+        <div className="absolute inset-0 bg-white/30 dark:bg-transparent mix-blend-overlay" />
       </div>
     </section>
   );
