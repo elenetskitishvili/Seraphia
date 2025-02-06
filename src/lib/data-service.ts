@@ -29,11 +29,6 @@ export const fetchProduct = async function (
       .eq("id", id)
       .single();
 
-    if (error || !data) {
-      console.error("Product not found:", error);
-      return null;
-    }
-
     return data;
   } catch (err) {
     console.error((err as Error).message);

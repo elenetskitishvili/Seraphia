@@ -160,7 +160,10 @@
   "NotFound": {
     "title": "Page Not Found",
     "description": "The page you are looking for doesn't exist or has been moved.",
-    "button": "Go back home"
+    "button": "Go back home",
+    "title-product": "Product Not Found",
+    "description-product": "The product you are looking for doesn't exist or has been moved.",
+    "button-product": "Products"
   },
   "Order": {
     "title": "Order Placed",

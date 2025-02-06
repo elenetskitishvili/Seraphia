@@ -1,6 +1,6 @@
 import ProductInfo from "@/src/components/products/ProductInfo";
-import Image from "next/image";
 import { fetchProduct } from "@/src/lib/data-service";
+import { notFound } from "next/navigation";
 
 export default async function ProductDetails({
   params,
@@ -11,7 +11,7 @@ export default async function ProductDetails({
   const product = await fetchProduct(productId);
 
   if (!product) {
-    return <div>Product not found.</div>;
+    return notFound();
   }
 
   return (
