@@ -58,9 +58,7 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    if (imageFile) {
-      formData.set("image", imageFile);
-    }
+    formData.set("image", imageFile ? imageFile : blog.image);
 
     const formValues = {
       headingEn: formData.get("headingEn") as string,
@@ -127,6 +125,7 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
 
         {/* FORM */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input type="hidden" name="id" value={blog.id} />
           {/* HEADING ENGLISH */}
           <div className="flex flex-col gap-[5px]">
             <label

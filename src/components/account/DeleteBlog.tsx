@@ -37,7 +37,7 @@ export default function DeleteBlog({ blogId }: { blogId: number }) {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white p-6 rounded-lg shadow-lg text-center"
+            className="bg-white p-6 rounded-lg shadow-lg text-center z-10"
           >
             <h2 className="text-lg font-semibold mb-4">{t("question")}</h2>
             <div className="flex justify-center gap-4">
