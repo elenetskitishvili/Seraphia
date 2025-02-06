@@ -5,8 +5,6 @@ import ContactFAQ from "@/src/components/contact/ContactFAQ";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
 export default async function Contact() {
-  // Simulate a 3-second delay
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
       <ContactHero />

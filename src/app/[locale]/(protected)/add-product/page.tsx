@@ -1,19 +1,24 @@
 import AddProductForm from "@/src/components/products/AddProductForm";
 import { getLocale, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export default async function AddProduct() {
   const t = await getTranslations("CreateProduct");
   const locale = await getLocale();
+
   return (
     <>
       {/* HERO */}
       <section className="bg-bgLight dark:bg-darkModeBorder  grid grid-cols-1 990px:grid-cols-2 990px:h-[800px] 990px:overflow-hidden">
         {/* IMAGE */}
-        <div className="">
-          <img
+        <div className="relative w-full h-[800px]">
+          <Image
             src="/images/hero/image6.jpeg"
             alt="contact"
-            className="h-full w-auto object-cover dark:brightness-[85%]"
+            fill
+            sizes="(max-width: 990px) 100vw, 50vw"
+            className="object-cover dark:brightness-[85%]"
+            priority
           />
         </div>
 

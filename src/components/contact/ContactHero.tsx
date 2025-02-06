@@ -38,7 +38,9 @@ export default async function ContactHero() {
           priority
         />
         {/* Overlay for Light & Dark Mode */}
-        <div className="absolute inset-0 bg-white/30 dark:bg-transparent mix-blend-overlay" />
+        <div className="absolute inset-0 bg-white/30 dark:bg-transparent mix-blend-overlay">
+          &nbsp;
+        </div>
       </div>
     </section>
   );
