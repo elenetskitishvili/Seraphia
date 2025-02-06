@@ -18,7 +18,7 @@ export default async function Orders() {
   const orders: OrderWithItems[] = await fetchOrders(userId);
 
   return (
-    <div className=" p-4 770px:px-10 770px:pt-6 990px:pt-20 990px:pl-0 990px:pr-10">
+    <section className=" p-4 770px:px-10 770px:pt-6 990px:pt-20 990px:pl-0 990px:pr-10">
       <h1 className="text-2xl 990px:text-4xl font-bold tracking-tighter pb-1">
         {t("your-orders")}
       </h1>
@@ -54,6 +54,6 @@ export default async function Orders() {
       ) : (
         <OrdersList orders={orders} />
       )}
-    </div>
+    </section>
   );
 }

@@ -15,7 +15,7 @@ export default async function OrdersList({
       {orders.map((order) => (
         <li
           key={order.id}
-          className="border-t border-r-bgBtn dark:border-r-darkModeBorder py-6 "
+          className="border-t border-t-bgBtn dark:border-t-darkModeBorder py-6 "
         >
           <div className="font-medium">
             <p className="">
