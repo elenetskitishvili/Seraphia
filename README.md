@@ -1,6 +1,6 @@
-# Omnishop
+# Jewelry Marketplace
 
-This project is an e-commerce website built with Next.js, where people can sell and buy products.
+This project is a jewelry e-commerce platform built with Next.js, where users can buy and sell jewelry. Premium sellers get unlimited listings and exclusive promotional services.
 
 ## Technologies Used
 
@@ -18,22 +18,25 @@ This project is an e-commerce website built with Next.js, where people can sell 
 - **Internationalization:** Available in two languages - English and Georgian;
 - **Cart Functionality:** Users can add products to the cart for later purchase or buy products immediately.
 - **Purchase History:** Users can view a list of their purchased products.
+- **Personalized Seller Pages:** Users can manage their products and blog posts.
 
 ### Pages
 
 - **Home Page:** Introduction to the website.
 - **Products Page:** List of all products.
-- **Product Details Page:** Detailed information about a selected product.
-- **Create Product Page:** Allows users to add new products.
-- **Blog Posts Page:** A collection of articles.
-- **Blog Post Details Page:** Detailed content for a specific blog post.
-- **About Page:** Information about the "Omnishop" website and its mission.
-- **Profile Page:** A personalized page where users can view their information.
-- **Contact Page:** A page for users to get in touch with the website administrators.
-- **Sign-Up Page:** For user registration.
-- **Sign-In Page:** For user login.
-- **Forgot Password Page:** Helps users recover their account.
-- **Pricing Page:** Details of subscription plans and pricing options.
+- **Product Details Page:** View jewelry details.
+- **Create Product Page:** List new jewelry for sale.
+- **User's Products Page:** View and manage a user’s listed jewelry items.
+- **Orders Page:** Users can view their past orders and order details.
+- **Blog Posts Page:** Jewelry-related articles.
+- **Blog Post Details Page:** Full content of a blog post.
+- **User's Blogs Page:** View and manage a user’s blog posts.
+- **Profile Page:** User account management.
+- **Contact Page:** Get in touch with administrators.
+- **Sign-Up Page:** User registration.
+- **Sign-In Page:** User login.
+- **Forgot Password Page:** Recover account.
+- **Pricing Page:** Details of premium seller plans.
 
   ### Authentication
 
@@ -41,7 +44,7 @@ This project is an e-commerce website built with Next.js, where people can sell 
 
   ### Database
 
-  The website uses **Supabase** as its backend database for storing and managing products and blogs data.
+  The website uses **Supabase** for managing user data, product listings, orders, and blog posts.
 
   ## Setup and Installation
 
@@ -56,13 +59,13 @@ This project is an e-commerce website built with Next.js, where people can sell 
   1. Clone the repository:
 
      ```
-     git clone https://github.com/IrakliAmbroladze/tbc_x_usaid.git
+     git clone https://github.com/elenetskitishvili/Seraphia.git
      ```
 
   2. Navigate to the project directory:
 
      ```
-     cd tbc_x_usaid
+     cd Seraphia
      ```
 
   3. Install dependencies:
