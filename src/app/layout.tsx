@@ -9,6 +9,31 @@ export const metadata = {
   },
   description:
     "Discover and sell unique jewelry on our platform. Shop stunning pieces or become a premium seller for unlimited listings and exclusive promotions. Secure payments and a seamless experience await!",
+
+  openGraph: {
+    title: "Shopverse - Exclusive Jewelry Marketplace",
+    description:
+      "Buy and sell unique jewelry pieces. Premium sellers get exclusive benefits!",
+    url: "https://shopverse-nu.vercel.app/",
+    siteName: "Shopverse",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1024,
+        height: 536,
+        alt: "Shopverse - Exclusive Jewelry Marketplace",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Shopverse - Exclusive Jewelry Marketplace",
+    description:
+      "Buy and sell unique jewelry pieces. Premium sellers get exclusive benefits!",
+    images: ["/og-image.jpg"],
+  },
 };
 
 interface RootLayoutProps {
