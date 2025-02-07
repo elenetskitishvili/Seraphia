@@ -32,23 +32,23 @@ export default function DeleteProduct({ productId }: { productId: number }) {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/50 flex items-center justify-center"
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-40"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white p-6 rounded-lg shadow-lg text-center"
+            className="bg-white dark:bg-darkModeBorder p-6 rounded-lg shadow-lg text-center  z-50"
           >
             <h2 className="text-lg font-semibold mb-4">{t("question")}</h2>
             <div className="flex justify-center gap-4">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 border rounded text-gray-600 hover:bg-gray-100"
+                className="px-4 py-2 border dark:border-darkModeBorder rounded text-customGray dark:text-white hover:bg-bgLight dark:hover:bg-darkModeBgLighter transition-colors duration-200 ease-in-out"
               >
                 {t("cancel")}
               </button>
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 disabled:opacity-50"
+                className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 transition-colors duration-200 ease-in-out disabled:opacity-50"
                 disabled={isPending}
               >
                 {isPending ? t("deleting") : t("delete")}
