@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 import { useTranslations } from "next-intl";
 
@@ -11,17 +11,18 @@ export default function BlogSearch() {
   const router = useRouter();
   const [query, setQuery] = useState(searchParams.get("search") ?? "");
 
-  const updateSearchParams = useCallback(
-    debounce((searchQuery) => {
-      const params = new URLSearchParams(searchParams);
-      if (searchQuery.trim()) {
-        params.set("search", searchQuery.trim());
-      } else {
-        params.delete("search");
-      }
-      params.set("page", "1");
-      router.replace(`?${params.toString()}`);
-    }, 500),
+  const updateSearchParams = useMemo(
+    () =>
+      debounce((searchQuery: string) => {
+        const params = new URLSearchParams(searchParams);
+        if (searchQuery.trim()) {
+          params.set("search", searchQuery.trim());
+        } else {
+          params.delete("search");
+        }
+        params.set("page", "1");
+        router.replace(`?${params.toString()}`);
+      }, 500),
     [searchParams, router]
   );
 

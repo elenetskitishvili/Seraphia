@@ -1,6 +1,5 @@
 import { resetPasswordAction } from "@/src/app/actions/authActions";
 import { FormMessage, Message } from "@/src/components/form-message";
-import { SubmitButton } from "@/src/components/submit-button";
 import { getTranslations } from "next-intl/server";
 
 export default async function ResetPassword(props: {

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const row1Images = [
   "/images/hero/image11.jpg",
@@ -35,7 +36,9 @@ export default function HeroMarquee() {
       >
         {[...row1Images, ...row1Images, ...row1Images, ...row1Images].map(
           (src, index) => (
-            <img
+            <Image
+              width={180}
+              height={180}
               key={`row1-${index}`}
               src={src}
               alt={`Marquee ${index + 1}`}
@@ -61,7 +64,9 @@ export default function HeroMarquee() {
       >
         {[...row2Images, ...row2Images, ...row2Images, ...row2Images].map(
           (src, index) => (
-            <img
+            <Image
+              width={180}
+              height={180}
               key={`row2-${index}`}
               src={src}
               alt={`Marquee ${index + 1}`}

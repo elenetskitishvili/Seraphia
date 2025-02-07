@@ -45,7 +45,7 @@ export async function createProductCheckoutSession(data: FormData) {
 
   const successUrl = `${origin}/${locale}/cart/result?session_id={CHECKOUT_SESSION_ID}`;
 
-  const cancelUrl = `${origin}/${locale}/cart`;
+  const cancelUrl = `${origin}/${locale}/products`;
 
   const checkoutSession: Stripe.Checkout.Session =
     await stripe.checkout.sessions.create({

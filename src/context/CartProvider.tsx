@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/src/utils/supabase/client";
 
 interface CartContextType {
@@ -12,7 +12,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartCount, setCartCount] = useState(0);
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
 
   useEffect(() => {
     async function fetchCartCount() {
@@ -53,7 +53,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, []);
+  }, [supabase]);
 
   const updateCartCount = async () => {
     const {
