@@ -10,6 +10,7 @@ export default async function ProductCard({ product }: { product: Product }) {
       <Link
         href={`/products/${product.id}`}
         className="group transform duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)] flex flex-col"
+        data-cy="product-card"
       >
         {/* IMAGE */}
         <div className="overflow-hidden mb-6 dark:rounded-md">

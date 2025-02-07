@@ -110,6 +110,7 @@ export default function AddToCartForm({ productId }: { productId: string }) {
         className={`w-full py-[11px] px-4 text-white bg-customBlue dark:bg-indigo-600 rounded-full hover:bg-customBlueDarker dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${
           loading ? " cursor-not-allowed opacity-70" : "opacity-100"
         } order-1 480px:order-none`}
+        data-cy="add-to-cart-button"
       >
         {loading
           ? t("adding")

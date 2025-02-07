@@ -14,6 +14,7 @@ export default function CartButton() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="px-2 py-3 mr-3 hover:text-customBlue dark:hover:text-indigo-400 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+        data-cy="cart-button"
       >
         <span className="pr-[1px] text-base">{t("cart")}</span>(
         <span className="text-xs">{cartCount}</span>)

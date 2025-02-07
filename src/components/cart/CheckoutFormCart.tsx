@@ -50,6 +50,7 @@ export default function CheckoutFormCart({
         onClick={formAction}
         disabled={loading}
         className="mt-4 w-full text-base py-2 rounded-full text-white bg-customBlueDarker dark:bg-indigo-600 font-bold inline-block hover:bg-customBlue dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+        data-cy="buy-button"
       >
         {loading ? t("processing") : t("checkout")}
       </button>
