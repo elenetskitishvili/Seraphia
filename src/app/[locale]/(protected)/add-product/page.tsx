@@ -1,3 +1,4 @@
+import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import AddProductForm from "@/src/components/products/AddProductForm";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -41,6 +42,7 @@ export default async function AddProduct() {
         </div>
       </section>
       <AddProductForm />
+      <PremiumCTA />
     </>
   );
 }

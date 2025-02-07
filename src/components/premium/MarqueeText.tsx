@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function MarqueeText() {
+  const t = useTranslations("Home");
+
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -28,7 +31,7 @@ export default function MarqueeText() {
         {[...Array(50)].map((_, i) => (
           <span key={i} className="flex items-center gap-6">
             <span className="text-customBlue dark:text-darkModeText text-2xl">
-              Upgrade to Premium
+              {t("marquee")}
             </span>
             <Image src={logoSrc} alt="blue logo" width={24} height={24} />
           </span>

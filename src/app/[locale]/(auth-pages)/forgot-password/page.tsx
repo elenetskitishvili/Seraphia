@@ -1,6 +1,5 @@
 import { forgotPasswordAction } from "@/src/app/actions/authActions";
 import { FormMessage, Message } from "@/src/components/form-message";
-import { Label } from "@/src/components/ui/label";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 

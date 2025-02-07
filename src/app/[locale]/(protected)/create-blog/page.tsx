@@ -1,4 +1,5 @@
 import CreateBlogForm from "@/src/components/blogs/CreateBlogForm";
+import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -13,7 +14,7 @@ export default async function CreateBlog() {
         {/* IMAGE */}
         <div className="relative w-full h-[800px]">
           <Image
-            src="/images/hero/image6.jpeg"
+            src="/images/contact/image2.jpg"
             alt="contact"
             fill
             sizes="(max-width: 990px) 100vw, 50vw"
@@ -43,6 +44,7 @@ export default async function CreateBlog() {
         </div>
       </section>
       <CreateBlogForm />
+      <PremiumCTA />
     </>
   );
 }
