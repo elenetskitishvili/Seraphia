@@ -94,7 +94,10 @@ export default function SignUpForm() {
       </h1>
       <p className="text-sm text-foreground mt-2 flex items-center gap-2">
         {t("already-account")}
-        <Link className="text-primary font-medium underline" href={`/sign-in`}>
+        <Link
+          className="text-primary font-medium underline hover:text-customBlue dark:hover:text-indigo-500 transition-colors duration-200 ease-in-out"
+          href={`/sign-in`}
+        >
           {t("sign-in")}
         </Link>
       </p>

@@ -88,7 +88,7 @@ export default function SignInForm() {
       <p className="text-sm text-foreground mt-2 flex items-center gap-2">
         <span>{t("no-account")}</span>
         <Link
-          className="text-foreground font-medium underline"
+          className="text-foreground font-medium underline hover:text-customBlue dark:hover:text-indigo-500 transition-colors duration-200 ease-in-out"
           href={`/sign-up`}
           data-cy="sign-up-link"
         >
@@ -136,7 +136,7 @@ export default function SignInForm() {
             {t("password")}
           </label>
           <Link
-            className="text-sm text-foreground underline"
+            className="text-sm text-foreground underline hover:text-customBlue dark:hover:text-indigo-500 transition-colors duration-200 ease-in-out"
             href={`/forgot-password`}
           >
             {t("forgot")}

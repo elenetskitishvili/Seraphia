@@ -93,7 +93,7 @@ export default async function Home() {
           </Link>
         </div>
         {/* IMAGE */}
-        <div className="relative w-full h-[800px]">
+        <div className="relative w-full 990px:h-[800px] aspect-square 990px:aspect-auto">
           <Image
             src="/images/contact/image2.jpg"
             alt="contact"

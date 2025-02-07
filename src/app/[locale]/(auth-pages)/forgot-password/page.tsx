@@ -31,7 +31,7 @@ export default async function ForgotPassword(props: {
             <p className="text-sm text-foreground mt-2 flex items-center gap-2">
               {t("already-account")}
               <Link
-                className="text-primary underline"
+                className="text-primary underline hover:text-customBlue dark:hover:text-indigo-500 transition-colors duration-200 ease-in-out"
                 href={`/${locale}/sign-in`}
               >
                 {t("sign-in")}
