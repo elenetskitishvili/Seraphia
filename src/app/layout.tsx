@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "Shopverse",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://fdynnqlewivodiidzfst.supabase.co/storage/v1/object/public/metadata//og-image.jpg",
         width: 1024,
         height: 536,
         alt: "Shopverse - Exclusive Jewelry Marketplace",
@@ -32,7 +32,9 @@ export const metadata = {
     title: "Shopverse - Exclusive Jewelry Marketplace",
     description:
       "Buy and sell unique jewelry pieces. Premium sellers get exclusive benefits!",
-    images: ["/og-image.jpg"],
+    images: [
+      "https://fdynnqlewivodiidzfst.supabase.co/storage/v1/object/public/metadata//og-image.jpg",
+    ],
   },
 };
 
