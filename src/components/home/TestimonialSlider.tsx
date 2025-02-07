@@ -23,7 +23,6 @@ export default function TestimonialSlider() {
       name: t("name3"),
       role: t("role3"),
     },
-
   ];
 
   const [index, setIndex] = useState(0);
@@ -33,7 +32,7 @@ export default function TestimonialSlider() {
       setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <div className="relative text-center px-6 770px:px-10 py-[60px] 480px:py-20 770px:py-[120px] 990px:py-40">
