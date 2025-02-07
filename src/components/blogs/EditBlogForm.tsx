@@ -9,6 +9,7 @@ import { useLocale } from "next-intl";
 import { SetStateAction, useState } from "react";
 import { Blog } from "@/src/types/types";
 import ImageUpload from "./ImageUpload";
+import { useRouter } from "next/navigation";
 
 interface ErrorMessages {
   headingEn?: string | string[];
@@ -38,6 +39,8 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
   const t = useTranslations("CreateBlog");
   const locale = useLocale();
   const blogSchema = getBlogSchema(t);
+
+  const router = useRouter();
 
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
@@ -92,7 +95,9 @@ export default function CreateBlogForm({ blog }: { blog: Blog }) {
       }
 
       await editBlog(formData);
+      router.refresh();
       setSuccess("Blog was updated successfully");
+      window.location.reload();
       form.reset();
     } catch (err) {
       if (err instanceof z.ZodError) {

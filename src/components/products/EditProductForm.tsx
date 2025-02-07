@@ -13,6 +13,7 @@ import { useLocale } from "next-intl";
 import { useState } from "react";
 import { Product } from "@/src/types/types";
 import ImagesUpload from "./ImagesUpload";
+import { useRouter } from "next/navigation";
 
 interface ErrorMessages {
   nameEn?: string | string[];
@@ -61,6 +62,8 @@ export default function EditProductForm({ product }: { product: Product }) {
   const t = useTranslations("CreateProduct");
   const locale = useLocale();
   const productSchema = getProductSchema(t);
+
+  const router = useRouter();
 
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessages>({
@@ -134,7 +137,9 @@ export default function EditProductForm({ product }: { product: Product }) {
       });
 
       await editProduct(formData);
+      router.refresh();
       setSuccess("Product was added successfully");
+      window.location.reload();
       form.reset();
     } catch (err) {
       if (err instanceof z.ZodError) {
