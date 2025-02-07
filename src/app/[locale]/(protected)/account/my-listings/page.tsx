@@ -65,7 +65,11 @@ export default async function MyListings() {
         // PRODUCTS LIST
         <ul className="grid grid-cols-2 770px:grid-cols-3 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
           {products.map((product) => (
-            <li key={product.id} className="flex flex-col">
+            <li
+              key={product.id}
+              className="flex flex-col"
+              data-cy="product-card"
+            >
               <Link href={`/products/${product.id}`} className=" flex flex-col">
                 {product.images[0] && (
                   <Image
@@ -88,6 +92,7 @@ export default async function MyListings() {
                 <Link
                   href={`/edit-product/${product.id}`}
                   className="py-2 px-3 border border-blue-200 dark:border-darkModeBorder dark:bg-darkModeBorder rounded-sm flex gap-2 items-center justify-center text-customBlue dark:text-indigo-400"
+                  data-cy="edit-product-button"
                 >
                   <PencilIcon className="w-5 h-5" /> <span>{t("modify")}</span>
                 </Link>

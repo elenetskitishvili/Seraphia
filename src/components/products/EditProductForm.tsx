@@ -300,6 +300,7 @@ export default function EditProductForm({ product }: { product: Product }) {
                   defaultValue={product.description_en}
                   placeholder="Enter product description in English"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-description-input"
                 />
               )}
             </div>
@@ -424,10 +425,7 @@ export default function EditProductForm({ product }: { product: Product }) {
                 </p>
               )}
               {success && (
-                <p
-                  className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3"
-                  data-cy="product-creation-success-message"
-                >
+                <p className="text-green-700 dark:text-indigo-400 text-lg text-center text-bold min-[520px]:mt-3">
                   {t("update-success")}
                 </p>
               )}
@@ -438,6 +436,7 @@ export default function EditProductForm({ product }: { product: Product }) {
                 className={`w-full 480px:w-auto 480px:px-[50px] text-customBlue dark:text-white bg-bgMedium dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
                   loading ? " cursor-not-allowed" : ""
                 }`}
+                data-cy="edit-product-button"
               >
                 {loading
                   ? t("updating")

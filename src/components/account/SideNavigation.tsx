@@ -31,6 +31,7 @@ export default function SideNavigation() {
       name: t("my-listings"),
       href: "/account/my-listings",
       icon: <Squares2X2Icon className="h-5 w-5 990px:h-6 990px:w-6" />,
+      dataCy: "my-listings-link",
     },
     {
       name: t("my-blogs"),
@@ -60,6 +61,7 @@ export default function SideNavigation() {
                   : ""
               } transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]`}
               href={link.href}
+              data-cy={link.dataCy}
             >
               {link.icon}
               <span>{link.name}</span>

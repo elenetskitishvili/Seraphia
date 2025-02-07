@@ -170,6 +170,7 @@ export default function AddProductForm() {
                   defaultValue=""
                   placeholder="Enter product name in English"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-name-input-en"
                 />
               )}
             </div>
@@ -200,6 +201,7 @@ export default function AddProductForm() {
                   defaultValue=""
                   placeholder="პროდუქტის სახელი ქართულად"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-name-input-ka"
                 />
               )}
             </div>
@@ -232,6 +234,7 @@ export default function AddProductForm() {
                   step="0.01"
                   placeholder={t("price-placeholder")}
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-price-input"
                 />
               )}
             </div>
@@ -261,6 +264,7 @@ export default function AddProductForm() {
                   defaultValue=""
                   placeholder="Enter product description in English"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-description-input-en"
                 />
               )}
             </div>
@@ -291,6 +295,7 @@ export default function AddProductForm() {
                   defaultValue=""
                   placeholder="პროდუქტის აღწერა ქართულად"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-description-input-ka"
                 />
               )}
             </div>
@@ -319,6 +324,7 @@ export default function AddProductForm() {
                   name="category"
                   defaultValue=""
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-category-select"
                 >
                   <option value="" disabled>
                     {t("select-default")}
@@ -357,6 +363,7 @@ export default function AddProductForm() {
                   id="images"
                   name="images"
                   className="border dark:border-b-[3px] border-bgBtn dark:border-darkModeBorder dark:bg-darkModeBorder py-[15px] px-4 focus:border-customBlue dark:focus:border-b-indigo-800 focus:ring-0 outline-none"
+                  data-cy="product-image-input"
                 />
               )}
             </div>
@@ -392,6 +399,7 @@ export default function AddProductForm() {
                 className={`w-full 480px:w-auto 480px:px-[50px]  text-customBlue dark:text-white bg-bgMedium dark:bg-indigo-600 font-medium py-3  rounded-full inline-block hover:bg-bgDark dark:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] mt-4 480px:self-end ${
                   loading ? " cursor-not-allowed" : ""
                 }`}
+                data-cy="create-product-button"
               >
                 {loading
                   ? t("creating")
