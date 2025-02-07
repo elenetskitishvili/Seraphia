@@ -121,6 +121,7 @@ export default function HeaderNav({ isOpen, onClose }: HeaderNavProps) {
                       "linear-gradient(120deg, transparent 0%, transparent 50%, white 50%)",
                     backgroundSize: "250%",
                   }}
+                  data-cy="account-link"
                 >
                   {t("account")}
                 </Link>

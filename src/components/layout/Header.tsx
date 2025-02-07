@@ -27,6 +27,7 @@ export default async function Header() {
             <Link
               href="/sign-in"
               className={` px-3 font-medium text-[17px] hover:text-customBlue dark:hover:text-indigo-400 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]`}
+              data-cy="sign-in-link"
             >
               {t("sign-in")}
             </Link>

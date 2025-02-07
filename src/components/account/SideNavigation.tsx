@@ -73,6 +73,7 @@ export default function SideNavigation() {
             <button
               type="submit"
               className="990px:w-full py-3 px-5 990px:px-10 rounded-sm dark:rounded-full text-customBlue dark:text-white 990px:text-white bg-bgLight dark:bg-indigo-600 990px:bg-customBlue dark:990px:bg-indigo-600 hover:bg-bgMedium dark:hover:bg-indigo-500 990px:hover:bg-customBlueDarker dark:990px:hover:bg-indigo-500 transition-colors duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+              data-cy="log-out-button"
             >
               {t("sign-out")}
             </button>
