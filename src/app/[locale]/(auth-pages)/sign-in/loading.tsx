@@ -8,7 +8,7 @@ export default function Loading() {
   return (
     <SkeletonWrapper>
       <div className="h-screen flex items-center justify-center">
-        <div className="flex-1 flex flex-col max-w-64 480px:max-w-96">
+        <div className="flex-1 flex flex-col max-w-64 480px:max-w-96 pt-20">
           <Skeleton height={35} width={150} />
           <Skeleton height={18} width={250} className="mt-2" />
 
@@ -30,7 +30,14 @@ export default function Loading() {
           <Skeleton
             height={48}
             width="100%"
-            className="mt-20"
+            className="mt-16"
+            borderRadius={9999}
+          />
+
+          <Skeleton
+            height={48}
+            width="100%"
+            className="mt-4"
             borderRadius={9999}
           />
         </div>

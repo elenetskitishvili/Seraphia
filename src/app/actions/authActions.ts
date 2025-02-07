@@ -199,3 +199,28 @@ export const signInWithGithubAction = async (formData: FormData) => {
     return redirect(data.url);
   }
 };
+
+// Sign In with Google
+export const signInWithGoogleAction = async (formData: FormData) => {
+  "use server";
+
+  const supabase = await createClient();
+  const locale = await getLocale();
+  const origin = (await headers()).get("origin");
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${origin}/${locale}/auth/callback`,
+    },
+  });
+
+  if (error) {
+    console.error("OAuth Sign-In Error:", error.message);
+    return encodedRedirect("error", `/${locale}/sign-in`, error.message);
+  }
+
+  if (data.url) {
+    return redirect(data.url);
+  }
+};
