@@ -1,6 +1,7 @@
 import HomeHero from "@/src/components/home/HomeHero";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import { Link } from "@/src/i18n/routing";
+import TestimonialSlider from "@/src/components/home/TestimonialSlider";
 
 export const metadata = {
   title: "Welcome",
@@ -8,8 +9,8 @@ export const metadata = {
 
 import {
   HeartIcon,
-  TagIcon,
   ShieldCheckIcon,
+  TagIcon,
 } from "@heroicons/react/24/outline";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -61,7 +62,7 @@ export default async function Home() {
       {/* BLOGS BANNER */}
       <section className="bg-bgLight dark:bg-darkModeBorder  grid grid-cols-1 990px:grid-cols-2 990px:h-[600px] 990px:overflow-hidden">
         {/* Content */}
-        <div className="990px:order-2 bg-bgLight dark:bg-darkModeBorder pt-[80px] 770px:pt-[90px] 990px:pt-[120px] pb-[80px] 480px:pb-[60px] 770px:pb-[80px] px-6 770px:px-10 990px:px-8 text-center 990px:max-w-[550px] 990px:mx-auto">
+        <div className="990px:order-2 bg-bgLight dark:bg-darkModeBorder pt-[80px] 770px:pt-[90px] 990px:pt-[120px] pb-[80px] 480px:pb-[60px] 770px:pb-[80px] px-6 770px:px-10 990px:px-8 text-center 990px:max-w-[600px] 990px:mx-auto">
           <p
             className={`text-customBlue dark:text-indigo-600 text-lg 480px:text-xl mb-6  font-semibold ${
               locale === "en" ? "tracking-tighter" : ""
@@ -104,6 +105,9 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="max-w-screen-xl mx-auto">
+        <TestimonialSlider />
+      </section>
       <PremiumCTA />
     </>
   );

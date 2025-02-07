@@ -332,5 +332,16 @@
     "subheading-blogs": "Jewelry Inspirations",
     "heading-blogs": "Stay updated with the latest trends",
     "blogs-link": "Blogs"
+  },
+  "Testimonials": {
+    "testimonial1": " The interface is so intuitive that I no longer need to spend hours browsing my favorite brands online. It's my favorite website. ",
+    "name1": "Ronald Richards",
+    "role1": "Designer",
+    "testimonial2": " This platform changed the way I shop for jewelry. The experience is seamless and enjoyable ",
+    "name2": "Jane Doe",
+    "role2": "Jewelry Enthusiast",
+    "testimonial3": " I found the most beautiful and unique jewelry pieces here. The quality is outstanding! ",
+    "name3": "Michael Johnson",
+    "role3": "Jewelry Collector"
   }
 }
