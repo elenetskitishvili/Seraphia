@@ -3,6 +3,10 @@ import { fetchProduct } from "@/src/lib/data-service";
 import { Product } from "@/src/types/types";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "Edit product",
+};
+
 export default async function EditProduct({
   params,
 }: {

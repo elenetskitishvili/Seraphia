@@ -5,6 +5,10 @@ import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import ProductsSkeleton from "@/src/components/products/ProductsSkeleton";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Blogs",
+};
+
 export default async function Blogs({
   searchParams,
 }: {

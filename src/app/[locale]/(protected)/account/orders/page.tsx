@@ -5,6 +5,10 @@ import { OrderWithItems } from "@/src/types/types";
 import { createClient } from "@/src/utils/supabase/server";
 import { getLocale, getTranslations } from "next-intl/server";
 
+export const metadata = {
+  title: "Orders",
+};
+
 export default async function Orders() {
   const supabase = await createClient();
   const locale = await getLocale();

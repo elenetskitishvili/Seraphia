@@ -1,6 +1,10 @@
 import SignUpForm from "@/src/components/auth/SignUpForm";
 import { FormMessage, Message } from "@/src/components/form-message";
 
+export const metadata = {
+  title: "Sign up",
+};
+
 export default async function Signup(props: {
   searchParams: Promise<Message>;
 }) {

@@ -3,6 +3,10 @@ import AddProductForm from "@/src/components/products/AddProductForm";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Add product",
+};
+
 export default async function AddProduct() {
   const t = await getTranslations("CreateProduct");
   const locale = await getLocale();

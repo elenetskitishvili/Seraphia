@@ -1,6 +1,10 @@
 import HomeHero from "@/src/components/home/HomeHero";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
+export const metadata = {
+  title: "Welcome",
+};
+
 import {
   HeartIcon,
   TagIcon,

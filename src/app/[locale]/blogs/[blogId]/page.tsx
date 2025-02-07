@@ -7,6 +7,10 @@ import { format } from "date-fns";
 import { enUS, ka } from "date-fns/locale";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "Blog",
+};
+
 export default async function Blog({ params }: { params: { blogId: string } }) {
   const locale = await getLocale();
 

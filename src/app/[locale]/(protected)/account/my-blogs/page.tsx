@@ -7,6 +7,10 @@ import { PencilIcon } from "@heroicons/react/24/outline";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+export const metadata = {
+  title: "User blogs",
+};
+
 export default async function MyBlogs() {
   const supabase = await createClient();
   const locale = await getLocale();

@@ -3,6 +3,10 @@ import PremiumCTA from "@/src/components/premium/PremiumCTA";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Create blog",
+};
+
 export default async function CreateBlog() {
   const locale = await getLocale();
   const t = await getTranslations("CreateBlog");

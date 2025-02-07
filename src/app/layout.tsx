@@ -3,8 +3,12 @@ import { ThemeProvider } from "next-themes";
 import SkeletonWrapper from "../components/layout/SkeletonWrapper";
 
 export const metadata = {
-  title: "OmniShop",
-  description: "Web site created with Next.js.",
+  title: {
+    template: "%s | Shopverse",
+    default: "Shopverse",
+  },
+  description:
+    "Discover and sell unique jewelry on our platform. Shop stunning pieces or become a premium seller for unlimited listings and exclusive promotions. Secure payments and a seamless experience await!",
 };
 
 interface RootLayoutProps {

@@ -4,6 +4,10 @@ import { stripe } from "@/src/lib/stripe";
 import { Link } from "@/src/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 
+export const metadata = {
+  title: "Purchase",
+};
+
 export default async function ResultPage(props: {
   searchParams: Promise<{ session_id: string }>;
 }): Promise<JSX.Element> {

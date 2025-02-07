@@ -6,6 +6,10 @@ import ProductsSkeleton from "@/src/components/products/ProductsSkeleton";
 import { Suspense } from "react";
 import ProductList from "@/src/components/products/ProductList";
 
+export const metadata = {
+  title: "Products",
+};
+
 export default async function Products({
   searchParams,
 }: {

@@ -3,6 +3,10 @@ import { fetchBlog } from "@/src/lib/data-service";
 import { Blog } from "@/src/types/types";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "Edit blog",
+};
+
 export default async function EditBlog({
   params,
 }: {

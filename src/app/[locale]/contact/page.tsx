@@ -4,6 +4,10 @@ import ContactForm from "@/src/components/contact/ContactForm";
 import ContactFAQ from "@/src/components/contact/ContactFAQ";
 import PremiumCTA from "@/src/components/premium/PremiumCTA";
 
+export const metadata = {
+  title: "Contact",
+};
+
 export default async function Contact() {
   return (
     <>

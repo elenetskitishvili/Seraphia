@@ -4,6 +4,10 @@ import { createClient } from "@/src/utils/supabase/server";
 import { User } from "@/src/types/types";
 import { getLocale, getTranslations } from "next-intl/server";
 
+export const metadata = {
+  title: "Profile",
+};
+
 export default async function Profile() {
   const t = await getTranslations("Profile");
   const locale = await getLocale();

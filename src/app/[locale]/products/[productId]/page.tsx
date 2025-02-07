@@ -3,6 +3,10 @@ import { fetchProduct } from "@/src/lib/data-service";
 import { createClient } from "@/src/utils/supabase/server";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "Product details",
+};
+
 export default async function ProductDetails({
   params,
 }: {

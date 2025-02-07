@@ -3,6 +3,10 @@ import { FormMessage, Message } from "@/src/components/form-message";
 import SignInForm from "@/src/components/auth/SignInForm";
 import { getLocale } from "next-intl/server";
 
+export const metadata = {
+  title: "Sign in",
+};
+
 export default async function Login(props: { searchParams: Promise<Message> }) {
   const searchParams = await props.searchParams;
   const locale = await getLocale();

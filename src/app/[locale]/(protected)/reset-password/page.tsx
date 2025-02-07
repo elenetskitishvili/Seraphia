@@ -2,6 +2,10 @@ import { resetPasswordAction } from "@/src/app/actions/authActions";
 import { FormMessage, Message } from "@/src/components/form-message";
 import { getTranslations } from "next-intl/server";
 
+export const metadata = {
+  title: "Reset password",
+};
+
 export default async function ResetPassword(props: {
   searchParams: Promise<Message>;
   params: Promise<{ locale: string }>;

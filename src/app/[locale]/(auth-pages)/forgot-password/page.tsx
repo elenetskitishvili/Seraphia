@@ -3,6 +3,10 @@ import { FormMessage, Message } from "@/src/components/form-message";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Forgot Password",
+};
+
 export default async function ForgotPassword(props: {
   searchParams: Promise<Message>;
   params: Promise<{ locale: string }>;
