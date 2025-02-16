@@ -62,11 +62,11 @@ export default async function MyBlogs() {
           </Link>
         </div>
       ) : (
-        // PRODUCTS LIST
+        // BLOGS LIST
         <ul className="grid grid-cols-2 770px:grid-cols-3 gap-x-6 990px:gap-x-10 gap-y-10 my-14">
           {blogs.map((blog) => (
             <li key={blog.id} className="flex flex-col">
-              <Link href={`/products/${blog.id}`} className=" flex flex-col">
+              <Link href={`/blogs/${blog.id}`} className=" flex flex-col">
                 {blog.image && (
                   <Image
                     src={blog.image}
