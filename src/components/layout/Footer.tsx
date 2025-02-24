@@ -145,7 +145,7 @@ export default async function Footer() {
               {t("terms")}
             </Link>
             <Link
-              href={"/contact"}
+              href={"/privacy-policy"}
               className="text-sm hover:text-customBlue dark:hover:text-indigo-500 duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               {t("privacy")}
